@@ -1,6 +1,4 @@
 ﻿using DataAccess;
-using DataAccess.Data;
-using DataAccess.Models;
 using LumenWorks.Framework.IO.Csv;
 using System.Data;
 
@@ -21,20 +19,39 @@ for (int i = 0; i < csvTable.Rows.Count; i++)
         csvLuftFuktighet = csvTable.Rows[i][3].ToString()
     });
 }
-using (var context = new RoboGenderContext())
+
+var GroupByMultipleKeysMS = searches.GroupBy(x => new { x.csvDatum, x.csvPlats })
+                                        .Where(g => g.Count() > 1)
+                                        .Select(x => x.Key);
+
+foreach (var group in GroupByMultipleKeysMS)
 {
-    foreach (var se in searches)
-    {
-
-        var weather = new Weather
-        {
-            Datum = DateTime.Parse(se.csvDatum),
-            Plats = se.csvPlats.ToString(),
-            Temp = double.Parse(se.csvTemp.Replace('.', ',')),
-            Luftfuktighet = double.Parse(se.csvLuftFuktighet.Replace('.', ','))
-        };
-        context.Weathers.Add(weather);
-        context.SaveChanges();
-    }
-
+    int index = searches.FindIndex(x => x.csvDatum == group.csvDatum && x.csvPlats == group.csvPlats);
+    searches.RemoveAt(index);
 }
+
+
+// Set the path and filename variable "path", filename being MyTest.csv in this example.
+// Change SomeGuy for your username.
+string path = @"MyTest.csv";
+
+// Set the variable "delimiter" to ", ".
+string delimiter = ", ";
+
+// This text is added only once to the file.
+if (!File.Exists(path))
+{
+    // Create a file to write to.
+    string createText = "Datum" + delimiter + "Plats" + delimiter + "Temp" + delimiter + "Luftfuktighet" + delimiter + Environment.NewLine;
+    File.WriteAllText(path, createText);
+}
+foreach (var search in searches)
+{
+    // This text is always added, making the file longer over time
+    // if it is not deleted.
+    string appendText = search.csvDatum + delimiter + search.csvPlats + delimiter + search.csvTemp + delimiter + search.csvLuftFuktighet + delimiter + Environment.NewLine;
+    File.AppendAllText(path, appendText);
+}
+// Open the file to read from.
+string readText = File.ReadAllText(path);
+Console.WriteLine(readText);
