@@ -1,4 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Core;
+using DataAccess.Data;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +20,11 @@ namespace UI
             InitializeComponent(); 
             
         }
-
+        private RoboGenderContext _context;
+        public InsidePanel(RoboGenderContext context)
+        {
+            _context = context;
+        }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
@@ -26,6 +32,16 @@ namespace UI
             DataSet ds = new DataSet();
             da.Fill(ds, "Weather");
             dataGridView1.DataSource = ds.Tables["Weather"].DefaultView;
+        }
+
+        private void showButton_Click(object sender, EventArgs e)
+        {
+            DateTime dt = dateTimePicker1.Value;
+            AverageTemperaturePerDay calc = new AverageTemperaturePerDay(_context);
+            var result = calc.AvgPerDayInside(dt);
+
+            dataGridView1.DataSource = result.AsQueryable();
+
         }
     }
 }

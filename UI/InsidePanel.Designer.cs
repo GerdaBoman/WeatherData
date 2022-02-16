@@ -35,19 +35,24 @@
             this.weatherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.weatherBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.weatherBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.refreshButton = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.insideCheckBox = new System.Windows.Forms.CheckBox();
+            this.outsideCheckBox = new System.Windows.Forms.CheckBox();
+            this.showButton = new System.Windows.Forms.Button();
+            this.weatherBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.datumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.platsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tempDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.luftfuktighetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weatherBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            this.updateButton = new System.Windows.Forms.Button();
-            this.dateTimeCalender = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource4)).BeginInit();
             this.SuspendLayout();
             // 
             // panelInsideLabel
@@ -60,22 +65,6 @@
             this.panelInsideLabel.TabIndex = 0;
             this.panelInsideLabel.Text = "Inside Panel";
             // 
-            // weatherBindingSource1
-            // 
-            this.weatherBindingSource1.DataSource = typeof(DataAccess.Models.Weather);
-            // 
-            // roboGenderContextBindingSource
-            // 
-            this.roboGenderContextBindingSource.DataSource = typeof(DataAccess.Data.RoboGenderContext);
-            // 
-            // weatherBindingSource
-            // 
-            this.weatherBindingSource.DataSource = typeof(DataAccess.Models.Weather);
-            // 
-            // weatherBindingSource2
-            // 
-            this.weatherBindingSource2.DataSource = typeof(DataAccess.Models.Weather);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
@@ -85,12 +74,67 @@
             this.platsDataGridViewTextBoxColumn,
             this.tempDataGridViewTextBoxColumn,
             this.luftfuktighetDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.weatherBindingSource3;
+            this.dataGridView1.DataSource = this.weatherBindingSource4;
             this.dataGridView1.Location = new System.Drawing.Point(23, 120);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(450, 379);
+            this.dataGridView1.Size = new System.Drawing.Size(476, 560);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(358, 52);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshButton.TabIndex = 2;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(577, 52);
+            this.dateTimePicker1.MaxDate = new System.DateTime(2016, 11, 30, 0, 0, 0, 0);
+            this.dateTimePicker1.MinDate = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker1.TabIndex = 3;
+            this.dateTimePicker1.Value = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
+            // 
+            // insideCheckBox
+            // 
+            this.insideCheckBox.AutoSize = true;
+            this.insideCheckBox.Location = new System.Drawing.Point(574, 99);
+            this.insideCheckBox.Name = "insideCheckBox";
+            this.insideCheckBox.Size = new System.Drawing.Size(57, 19);
+            this.insideCheckBox.TabIndex = 4;
+            this.insideCheckBox.Text = "Inside";
+            this.insideCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // outsideCheckBox
+            // 
+            this.outsideCheckBox.AutoSize = true;
+            this.outsideCheckBox.Location = new System.Drawing.Point(716, 99);
+            this.outsideCheckBox.Name = "outsideCheckBox";
+            this.outsideCheckBox.Size = new System.Drawing.Size(66, 22);
+            this.outsideCheckBox.TabIndex = 5;
+            this.outsideCheckBox.Text = "Outside";
+            this.outsideCheckBox.UseCompatibleTextRendering = true;
+            this.outsideCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // showButton
+            // 
+            this.showButton.Location = new System.Drawing.Point(641, 141);
+            this.showButton.Name = "showButton";
+            this.showButton.Size = new System.Drawing.Size(75, 23);
+            this.showButton.TabIndex = 6;
+            this.showButton.Text = "Show";
+            this.showButton.UseVisualStyleBackColor = true;
+            this.showButton.Click += new System.EventHandler(this.showButton_Click);
+            // 
+            // weatherBindingSource4
+            // 
+            this.weatherBindingSource4.DataSource = typeof(DataAccess.Models.Weather);
             // 
             // datumDataGridViewTextBoxColumn
             // 
@@ -116,43 +160,26 @@
             this.luftfuktighetDataGridViewTextBoxColumn.HeaderText = "Luftfuktighet";
             this.luftfuktighetDataGridViewTextBoxColumn.Name = "luftfuktighetDataGridViewTextBoxColumn";
             // 
-            // weatherBindingSource3
-            // 
-            this.weatherBindingSource3.DataSource = typeof(DataAccess.Models.Weather);
-            // 
-            // updateButton
-            // 
-            this.updateButton.Location = new System.Drawing.Point(358, 52);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(75, 23);
-            this.updateButton.TabIndex = 2;
-            this.updateButton.Text = "Update";
-            this.updateButton.UseVisualStyleBackColor = true;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
-            // 
-            // dateTimeCalender
-            // 
-            this.dateTimeCalender.Location = new System.Drawing.Point(481, 52);
-            this.dateTimeCalender.Name = "dateTimeCalender";
-            this.dateTimeCalender.Size = new System.Drawing.Size(200, 23);
-            this.dateTimeCalender.TabIndex = 3;
-            // 
             // InsidePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dateTimeCalender);
-            this.Controls.Add(this.updateButton);
+            this.Controls.Add(this.showButton);
+            this.Controls.Add(this.outsideCheckBox);
+            this.Controls.Add(this.insideCheckBox);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panelInsideLabel);
             this.Name = "InsidePanel";
-            this.Size = new System.Drawing.Size(713, 522);
+            this.Size = new System.Drawing.Size(895, 683);
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,7 +198,11 @@
         private DataGridViewTextBoxColumn tempDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn luftfuktighetDataGridViewTextBoxColumn;
         private BindingSource weatherBindingSource3;
-        private Button updateButton;
-        private DateTimePicker dateTimeCalender;
+        private Button refreshButton;
+        private DateTimePicker dateTimePicker1;
+        private CheckBox insideCheckBox;
+        private CheckBox outsideCheckBox;
+        private Button showButton;
+        private BindingSource weatherBindingSource4;
     }
 }

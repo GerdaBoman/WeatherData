@@ -4,10 +4,14 @@ namespace UI
 {
     public partial class Form1 : Form
     {
-       private RoboGenderContext _context = new RoboGenderContext();   
+        
+
+      
+        
         public Form1()
         {
-           var _context = new RoboGenderContext();
+
+            var _context = new RoboGenderContext();
             _context.Database.EnsureCreated();
             InitializeComponent();
             homePanel1.BringToFront();

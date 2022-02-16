@@ -9,12 +9,13 @@ namespace DataAccess.Data
     
     public partial class RoboGenderContext : DbContext
     {
-        public RoboGenderContext()
-        {
-        }
+      
 
         public RoboGenderContext(DbContextOptions<RoboGenderContext> options)
             : base(options)
+        {
+        }
+        public RoboGenderContext()
         {
         }
 

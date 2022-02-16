@@ -57,18 +57,6 @@ namespace UI
 
 
         }
-        private static string GetNumbers(string input)
-        {
-            int index = input.IndexOf('.');
-
-            if (index != -1)
-            {
-
-                return new string(input.Where(c => char.IsDigit(c)).ToString().Insert(index, ".").ToArray());
-            }
-            else
-                return new string(input.Where(c => char.IsDigit(c)).ToArray());
-
-        }
+        
     }
 }
