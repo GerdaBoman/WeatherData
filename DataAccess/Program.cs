@@ -2,6 +2,7 @@
 using LumenWorks.Framework.IO.Csv;
 using System.Data;
 
+
 var csvTable = new DataTable();
 using (var csvReader = new CsvReader(new StreamReader(File.OpenRead(@"C:\TempFuktData.csv")), true))
 {
