@@ -13,6 +13,7 @@ namespace UI
             homePanel1.BringToFront();
            
         }
+        
 
         private void homeButton_Click(object sender, EventArgs e)
         {
