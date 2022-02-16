@@ -41,6 +41,7 @@
             this.luftfuktighetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weatherBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.updateButton = new System.Windows.Forms.Button();
+            this.dateTimeCalender = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).BeginInit();
@@ -129,10 +130,18 @@
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
+            // dateTimeCalender
+            // 
+            this.dateTimeCalender.Location = new System.Drawing.Point(481, 52);
+            this.dateTimeCalender.Name = "dateTimeCalender";
+            this.dateTimeCalender.Size = new System.Drawing.Size(200, 23);
+            this.dateTimeCalender.TabIndex = 3;
+            // 
             // InsidePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dateTimeCalender);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panelInsideLabel);
@@ -163,5 +172,6 @@
         private DataGridViewTextBoxColumn luftfuktighetDataGridViewTextBoxColumn;
         private BindingSource weatherBindingSource3;
         private Button updateButton;
+        private DateTimePicker dateTimeCalender;
     }
 }
