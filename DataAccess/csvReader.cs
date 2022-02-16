@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    internal class csvReader
+    public class csvReader
     {
-       public void reading()
+       public void reading(string connection)
         {
             var csvTable = new DataTable();
-            using (var csvReader = new CsvReader(new StreamReader(File.OpenRead(@"C:\TempFuktData.csv")), true))
+            using (var csvReader = new CsvReader(new StreamReader(File.OpenRead(connection)), true))
             {
                 csvTable.Load(csvReader);
             }

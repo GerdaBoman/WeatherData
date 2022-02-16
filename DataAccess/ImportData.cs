@@ -14,7 +14,7 @@ namespace DataAccess
 
     public class ImportData
     {
-        private void ImportFile()
+        public void ImportFile()
         {
             var linenumber = 0;
 
