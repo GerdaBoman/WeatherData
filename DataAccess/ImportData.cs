@@ -5,23 +5,28 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DataAccess
 {
+
+
     public class ImportData
     {
-        private void ImportFine(string connection)
+        private void ImportFile()
         {
             var linenumber = 0;
 
             var csvTable = new DataTable();
 
 
-            using (var csvReader = new CsvReader(new StreamReader(File.OpenRead(connection)), true))
+            using (var csvReader = new CsvReader(new StreamReader(File.OpenRead("MyTest.csv")), true))
             {
                 csvTable.Load(csvReader);
             }
+
+            static string RemoveNonNumeric(string value) => Regex.Replace(value, "[^0-9.]", "");
 
 
             using (SqlConnection importtest = new SqlConnection(@"data source=(localdb)\mssqllocaldb;initial catalog=robogender;integrated security=true"))
@@ -30,7 +35,7 @@ namespace DataAccess
 
                 //Fix the path so that its a connection.Text
 
-                using (StreamReader reader = new StreamReader(connection))
+                using (StreamReader reader = new StreamReader("MyTest.csv"))
                 {
                     while (csvTable.Rows.Count >= linenumber + 1)
                     {
@@ -45,10 +50,12 @@ namespace DataAccess
                             values[2] = csvTable.Rows[linenumber][2].ToString();
                             values[3] = csvTable.Rows[linenumber][3].ToString();
 
-                           // string temp = GetNumbers(values[2]);
+                            string cleanUp = RemoveNonNumeric(values[2]);
+                            // string temp = GetNumbers(values[2]);
+
 
                             var sql = "insert into robogender.dbo.weather values(" +
-                                "cast('" + values[0] + "' as smalldatetime)" + ",'" + values[1] + "'," + values[2] + "," + values[3] + ")";
+                                "cast('" + values[0] + "' as smalldatetime)" + ",'" + values[1] + "'," + cleanUp + "," + values[3] + ")";
 
                             var cmd = new SqlCommand();
                             cmd.CommandText = sql;
