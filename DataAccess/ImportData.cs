@@ -1,17 +1,10 @@
 ﻿using LumenWorks.Framework.IO.Csv;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace DataAccess
 {
-
-
     public class ImportData
     {
         public void ImportFile()
@@ -19,7 +12,6 @@ namespace DataAccess
             var linenumber = 0;
 
             var csvTable = new DataTable();
-
 
             using (var csvReader = new CsvReader(new StreamReader(File.OpenRead("MyTest.csv")), true))
             {
