@@ -35,24 +35,25 @@
             this.weatherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.weatherBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.datumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.platsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tempDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.luftfuktighetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weatherBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.weatherBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.refreshButton = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.insideCheckBox = new System.Windows.Forms.CheckBox();
             this.outsideCheckBox = new System.Windows.Forms.CheckBox();
             this.showButton = new System.Windows.Forms.Button();
-            this.weatherBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
-            this.datumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.platsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tempDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.luftfuktighetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // panelInsideLabel
@@ -80,6 +81,34 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(476, 560);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // datumDataGridViewTextBoxColumn
+            // 
+            this.datumDataGridViewTextBoxColumn.DataPropertyName = "Datum";
+            this.datumDataGridViewTextBoxColumn.HeaderText = "Datum";
+            this.datumDataGridViewTextBoxColumn.Name = "datumDataGridViewTextBoxColumn";
+            // 
+            // platsDataGridViewTextBoxColumn
+            // 
+            this.platsDataGridViewTextBoxColumn.DataPropertyName = "Plats";
+            this.platsDataGridViewTextBoxColumn.HeaderText = "Plats";
+            this.platsDataGridViewTextBoxColumn.Name = "platsDataGridViewTextBoxColumn";
+            // 
+            // tempDataGridViewTextBoxColumn
+            // 
+            this.tempDataGridViewTextBoxColumn.DataPropertyName = "Temp";
+            this.tempDataGridViewTextBoxColumn.HeaderText = "Temp";
+            this.tempDataGridViewTextBoxColumn.Name = "tempDataGridViewTextBoxColumn";
+            // 
+            // luftfuktighetDataGridViewTextBoxColumn
+            // 
+            this.luftfuktighetDataGridViewTextBoxColumn.DataPropertyName = "Luftfuktighet";
+            this.luftfuktighetDataGridViewTextBoxColumn.HeaderText = "Luftfuktighet";
+            this.luftfuktighetDataGridViewTextBoxColumn.Name = "luftfuktighetDataGridViewTextBoxColumn";
+            // 
+            // weatherBindingSource4
+            // 
+            this.weatherBindingSource4.DataSource = typeof(DataAccess.Models.Weather);
             // 
             // refreshButton
             // 
@@ -132,38 +161,20 @@
             this.showButton.UseVisualStyleBackColor = true;
             this.showButton.Click += new System.EventHandler(this.showButton_Click);
             // 
-            // weatherBindingSource4
+            // listBox
             // 
-            this.weatherBindingSource4.DataSource = typeof(DataAccess.Models.Weather);
-            // 
-            // datumDataGridViewTextBoxColumn
-            // 
-            this.datumDataGridViewTextBoxColumn.DataPropertyName = "Datum";
-            this.datumDataGridViewTextBoxColumn.HeaderText = "Datum";
-            this.datumDataGridViewTextBoxColumn.Name = "datumDataGridViewTextBoxColumn";
-            // 
-            // platsDataGridViewTextBoxColumn
-            // 
-            this.platsDataGridViewTextBoxColumn.DataPropertyName = "Plats";
-            this.platsDataGridViewTextBoxColumn.HeaderText = "Plats";
-            this.platsDataGridViewTextBoxColumn.Name = "platsDataGridViewTextBoxColumn";
-            // 
-            // tempDataGridViewTextBoxColumn
-            // 
-            this.tempDataGridViewTextBoxColumn.DataPropertyName = "Temp";
-            this.tempDataGridViewTextBoxColumn.HeaderText = "Temp";
-            this.tempDataGridViewTextBoxColumn.Name = "tempDataGridViewTextBoxColumn";
-            // 
-            // luftfuktighetDataGridViewTextBoxColumn
-            // 
-            this.luftfuktighetDataGridViewTextBoxColumn.DataPropertyName = "Luftfuktighet";
-            this.luftfuktighetDataGridViewTextBoxColumn.HeaderText = "Luftfuktighet";
-            this.luftfuktighetDataGridViewTextBoxColumn.Name = "luftfuktighetDataGridViewTextBoxColumn";
+            this.listBox.FormattingEnabled = true;
+            this.listBox.ItemHeight = 15;
+            this.listBox.Location = new System.Drawing.Point(515, 306);
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(344, 109);
+            this.listBox.TabIndex = 7;
             // 
             // InsidePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.listBox);
             this.Controls.Add(this.showButton);
             this.Controls.Add(this.outsideCheckBox);
             this.Controls.Add(this.insideCheckBox);
@@ -178,8 +189,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +215,6 @@
         private CheckBox outsideCheckBox;
         private Button showButton;
         private BindingSource weatherBindingSource4;
+        private ListBox listBox;
     }
 }

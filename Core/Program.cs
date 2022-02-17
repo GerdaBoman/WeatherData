@@ -5,8 +5,8 @@ DataSending dataSending = new DataSending();
 double allTemp = 0;
 
 
-List<double> data  = dataSending.Daily_Average("Inne", "2016","10","01");
+//List<double> data  = dataSending.Daily_Average("Inne", "2016","10","01");
 
 
 
-Console.WriteLine(data.Average());
+//Console.WriteLine(data.Average());

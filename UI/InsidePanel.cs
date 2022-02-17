@@ -1,5 +1,5 @@
 ﻿using Core;
-using DataAccess.Data;
+using DataAccess;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -32,15 +32,34 @@ namespace UI
             dataGridView1.DataSource = ds.Tables["Weather"].DefaultView;
         }
 
-        //private void showButton_Click(object sender, EventArgs e)
-        //{
-        //    DateTime dt = dateTimePicker1.Value;
-        //    AverageTemperaturePerDay calc = new AverageTemperaturePerDay(_context);
-        //    var result = calc.AvgPerDayInside(dt);
+        private void showButton_Click(object sender, EventArgs e)
+        {
+            listBox.MultiColumn = true;
 
-        //    dataGridView1.DataSource = result.AsQueryable();
+            DateTime dateTime = dateTimePicker1.Value;
 
-        //}
+     
+
+
+
+
+            int year = dateTimePicker1.Value.Year;
+            int month = dateTimePicker1.Value.Month;
+            int day = dateTimePicker1.Value.Day;
+
+            DataSending dataSending = new DataSending();
+            IList<object> Gridview = new List<object>();
+
+            List<double> avergageDayTemp = dataSending.Daily_Average("Inne", year, month, day);
+
+
+            List<double> averageDayHum = dataSending.Daily_AverageHum("Inne", year, month, day);
+            string test = ($"{dateTime}     Inne        {Math.Round(avergageDayTemp.Average())}         {Math.Round(averageDayHum.Average())}");
+            listBox.Items.Add(test);
+            //Gridview.Add(new GridImport {Date = dateTime, Location = "Inne", Temperature = avergageDayTemp.Average(), Humidity = averageDayHum.Average()});
+
+            //listBox.DataSource = Gridview;
+        }
     }
 }
  

@@ -10,18 +10,33 @@ namespace DataAccess
 {
     public class DataSending
     {
-        public List<double> Daily_Average(string place, string year, string month, string day,string output)
+        public List<double> Daily_Average(string place, int year, int month, int day)
         {
             
             using var context = new RoboGenderContext();
             {
-                var weather = context.Weathers.Where(w => w.Plats == place && w.Datum.Year == int.Parse(year) &&   
-                                                                              w.Datum.Month == int.Parse(month) && 
-                                                                              w.Datum.Day == int.Parse(day))
+                var weather = context.Weathers.Where(w => w.Plats == place && w.Datum.Year == (year) &&   
+                                                                              w.Datum.Month == (month) && 
+                                                                              w.Datum.Day == (day))
                                               .Select(s =>s.Temp);
 
                 return weather.ToList();
             }
         }
+
+        public List<double> Daily_AverageHum(string place, int year,int month, int day)
+        {
+
+            using var context = new RoboGenderContext();
+            {
+                var weather = context.Weathers.Where(w => w.Plats == place && w.Datum.Year == (year) &&
+                                                                              w.Datum.Month == (month) &&
+                                                                              w.Datum.Day == (day))
+                                              .Select(s => s.Luftfuktighet);
+
+                return weather.ToList();
+            }
+        }
+
     }
 }
