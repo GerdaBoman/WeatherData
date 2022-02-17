@@ -32,24 +32,15 @@ namespace UI
             dataGridView1.DataSource = ds.Tables["Weather"].DefaultView;
         }
 
-        private void showButton_Click(object sender, EventArgs e)
-        {
-            DateTime dt = dateTimePicker1.Value;
+        //private void showButton_Click(object sender, EventArgs e)
+        //{
+        //    DateTime dt = dateTimePicker1.Value;
+        //    AverageTemperaturePerDay calc = new AverageTemperaturePerDay(_context);
+        //    var result = calc.AvgPerDayInside(dt);
 
+        //    dataGridView1.DataSource = result.AsQueryable();
 
-            //SqlDataAdapter da = new SqlDataAdapter($@"SELECT MIN(Datum) AS 'Datum', Plats, AVG(Temp) AS 'Temperature', AVG(Luftfuktighet) AS 'Luftfuktighet' FROM Weather WHERE Datum Like '{dt}%' AND Plats = 'Inne' GROUP BY  Plats", "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = RoboGender; Integrated Security = True");
-            //DataSet ds = new DataSet();
-            //da.Fill(ds, "Weather");
-            //dataGridView1.DataSource = ds.Tables["Weather"].DefaultView;
-
-
-           
-
-
-
-
-
-        }
+        //}
     }
 }
  

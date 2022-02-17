@@ -49,18 +49,8 @@ namespace UI
                 csvReader reader = new csvReader();
                 ImportData import = new ImportData();
 
-            if (textFilePath.Text !=null)
-            {
-                reader.reading(textFilePath.Text);
-                import.ImportFile();
-            }
-            else
-            {
-                MessageBox.Show("Please select a file to upload!");
-            }
-
-
-         
+            reader.reading(textFilePath.Text);
+            import.ImportFile("FilteredData.csv");
            
 
 

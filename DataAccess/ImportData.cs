@@ -7,13 +7,13 @@ namespace DataAccess
 {
     public class ImportData
     {
-        public void ImportFile()
+        public void ImportFile(string path)
         {
             var linenumber = 0;
 
             var csvTable = new DataTable();
 
-            using (var csvReader = new CsvReader(new StreamReader(File.OpenRead("FilteredData.csv")), true))
+            using (var csvReader = new CsvReader(new StreamReader(File.OpenRead(path)), true))
             {
                 csvTable.Load(csvReader);
             }
@@ -27,7 +27,7 @@ namespace DataAccess
 
                 //Fix the path so that its a connection.Text
 
-                using (StreamReader reader = new StreamReader("FilteredData.csv"))
+                using (StreamReader reader = new StreamReader(path))
                 {
                     while (csvTable.Rows.Count >= linenumber + 1)
                     {
@@ -61,6 +61,7 @@ namespace DataAccess
 
                     }
                 }
+                File.Delete(path);
                 importtest.Close();
 
 
