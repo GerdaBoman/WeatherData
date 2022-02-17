@@ -13,7 +13,7 @@ namespace DataAccess
 
             var csvTable = new DataTable();
 
-            using (var csvReader = new CsvReader(new StreamReader(File.OpenRead("MyTest.csv")), true))
+            using (var csvReader = new CsvReader(new StreamReader(File.OpenRead("FilteredData.csv")), true))
             {
                 csvTable.Load(csvReader);
             }
