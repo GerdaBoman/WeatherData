@@ -9,28 +9,20 @@ namespace DataAccess
         {
            List<SearchParameters> searches = filter(connection);
 
-            // Set the path and filename variable "path", filename being MyTest.csv in this example.
-            // Change SomeGuy for your username.
-            string path = @"MyTest.csv";
+            string path = @"FilteredData.csv";
 
-            // Set the variable "delimiter" to ", ".
             string delimiter = ", ";
 
-            // This text is added only once to the file.
             if (!File.Exists(path))
             {
-                // Create a file to write to.
                 string createText = "Datum" + delimiter + "Plats" + delimiter + "Temp" + delimiter + "Luftfuktighet" + delimiter + Environment.NewLine;
                 File.WriteAllText(path, createText);
             }
             foreach (var search in searches)
             {
-                // This text is always added, making the file longer over time
-                // if it is not deleted.
                 string appendText = search.csvDatum + delimiter + search.csvPlats + delimiter + search.csvTemp + delimiter + search.csvLuftFuktighet + delimiter + Environment.NewLine;
                 File.AppendAllText(path, appendText);
             }
-            // Open the file to read from.
             string readText = File.ReadAllText(path);
             Console.WriteLine(readText);
 

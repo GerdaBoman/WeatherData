@@ -27,7 +27,7 @@ namespace DataAccess
 
                 //Fix the path so that its a connection.Text
 
-                using (StreamReader reader = new StreamReader("MyTest.csv"))
+                using (StreamReader reader = new StreamReader("FilteredData.csv"))
                 {
                     while (csvTable.Rows.Count >= linenumber + 1)
                     {
