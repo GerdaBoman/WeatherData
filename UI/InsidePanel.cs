@@ -20,9 +20,17 @@ namespace UI
         public InsidePanel()
         {
             InitializeComponent(); 
+            
+            listView1.View = View.Details;
+            listView1.Columns.Add("Date", 70, HorizontalAlignment.Left);
+            listView1.Columns.Add("Place", 40, HorizontalAlignment.Left);
+            listView1.Columns.Add("Temp", 40, HorizontalAlignment.Left);
+            listView1.Columns.Add("Hum", 40, HorizontalAlignment.Left);
+            listView1.Columns.Add("Mold Risk", 40, HorizontalAlignment.Left);
 
-            
-            
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+
         }
 
         private void updateButton_Click(object sender, EventArgs e)
@@ -35,46 +43,28 @@ namespace UI
 
         private void showButton_Click(object sender, EventArgs e)
         {
-            listBox.MultiColumn = true;
-            listView1.GridLines = true;
-
-            
+            MoldCalcuation mold = new MoldCalcuation();
             DateTime dateTime = dateTimePicker1.Value;
-
-     
-
-
-
 
             int year = dateTimePicker1.Value.Year;
             int month = dateTimePicker1.Value.Month;
             int day = dateTimePicker1.Value.Day;
 
             DataSending dataSending = new DataSending();
-            IList<object> Gridview = new List<object>();
-
+            
             List<double> avergageDayTemp = dataSending.Daily_Average("Inne", year, month, day);
-
-
             List<double> averageDayHum = dataSending.Daily_AverageHum("Inne", year, month, day);
-            string test = ($"{dateTime}     Inne        {Math.Round(avergageDayTemp.Average(),2)}         {Math.Round(averageDayHum.Average(),2)}");
-            listBox.Items.Add(test);
-            ListViewItem Item1 = new ListViewItem("item 1",0);
-            Item1.SubItems.Add("1");
-            Item1.SubItems.Add("2");
-            Item1.SubItems.Add("3");
-            Item1.SubItems.Add("4");
-            listView1.Columns.Add("Item Column", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Column 2", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Column 3", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Column 4", -2, HorizontalAlignment.Center);
+            ListViewItem item1 = new ListViewItem(dateTime.ToString().Substring(0,10));
 
-            listView1.Items.AddRange(new ListViewItem[] { Item1 });
-            List<DateTime> dateList = new List<DateTime>();
-            dateList.Add(DateTime.Now);
-            dateList.Add(dateTime);
+           int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
 
-           
+            item1.SubItems.Add("Inne");
+            item1.SubItems.Add(Math.Round(avergageDayTemp.Average(), 2).ToString());
+            item1.SubItems.Add(Math.Round(averageDayHum.Average(), 2).ToString());
+            item1.SubItems.Add(moldrisk.ToString());
+
+            listView1.Items.AddRange(new ListViewItem[] { item1});
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             //TODO:
         }
 
