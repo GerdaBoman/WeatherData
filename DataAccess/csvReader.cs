@@ -30,6 +30,7 @@ namespace DataAccess
         public List<SearchParameters> filter(string connection)
         {
             var csvTable = new DataTable();
+           
             using (var csvReader = new CsvReader(new StreamReader(File.OpenRead(connection)), true))
             {
                 csvTable.Load(csvReader);

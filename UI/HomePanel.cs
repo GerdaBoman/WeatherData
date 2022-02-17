@@ -38,20 +38,29 @@ namespace UI
             }
             else
             {
-                textFilePath = null;
+                textFilePath.Text = null;
             }
 
         }
 
         private void importButton_Click(object sender, EventArgs e)
         {
+            
+                csvReader reader = new csvReader();
+                ImportData import = new ImportData();
+
+            if (textFilePath.Text !=null)
+            {
+                reader.reading(textFilePath.Text);
+                import.ImportFile();
+            }
+            else
+            {
+                MessageBox.Show("Please select a file to upload!");
+            }
 
 
-            csvReader reader = new csvReader();
-            ImportData import = new ImportData();
-
-            reader.reading(textFilePath.Text);
-            import.ImportFile();
+         
            
 
 

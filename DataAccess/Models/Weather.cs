@@ -5,6 +5,7 @@ namespace DataAccess.Models
     [Table("Weather")]
     public partial class Weather
     {
+
         
         public DateTime Datum { get; set; }
         public string Plats { get; set; } = null!;
