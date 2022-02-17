@@ -47,6 +47,7 @@
             this.outsideCheckBox = new System.Windows.Forms.CheckBox();
             this.showButton = new System.Windows.Forms.Button();
             this.listBox = new System.Windows.Forms.ListBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).BeginInit();
@@ -165,15 +166,24 @@
             // 
             this.listBox.FormattingEnabled = true;
             this.listBox.ItemHeight = 15;
-            this.listBox.Location = new System.Drawing.Point(515, 306);
+            this.listBox.Location = new System.Drawing.Point(522, 189);
             this.listBox.Name = "listBox";
             this.listBox.Size = new System.Drawing.Size(344, 109);
             this.listBox.TabIndex = 7;
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(522, 358);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(344, 89);
+            this.listView1.TabIndex = 8;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // InsidePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.showButton);
             this.Controls.Add(this.outsideCheckBox);
@@ -216,5 +226,6 @@
         private Button showButton;
         private BindingSource weatherBindingSource4;
         private ListBox listBox;
+        private ListView listView1;
     }
 }

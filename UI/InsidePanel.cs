@@ -20,6 +20,7 @@ namespace UI
         public InsidePanel()
         {
             InitializeComponent(); 
+
             
             
         }
@@ -35,7 +36,9 @@ namespace UI
         private void showButton_Click(object sender, EventArgs e)
         {
             listBox.MultiColumn = true;
+            listView1.GridLines = true;
 
+            
             DateTime dateTime = dateTimePicker1.Value;
 
      
@@ -54,12 +57,28 @@ namespace UI
 
 
             List<double> averageDayHum = dataSending.Daily_AverageHum("Inne", year, month, day);
-            string test = ($"{dateTime}     Inne        {Math.Round(avergageDayTemp.Average())}         {Math.Round(averageDayHum.Average())}");
+            string test = ($"{dateTime}     Inne        {Math.Round(avergageDayTemp.Average(),2)}         {Math.Round(averageDayHum.Average(),2)}");
             listBox.Items.Add(test);
-            //Gridview.Add(new GridImport {Date = dateTime, Location = "Inne", Temperature = avergageDayTemp.Average(), Humidity = averageDayHum.Average()});
+            ListViewItem Item1 = new ListViewItem("item 1",0);
+            Item1.SubItems.Add("1");
+            Item1.SubItems.Add("2");
+            Item1.SubItems.Add("3");
+            Item1.SubItems.Add("4");
+            listView1.Columns.Add("Item Column", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Column 2", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Column 3", -2, HorizontalAlignment.Left);
+            listView1.Columns.Add("Column 4", -2, HorizontalAlignment.Center);
 
-            //listBox.DataSource = Gridview;
+            listView1.Items.AddRange(new ListViewItem[] { Item1 });
+            List<DateTime> dateList = new List<DateTime>();
+            dateList.Add(DateTime.Now);
+            dateList.Add(dateTime);
+
+           
+            //TODO:
         }
+
+        
     }
 }
  

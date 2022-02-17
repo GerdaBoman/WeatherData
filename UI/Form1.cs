@@ -31,11 +31,7 @@ namespace UI
             insidePanel1.BringToFront();
         }
 
-        private void outsideButton_Click(object sender, EventArgs e)
-        {
-            outsidePanel1.Show();
-            outsidePanel1.BringToFront();
-        }
+    
 
         private void floorPlanButton_Click(object sender, EventArgs e)
         {

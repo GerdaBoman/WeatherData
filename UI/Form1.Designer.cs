@@ -31,14 +31,12 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.floorPlanButton = new FontAwesome.Sharp.IconButton();
             this.exitButton = new FontAwesome.Sharp.IconButton();
-            this.outsideButton = new FontAwesome.Sharp.IconButton();
-            this.insideButton = new FontAwesome.Sharp.IconButton();
+            this.WeatherDataButton = new FontAwesome.Sharp.IconButton();
             this.homeButton = new FontAwesome.Sharp.IconButton();
             this.menuIcon = new FontAwesome.Sharp.IconButton();
             this.groupName = new System.Windows.Forms.Label();
             this.homePanel1 = new UI.HomePanel();
             this.insidePanel1 = new UI.InsidePanel();
-            this.outsidePanel1 = new UI.OutsidePanel();
             this.floorPlanPanel1 = new UI.FloorPlanPanel();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
@@ -48,8 +46,7 @@
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(69)))), ((int)(((byte)(89)))));
             this.panelMenu.Controls.Add(this.floorPlanButton);
             this.panelMenu.Controls.Add(this.exitButton);
-            this.panelMenu.Controls.Add(this.outsideButton);
-            this.panelMenu.Controls.Add(this.insideButton);
+            this.panelMenu.Controls.Add(this.WeatherDataButton);
             this.panelMenu.Controls.Add(this.homeButton);
             this.panelMenu.Controls.Add(this.menuIcon);
             this.panelMenu.Controls.Add(this.groupName);
@@ -99,45 +96,25 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
-            // outsideButton
+            // WeatherDataButton
             // 
-            this.outsideButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.outsideButton.FlatAppearance.BorderSize = 0;
-            this.outsideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.outsideButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.outsideButton.ForeColor = System.Drawing.Color.White;
-            this.outsideButton.IconChar = FontAwesome.Sharp.IconChar.Tree;
-            this.outsideButton.IconColor = System.Drawing.Color.White;
-            this.outsideButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.outsideButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.outsideButton.Location = new System.Drawing.Point(0, 186);
-            this.outsideButton.Name = "outsideButton";
-            this.outsideButton.Size = new System.Drawing.Size(200, 56);
-            this.outsideButton.TabIndex = 4;
-            this.outsideButton.Tag = "Outside Temperature";
-            this.outsideButton.Text = "Outside";
-            this.outsideButton.UseVisualStyleBackColor = true;
-            this.outsideButton.Click += new System.EventHandler(this.outsideButton_Click);
-            // 
-            // insideButton
-            // 
-            this.insideButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.insideButton.FlatAppearance.BorderSize = 0;
-            this.insideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.insideButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.insideButton.ForeColor = System.Drawing.Color.White;
-            this.insideButton.IconChar = FontAwesome.Sharp.IconChar.HouseUser;
-            this.insideButton.IconColor = System.Drawing.Color.White;
-            this.insideButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.insideButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.insideButton.Location = new System.Drawing.Point(0, 130);
-            this.insideButton.Name = "insideButton";
-            this.insideButton.Size = new System.Drawing.Size(200, 56);
-            this.insideButton.TabIndex = 3;
-            this.insideButton.Tag = "Inside Temperature";
-            this.insideButton.Text = "Inside ";
-            this.insideButton.UseVisualStyleBackColor = true;
-            this.insideButton.Click += new System.EventHandler(this.insideButton_Click);
+            this.WeatherDataButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.WeatherDataButton.FlatAppearance.BorderSize = 0;
+            this.WeatherDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WeatherDataButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.WeatherDataButton.ForeColor = System.Drawing.Color.White;
+            this.WeatherDataButton.IconChar = FontAwesome.Sharp.IconChar.Snowflake;
+            this.WeatherDataButton.IconColor = System.Drawing.Color.White;
+            this.WeatherDataButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.WeatherDataButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.WeatherDataButton.Location = new System.Drawing.Point(0, 130);
+            this.WeatherDataButton.Name = "WeatherDataButton";
+            this.WeatherDataButton.Size = new System.Drawing.Size(200, 56);
+            this.WeatherDataButton.TabIndex = 3;
+            this.WeatherDataButton.Tag = "Inside Temperature";
+            this.WeatherDataButton.Text = "Weather Data";
+            this.WeatherDataButton.UseVisualStyleBackColor = true;
+            this.WeatherDataButton.Click += new System.EventHandler(this.insideButton_Click);
             // 
             // homeButton
             // 
@@ -202,14 +179,6 @@
             this.insidePanel1.Size = new System.Drawing.Size(1129, 948);
             this.insidePanel1.TabIndex = 2;
             // 
-            // outsidePanel1
-            // 
-            this.outsidePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.outsidePanel1.Location = new System.Drawing.Point(200, 0);
-            this.outsidePanel1.Name = "outsidePanel1";
-            this.outsidePanel1.Size = new System.Drawing.Size(1129, 948);
-            this.outsidePanel1.TabIndex = 3;
-            // 
             // floorPlanPanel1
             // 
             this.floorPlanPanel1.BackColor = System.Drawing.Color.White;
@@ -225,7 +194,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1329, 948);
             this.Controls.Add(this.floorPlanPanel1);
-            this.Controls.Add(this.outsidePanel1);
             this.Controls.Add(this.insidePanel1);
             this.Controls.Add(this.homePanel1);
             this.Controls.Add(this.panelMenu);
@@ -242,15 +210,13 @@
 
         private Panel panelMenu;
         private FontAwesome.Sharp.IconButton exitButton;
-        private FontAwesome.Sharp.IconButton outsideButton;
-        private FontAwesome.Sharp.IconButton insideButton;
+        private FontAwesome.Sharp.IconButton WeatherDataButton;
         private FontAwesome.Sharp.IconButton homeButton;
         private FontAwesome.Sharp.IconButton menuIcon;
         private Label groupName;
         private FontAwesome.Sharp.IconButton floorPlanButton;
         private HomePanel homePanel1;
         private InsidePanel insidePanel1;
-        private OutsidePanel outsidePanel1;
         private FloorPlanPanel floorPlanPanel1;
     }
 }
