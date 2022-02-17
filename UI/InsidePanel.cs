@@ -34,14 +34,14 @@ namespace UI
             dataGridView1.DataSource = ds.Tables["Weather"].DefaultView;
         }
 
-        private void showButton_Click(object sender, EventArgs e)
-        {
-            DateTime dt = dateTimePicker1.Value;
-            AverageTemperaturePerDay calc = new AverageTemperaturePerDay(_context);
-            var result = calc.AvgPerDayInside(dt);
+        //private void showButton_Click(object sender, EventArgs e)
+        //{
+        //    DateTime dt = dateTimePicker1.Value;
+        //    AverageTemperaturePerDay calc = new AverageTemperaturePerDay(_context);
+        //    var result = calc.AvgPerDayInside(dt);
 
-            dataGridView1.DataSource = result.AsQueryable();
+        //    dataGridView1.DataSource = result.AsQueryable();
 
-        }
+        //}
     }
 }

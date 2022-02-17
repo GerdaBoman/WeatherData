@@ -51,7 +51,7 @@ namespace UI
             ImportData import = new ImportData();
 
             reader.reading(textFilePath.Text);
-            import.ImportFile();
+            import.ImportFile("FilteredData.csv");
            
 
 

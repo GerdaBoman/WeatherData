@@ -12,7 +12,7 @@ namespace DataAccess
             string path = @"FilteredData.csv";
 
             string delimiter = ", ";
-
+            
             if (!File.Exists(path))
             {
                 string createText = "Datum" + delimiter + "Plats" + delimiter + "Temp" + delimiter + "Luftfuktighet" + delimiter + Environment.NewLine;

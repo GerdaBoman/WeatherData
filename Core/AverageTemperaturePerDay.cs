@@ -1,7 +1,11 @@
-﻿using DataAccess.Data;
+﻿using DataAccess;
+using DataAccess.Data;
+using DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq;  
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,13 +14,10 @@ namespace Core
     
     public  class AverageTemperaturePerDay
     {
-        private RoboGenderContext _contex;
+    
+        RoboGenderContext _contex = new RoboGenderContext();
 
-        public AverageTemperaturePerDay(RoboGenderContext context)
-        {
-            _contex = context;  
-        }
-
+        
         public IQueryable AvgPerDayInside(DateTime date)
         {
             var results = (from w in _contex.Weathers
@@ -31,5 +32,6 @@ namespace Core
                            });
             return results;
         }
+        
     }
 }
