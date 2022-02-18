@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    public class DataSending //Purpose: send data out of DataAccess
+    public class Avg_Calucations //Purpose: send data out of DataAccess
     {//has not yet figured out how to send out 2 columns in 1 list
-        public List<double> Daily_Average(string place, int year, int month, int day)
+        public List<double> Daily_AverageTemperature(string place, int year, int month, int day)
         {
 
             using var context = new RoboGenderContext();
