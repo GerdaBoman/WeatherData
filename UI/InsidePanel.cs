@@ -46,9 +46,9 @@ namespace UI
             
 
 
-            Avg_Calucations dataCalculating = new Avg_Calucations();
+            DataSending dataCalculating = new DataSending();
             
-            List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature("Inne", year, month, day);
+            List<double> avergageDayTemp = dataCalculating.Daily_Average("Inne", year, month, day);
             List<double> averageDayHum = dataCalculating.Daily_AverageHumidity("Inne", year, month, day);
             ListViewItem item1 = new ListViewItem(dateTime.ToString().Substring(0,10));
 

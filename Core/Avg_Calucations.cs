@@ -10,7 +10,7 @@ namespace DataAccess
 {
     public class DataSending //Purpose: send data out of DataAccess
     {//has not yet figured out how to send out 2 columns in 1 list
-        public static List<double> Daily_Average(string place, int year, int month, int day)
+        public List<double> Daily_Average(string place, int year, int month, int day)
         {
 
             using var context = new RoboGenderContext();

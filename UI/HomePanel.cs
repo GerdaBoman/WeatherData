@@ -37,9 +37,7 @@ namespace UI
             importMessageStatusBar.Text = "Importing .csv file....";
             statusStrip1.Update();
 
-            ImportData import = new ImportData();
-
-            import.ImportFile(textFilePath.Text);
+            ImportData.ImportFile(textFilePath.Text);
 
             MessageBox.Show("ImportCompleted!");
 
