@@ -5,12 +5,10 @@ using System.Text.RegularExpressions;
 
 namespace DataAccess
 {
-    public class ImportData
+    public class ImportData : FileReader
     {
         public void ImportFile(string path)
         {
-            var linenumber = 0;
-
             var csvTable = new DataTable();
 
             using (var csvReader = new CsvReader(new StreamReader(File.OpenRead(path)), true))
@@ -27,41 +25,21 @@ namespace DataAccess
 
                 //Fix the path so that its a connection.Text
 
-                using (StreamReader reader = new StreamReader(path))
+
+                List<SearchParameters> parameters = procesor(filter(path));
+                foreach (var param in parameters)
                 {
-                    while (csvTable.Rows.Count >= linenumber + 1)
-                    {
-                        var line = reader.ReadLine();
+                    var sql = "insert into robogender.dbo.weather values(" +
+                         "cast('" + param.csvDatum + "' as smalldatetime)" + ",'"  
+                                  + param.csvPlats + "'," + param.csvTemp + "," 
+                                  + param.csvLuftFuktighet + ")";
 
-                        if (linenumber != 0)
-                        {
-                            var values = line.Split(',');
-
-                            values[0] = csvTable.Rows[linenumber][0].ToString();
-                            values[1] = csvTable.Rows[linenumber][1].ToString();
-                            values[2] = csvTable.Rows[linenumber][2].ToString();
-                            values[3] = csvTable.Rows[linenumber][3].ToString();
-
-                            string cleanUp = RemoveNonNumeric(values[2]);
-                            // string temp = GetNumbers(values[2]);
-
-
-                            var sql = "insert into robogender.dbo.weather values(" +
-                                "cast('" + values[0] + "' as smalldatetime)" + ",'" + values[1] + "'," + cleanUp + "," + values[3] + ")";
-
-                            var cmd = new SqlCommand();
-                            cmd.CommandText = sql;
-                            cmd.CommandType = CommandType.Text;
-                            cmd.Connection = importtest;
-                            cmd.ExecuteNonQuery();
-
-                        }
-                        linenumber++;
-
-
-                    }
+                    var cmd = new SqlCommand();
+                    cmd.CommandText = sql;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = importtest;
+                    cmd.ExecuteNonQuery();
                 }
-                File.Delete(path);
                 importtest.Close();
 
 

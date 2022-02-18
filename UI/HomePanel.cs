@@ -46,11 +46,9 @@ namespace UI
         private void importButton_Click(object sender, EventArgs e)
         {
             
-                csvReader reader = new csvReader();
                 ImportData import = new ImportData();
 
-            reader.reading(textFilePath.Text);
-            import.ImportFile("FilteredData.csv");
+            import.ImportFile(textFilePath.Text);
            
 
 
