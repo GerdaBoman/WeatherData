@@ -61,7 +61,7 @@
     <value>45, 25</value>
   </metadata>
   <data name="welcomeMessageLabel.Text" xml:space="preserve">
-    <value>Hi! Welcome! 
+    <value> Welcome! 
 To be able to browse data please upload the CSV 
 file with all the weather data 
 information ^.^

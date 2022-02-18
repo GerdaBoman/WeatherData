@@ -54,7 +54,7 @@
             // infolabel
             // 
             this.infolabel.AutoSize = true;
-            this.infolabel.Location = new System.Drawing.Point(94, 374);
+            this.infolabel.Location = new System.Drawing.Point(130, 400);
             this.infolabel.Name = "infolabel";
             this.infolabel.Size = new System.Drawing.Size(99, 15);
             this.infolabel.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(512, 374);
+            this.browseButton.Location = new System.Drawing.Point(548, 400);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 2;
@@ -72,14 +72,14 @@
             // 
             // textFilePath
             // 
-            this.textFilePath.Location = new System.Drawing.Point(233, 374);
+            this.textFilePath.Location = new System.Drawing.Point(269, 400);
             this.textFilePath.Name = "textFilePath";
             this.textFilePath.Size = new System.Drawing.Size(245, 23);
             this.textFilePath.TabIndex = 3;
             // 
             // importButton
             // 
-            this.importButton.Location = new System.Drawing.Point(512, 403);
+            this.importButton.Location = new System.Drawing.Point(548, 429);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(75, 23);
             this.importButton.TabIndex = 4;
@@ -94,8 +94,9 @@
             // welcomeMessageLabel
             // 
             this.welcomeMessageLabel.AutoSize = true;
+            this.welcomeMessageLabel.BackColor = System.Drawing.Color.Transparent;
             this.welcomeMessageLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.welcomeMessageLabel.Location = new System.Drawing.Point(155, 104);
+            this.welcomeMessageLabel.Location = new System.Drawing.Point(125, 145);
             this.welcomeMessageLabel.Name = "welcomeMessageLabel";
             this.welcomeMessageLabel.Size = new System.Drawing.Size(493, 252);
             this.welcomeMessageLabel.TabIndex = 5;
