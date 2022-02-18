@@ -11,18 +11,18 @@ namespace DataAccess
 {
     public class FileReader
     {
-        public List<SearchParameters> filter(string connection)
+        public static List<SearchParameters> Filter(string connection) //Purpose: Read in the data from a CSV file 
         {
-            static string RemoveNonNumeric(string value) => Regex.Replace(value, "[^0-9.]", "");
+            static string RemoveNonNumeric(string value) => Regex.Replace(value, "[^0-9.]", ""); //Made to remove any unwanted Char
 
+            var searches = new List<SearchParameters>();
             var csvTable = new DataTable();
-            using (var csvReader = new CsvReader(new StreamReader(File.OpenRead(connection)), true))
+            using (var csvReader = new CsvReader(new StreamReader(File.OpenRead(connection)), true)) //Loads the file so it can be read
             {
                 csvTable.Load(csvReader);
             }
-            var searches = new List<SearchParameters>();
 
-            for (int i = 0; i < csvTable.Rows.Count; i++)
+            for (int i = 0; i < csvTable.Rows.Count; i++)//Goes through all the rows in said file and adds it to a list 
             {
                 searches.Add(new SearchParameters
                 {
@@ -34,19 +34,19 @@ namespace DataAccess
             }
             return searches;
         }
-        public List<SearchParameters> procesor(List<SearchParameters> searches)
+        public static List<SearchParameters> Procesor(List<SearchParameters> searches) //Purpose: Remove all duplicates 
         {
 
 
-            var GroupByMultipleKeysMS = searches.GroupBy(x => new { x.csvDatum, x.csvPlats, x.csvTemp })
+            var GroupByMultipleKeysMS = searches.GroupBy(x => new { x.csvDatum, x.csvPlats, x.csvTemp }) //Looks for all duplicates 
                                                     .Where(g => g.Count() > 1)
                                                     .Select(x => x.Key);
-            while (GroupByMultipleKeysMS.Count() > 0)
+            while (GroupByMultipleKeysMS.Any()) 
             {
-                foreach (var group in GroupByMultipleKeysMS)
+                foreach (var group in GroupByMultipleKeysMS) //find the index of duplicates and removes them
                 {
                     int index = searches.FindIndex(x => x.csvDatum == group.csvDatum && x.csvPlats == group.csvPlats);
-                    searches.RemoveAt(index);
+                    searches.RemoveAt(index); 
                 }
             }
             return searches;

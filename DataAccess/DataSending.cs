@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class DataSending
-    {
-        public List<double> Daily_Average(string place, int year, int month, int day)
+    public class DataSending //Purpose: send data out of DataAccess
+    {//has not yet figured out how to send out 2 columns in 1 list
+        public static List<double> Daily_Average(string place, int year, int month, int day)
         {
-            
+
             using var context = new RoboGenderContext();
             {
-                var weather = context.Weathers.Where(w => w.Plats == place && w.Datum.Year == (year) &&   
-                                                                              w.Datum.Month == (month) && 
+                var weather = context.Weathers.Where(w => w.Plats == place && w.Datum.Year == (year) &&
+                                                                              w.Datum.Month == (month) &&
                                                                               w.Datum.Day == (day))
-                                              .Select(s =>s.Temp);
+                                              .Select(s => s.Temp);
 
                 return weather.ToList();
             }
         }
 
-        public List<double> Daily_AverageHum(string place, int year,int month, int day)
+        public static List<double> Daily_AverageHum(string place, int year, int month, int day)
         {
 
             using var context = new RoboGenderContext();

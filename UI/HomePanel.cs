@@ -25,14 +25,16 @@ namespace UI
 
         private void browseButton_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Select File";
-            openFileDialog.FileName = textFilePath.Text;
-            openFileDialog.Filter = "Excel Sheets (*.csv)|*.csv|All files(*.*)|*.*";
-            openFileDialog.FilterIndex = 1;
-            openFileDialog.RestoreDirectory = true;
+            OpenFileDialog openFileDialog = new()
+            {
+                Title = "Select File",
+                FileName = textFilePath.Text,
+                Filter = "Excel Sheets (*.csv)|*.csv|All files(*.*)|*.*",
+                FilterIndex = 1,
+                RestoreDirectory = true
+            };
 
-            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 textFilePath.Text = openFileDialog.FileName;
             }
@@ -46,9 +48,8 @@ namespace UI
         private void importButton_Click(object sender, EventArgs e)
         {
             
-                ImportData import = new ImportData();
 
-            import.ImportFile(textFilePath.Text);
+            ImportData.ImportFile(textFilePath.Text);
            
 
 

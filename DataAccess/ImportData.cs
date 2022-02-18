@@ -5,45 +5,31 @@ using System.Text.RegularExpressions;
 
 namespace DataAccess
 {
-    public class ImportData : FileReader
+    public class ImportData : FileReader 
     {
-        public void ImportFile(string path)
+        public static void ImportFile(string path)// Purpose: Import a list to an SQLDB
         {
-            var csvTable = new DataTable();
 
-            using (var csvReader = new CsvReader(new StreamReader(File.OpenRead(path)), true))
+            using SqlConnection importtest = new(@"data source=(localdb)\mssqllocaldb;initial catalog=robogender;integrated security=true");
+            importtest.Open();//opens a connection the the database 
+
+            List<SearchParameters> parameters = Procesor(Filter(path));//Gets the list of the CSV entities
+            foreach (var param in parameters)//sends the data to the DB with sql script 
             {
-                csvTable.Load(csvReader);
-            }
+                var sql = "insert into robogender.dbo.weather values(" +
+                     "cast('" + param.csvDatum + "' as smalldatetime)" + ",'"
+                              + param.csvPlats + "'," + param.csvTemp + ","
+                              + param.csvLuftFuktighet + ")";
 
-            static string RemoveNonNumeric(string value) => Regex.Replace(value, "[^0-9.]", "");
-
-
-            using (SqlConnection importtest = new SqlConnection(@"data source=(localdb)\mssqllocaldb;initial catalog=robogender;integrated security=true"))
-            {
-                importtest.Open();
-
-                //Fix the path so that its a connection.Text
-
-
-                List<SearchParameters> parameters = procesor(filter(path));
-                foreach (var param in parameters)
+                var cmd = new SqlCommand
                 {
-                    var sql = "insert into robogender.dbo.weather values(" +
-                         "cast('" + param.csvDatum + "' as smalldatetime)" + ",'"  
-                                  + param.csvPlats + "'," + param.csvTemp + "," 
-                                  + param.csvLuftFuktighet + ")";
-
-                    var cmd = new SqlCommand();
-                    cmd.CommandText = sql;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = importtest;
-                    cmd.ExecuteNonQuery();
-                }
-                importtest.Close();
-
-
+                    CommandText = sql,
+                    CommandType = CommandType.Text,
+                    Connection = importtest
+                };
+                cmd.ExecuteNonQuery();
             }
+            importtest.Close();
         }
 
     }
