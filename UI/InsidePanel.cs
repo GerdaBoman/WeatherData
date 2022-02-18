@@ -43,7 +43,7 @@ namespace UI
             int month = dateTimePicker1.Value.Month;
             int day = dateTimePicker1.Value.Day;
             Avg_Calucations dataCalculating = new Avg_Calucations();
-
+          
             if (insideCheckBox.Checked && !outsideCheckBox.Checked)
             {
                 List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature("Inne", year, month, day);
@@ -61,8 +61,31 @@ namespace UI
                 listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             }
-            
+            else if (!insideCheckBox.Checked && outsideCheckBox.Checked)
+            {
+                List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature("Ute", year, month, day);
+                List<double> averageDayHum = dataCalculating.Daily_AverageHumidity("Ute", year, month, day);
+                ListViewItem item1 = new ListViewItem(dateTime.ToString().Substring(0, 10));
 
+                int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
+
+                item1.SubItems.Add("Ute");
+                item1.SubItems.Add(Math.Round(avergageDayTemp.Average(), 2).ToString());
+                item1.SubItems.Add(Math.Round(averageDayHum.Average(), 2).ToString());
+                item1.SubItems.Add(moldrisk.ToString());
+
+                listView1.Items.AddRange(new ListViewItem[] { item1 });
+                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+            }
+            else if(!insideCheckBox.Checked && !outsideCheckBox.Checked)
+            {
+                MessageBox.Show("Please choose inside or outside");
+            }
+            else
+            {
+                MessageBox.Show("Please choose only one");
+            }
 
 
             
