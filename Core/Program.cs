@@ -1,7 +1,7 @@
 ﻿using DataAccess;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
-DataSending dataSending = new DataSending();
+Avg_Calucations dataSending = new Avg_Calucations();
 double allTemp = 0;
 
 

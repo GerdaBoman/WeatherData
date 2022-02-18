@@ -41,6 +41,7 @@
             this.outsideCheckBox = new System.Windows.Forms.CheckBox();
             this.showButton = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).BeginInit();
@@ -65,7 +66,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(453, 47);
+            this.dateTimePicker1.Location = new System.Drawing.Point(358, 207);
             this.dateTimePicker1.MaxDate = new System.DateTime(2016, 11, 30, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -76,7 +77,7 @@
             // insideCheckBox
             // 
             this.insideCheckBox.AutoSize = true;
-            this.insideCheckBox.Location = new System.Drawing.Point(672, 49);
+            this.insideCheckBox.Location = new System.Drawing.Point(358, 249);
             this.insideCheckBox.Name = "insideCheckBox";
             this.insideCheckBox.Size = new System.Drawing.Size(57, 19);
             this.insideCheckBox.TabIndex = 4;
@@ -86,7 +87,7 @@
             // outsideCheckBox
             // 
             this.outsideCheckBox.AutoSize = true;
-            this.outsideCheckBox.Location = new System.Drawing.Point(735, 47);
+            this.outsideCheckBox.Location = new System.Drawing.Point(492, 249);
             this.outsideCheckBox.Name = "outsideCheckBox";
             this.outsideCheckBox.Size = new System.Drawing.Size(66, 22);
             this.outsideCheckBox.TabIndex = 5;
@@ -96,7 +97,7 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(569, 78);
+            this.showButton.Location = new System.Drawing.Point(406, 305);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(75, 23);
             this.showButton.TabIndex = 6;
@@ -106,16 +107,26 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(57, 132);
+            this.listView1.Location = new System.Drawing.Point(34, 119);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(320, 308);
+            this.listView1.Size = new System.Drawing.Size(287, 308);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(349, 158);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(231, 15);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Average Temperatur and Humidity per day";
             // 
             // InsidePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.showButton);
             this.Controls.Add(this.outsideCheckBox);
@@ -149,5 +160,6 @@
         private Button showButton;
         private BindingSource weatherBindingSource4;
         private ListView listView1;
+        private Label label1;
     }
 }

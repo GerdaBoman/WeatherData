@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class DataSending
+    public class Avg_Calucations
     {
-        public List<double> Daily_Average(string place, int year, int month, int day)
+        public List<double> Daily_AverageTemperature(string place, int year, int month, int day)
         {
             
             using var context = new RoboGenderContext();
@@ -24,7 +24,7 @@ namespace DataAccess
             }
         }
 
-        public List<double> Daily_AverageHum(string place, int year,int month, int day)
+        public List<double> Daily_AverageHumidity(string place, int year,int month, int day)
         {
 
             using var context = new RoboGenderContext();
