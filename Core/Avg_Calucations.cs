@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess
+namespace Core
 {
     public class DataSending //Purpose: send data out of DataAccess
     {//has not yet figured out how to send out 2 columns in 1 list
