@@ -35,10 +35,7 @@ namespace UI
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Weather", "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = RoboGender; Integrated Security = True");
-            DataSet ds = new DataSet();
-            da.Fill(ds, "Weather");
-            dataGridView1.DataSource = ds.Tables["Weather"].DefaultView;
+            
         }
 
         private void showButton_Click(object sender, EventArgs e)

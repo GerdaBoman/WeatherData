@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.rawDataButton = new FontAwesome.Sharp.IconButton();
             this.floorPlanButton = new FontAwesome.Sharp.IconButton();
             this.exitButton = new FontAwesome.Sharp.IconButton();
             this.WeatherDataButton = new FontAwesome.Sharp.IconButton();
@@ -44,6 +45,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(69)))), ((int)(((byte)(89)))));
+            this.panelMenu.Controls.Add(this.rawDataButton);
             this.panelMenu.Controls.Add(this.floorPlanButton);
             this.panelMenu.Controls.Add(this.exitButton);
             this.panelMenu.Controls.Add(this.WeatherDataButton);
@@ -55,6 +57,25 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(194, 602);
             this.panelMenu.TabIndex = 0;
+            // 
+            // rawDataButton
+            // 
+            this.rawDataButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.rawDataButton.FlatAppearance.BorderSize = 0;
+            this.rawDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rawDataButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rawDataButton.ForeColor = System.Drawing.Color.White;
+            this.rawDataButton.IconChar = FontAwesome.Sharp.IconChar.Database;
+            this.rawDataButton.IconColor = System.Drawing.Color.White;
+            this.rawDataButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.rawDataButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rawDataButton.Location = new System.Drawing.Point(0, 186);
+            this.rawDataButton.Name = "rawDataButton";
+            this.rawDataButton.Size = new System.Drawing.Size(194, 50);
+            this.rawDataButton.TabIndex = 8;
+            this.rawDataButton.Text = "     Raw Data";
+            this.rawDataButton.UseVisualStyleBackColor = true;
+            this.rawDataButton.Click += new System.EventHandler(this.rawDataButton_Click);
             // 
             // floorPlanButton
             // 
@@ -112,7 +133,7 @@
             this.WeatherDataButton.Size = new System.Drawing.Size(194, 56);
             this.WeatherDataButton.TabIndex = 3;
             this.WeatherDataButton.Tag = "Inside Temperature";
-            this.WeatherDataButton.Text = "          Weather Data\r\n\r\n";
+            this.WeatherDataButton.Text = "           Weather Data\r\n\r\n";
             this.WeatherDataButton.UseVisualStyleBackColor = true;
             this.WeatherDataButton.Click += new System.EventHandler(this.insideButton_Click);
             // 
@@ -225,5 +246,7 @@
         private FloorPlanPanel floorPlanPanel1;
         private HomePanel homePanel2;
         private FloorPlanPanel floorPlanPanel2;
+        private FontAwesome.Sharp.IconButton rawDataButton;
+        private RawDataPanel rawDataPanel1;
     }
 }

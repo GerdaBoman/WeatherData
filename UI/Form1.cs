@@ -42,5 +42,11 @@ namespace UI
         {
             Application.Exit();
         }
+
+        private void rawDataButton_Click(object sender, EventArgs e)
+        {
+            rawDataPanel1.Show();
+            rawDataPanel1.BringToFront();
+        }
     }
 }
