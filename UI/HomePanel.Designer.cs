@@ -28,20 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePanel));
             this.panelHomeLabel = new System.Windows.Forms.Label();
             this.infolabel = new System.Windows.Forms.Label();
             this.browseButton = new System.Windows.Forms.Button();
             this.textFilePath = new System.Windows.Forms.TextBox();
             this.importButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.importProgressBar = new System.Windows.Forms.ProgressBar();
+            this.welcomeMessageLabel = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.importMessageStatusBar = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHomeLabel
             // 
             this.panelHomeLabel.AutoSize = true;
             this.panelHomeLabel.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.panelHomeLabel.Location = new System.Drawing.Point(63, 27);
+            this.panelHomeLabel.Location = new System.Drawing.Point(22, 22);
             this.panelHomeLabel.Name = "panelHomeLabel";
             this.panelHomeLabel.Size = new System.Drawing.Size(317, 72);
             this.panelHomeLabel.TabIndex = 0;
@@ -50,7 +54,7 @@
             // infolabel
             // 
             this.infolabel.AutoSize = true;
-            this.infolabel.Location = new System.Drawing.Point(98, 186);
+            this.infolabel.Location = new System.Drawing.Point(130, 400);
             this.infolabel.Name = "infolabel";
             this.infolabel.Size = new System.Drawing.Size(99, 15);
             this.infolabel.TabIndex = 1;
@@ -58,7 +62,7 @@
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(462, 182);
+            this.browseButton.Location = new System.Drawing.Point(548, 400);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 2;
@@ -68,14 +72,14 @@
             // 
             // textFilePath
             // 
-            this.textFilePath.Location = new System.Drawing.Point(203, 183);
+            this.textFilePath.Location = new System.Drawing.Point(269, 400);
             this.textFilePath.Name = "textFilePath";
             this.textFilePath.Size = new System.Drawing.Size(245, 23);
             this.textFilePath.TabIndex = 3;
             // 
             // importButton
             // 
-            this.importButton.Location = new System.Drawing.Point(462, 211);
+            this.importButton.Location = new System.Drawing.Point(548, 429);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(75, 23);
             this.importButton.TabIndex = 4;
@@ -87,25 +91,50 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // importProgressBar
+            // welcomeMessageLabel
             // 
-            this.importProgressBar.Location = new System.Drawing.Point(348, 212);
-            this.importProgressBar.Name = "importProgressBar";
-            this.importProgressBar.Size = new System.Drawing.Size(100, 23);
-            this.importProgressBar.TabIndex = 5;
+            this.welcomeMessageLabel.AutoSize = true;
+            this.welcomeMessageLabel.BackColor = System.Drawing.Color.Transparent;
+            this.welcomeMessageLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.welcomeMessageLabel.Location = new System.Drawing.Point(125, 145);
+            this.welcomeMessageLabel.Name = "welcomeMessageLabel";
+            this.welcomeMessageLabel.Size = new System.Drawing.Size(493, 252);
+            this.welcomeMessageLabel.TabIndex = 5;
+            this.welcomeMessageLabel.Text = resources.GetString("welcomeMessageLabel.Text");
+            this.welcomeMessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importMessageStatusBar});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 540);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(755, 22);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // importMessageStatusBar
+            // 
+            this.importMessageStatusBar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.importMessageStatusBar.Name = "importMessageStatusBar";
+            this.importMessageStatusBar.Size = new System.Drawing.Size(0, 17);
             // 
             // HomePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.importProgressBar);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.welcomeMessageLabel);
             this.Controls.Add(this.importButton);
             this.Controls.Add(this.textFilePath);
             this.Controls.Add(this.browseButton);
             this.Controls.Add(this.infolabel);
             this.Controls.Add(this.panelHomeLabel);
             this.Name = "HomePanel";
-            this.Size = new System.Drawing.Size(649, 501);
+            this.Size = new System.Drawing.Size(755, 562);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,6 +148,8 @@
         private TextBox textFilePath;
         private Button importButton;
         private OpenFileDialog openFileDialog1;
-        private ProgressBar importProgressBar;
+        private Label welcomeMessageLabel;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel importMessageStatusBar;
     }
 }

@@ -33,13 +33,6 @@ namespace UI
 
         }
 
-        private void updateButton_Click(object sender, EventArgs e)
-        {
-            SqlDataAdapter da = new("SELECT * FROM Weather", "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = RoboGender; Integrated Security = True");
-            DataSet ds = new();
-            da.Fill(ds, "Weather");
-            dataGridView1.DataSource = ds.Tables["Weather"].DefaultView;
-        }
 
         private void showButton_Click(object sender, EventArgs e)
         {
@@ -49,10 +42,15 @@ namespace UI
             int year = dateTimePicker1.Value.Year;
             int month = dateTimePicker1.Value.Month;
             int day = dateTimePicker1.Value.Day;
+
             
-            List<double> avergageDayTemp = DataSending.Daily_Average("Inne", year, month, day);
-            List<double> averageDayHum = DataSending.Daily_AverageHum("Inne", year, month, day);
-            ListViewItem item1 = new(dateTime.ToString()[..10]);
+
+
+            Avg_Calucations dataCalculating = new Avg_Calucations();
+            
+            List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature("Inne", year, month, day);
+            List<double> averageDayHum = dataCalculating.Daily_AverageHumidity("Inne", year, month, day);
+            ListViewItem item1 = new ListViewItem(dateTime.ToString().Substring(0,10));
 
            int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
 

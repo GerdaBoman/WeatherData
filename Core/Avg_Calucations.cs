@@ -24,7 +24,7 @@ namespace DataAccess
             }
         }
 
-        public static List<double> Daily_AverageHum(string place, int year, int month, int day)
+        public List<double> Daily_AverageHumidity(string place, int year,int month, int day)
         {
 
             using var context = new RoboGenderContext();

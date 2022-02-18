@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.OleDb;
-using DataAccess.Data;
-using Microsoft.Data.SqlClient;
+﻿
 using DataAccess;
-using LumenWorks.Framework.IO.Csv;
-using DataAccess.Models;
 
 namespace UI
 {
@@ -47,11 +34,17 @@ namespace UI
 
         private void importButton_Click(object sender, EventArgs e)
         {
-            
+            importMessageStatusBar.Text = "Importing .csv file....";
+            statusStrip1.Update();
 
-            ImportData.ImportFile(textFilePath.Text);
-           
+            ImportData import = new ImportData();
 
+            import.ImportFile(textFilePath.Text);
+
+            MessageBox.Show("ImportCompleted!");
+
+            importMessageStatusBar.Text = "";
+            statusStrip1.Update();
 
 
         }
