@@ -29,23 +29,21 @@
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.rawDataButton = new FontAwesome.Sharp.IconButton();
             this.floorPlanButton = new FontAwesome.Sharp.IconButton();
             this.exitButton = new FontAwesome.Sharp.IconButton();
             this.WeatherDataButton = new FontAwesome.Sharp.IconButton();
             this.homeButton = new FontAwesome.Sharp.IconButton();
             this.menuIcon = new FontAwesome.Sharp.IconButton();
             this.groupName = new System.Windows.Forms.Label();
-            this.homePanel2 = new UI.HomePanel();
-            this.floorPlanPanel2 = new UI.FloorPlanPanel();
-            this.insidePanel1 = new UI.InsidePanel();
+            this.homePanel3 = new UI.HomePanel();
+            this.floorPlanPanel3 = new UI.FloorPlanPanel();
+            this.insidePanel2 = new UI.InsidePanel();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(69)))), ((int)(((byte)(89)))));
-            this.panelMenu.Controls.Add(this.rawDataButton);
             this.panelMenu.Controls.Add(this.floorPlanButton);
             this.panelMenu.Controls.Add(this.exitButton);
             this.panelMenu.Controls.Add(this.WeatherDataButton);
@@ -57,25 +55,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(194, 602);
             this.panelMenu.TabIndex = 0;
-            // 
-            // rawDataButton
-            // 
-            this.rawDataButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.rawDataButton.FlatAppearance.BorderSize = 0;
-            this.rawDataButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rawDataButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rawDataButton.ForeColor = System.Drawing.Color.White;
-            this.rawDataButton.IconChar = FontAwesome.Sharp.IconChar.Database;
-            this.rawDataButton.IconColor = System.Drawing.Color.White;
-            this.rawDataButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.rawDataButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rawDataButton.Location = new System.Drawing.Point(0, 186);
-            this.rawDataButton.Name = "rawDataButton";
-            this.rawDataButton.Size = new System.Drawing.Size(194, 50);
-            this.rawDataButton.TabIndex = 8;
-            this.rawDataButton.Text = "     Raw Data";
-            this.rawDataButton.UseVisualStyleBackColor = true;
-            this.rawDataButton.Click += new System.EventHandler(this.rawDataButton_Click);
             // 
             // floorPlanButton
             // 
@@ -184,42 +163,42 @@
             this.groupName.Text = "Robo \r\nGender";
             this.groupName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // homePanel2
+            // homePanel3
             // 
-            this.homePanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.homePanel2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.homePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homePanel2.Location = new System.Drawing.Point(194, 0);
-            this.homePanel2.Name = "homePanel2";
-            this.homePanel2.Size = new System.Drawing.Size(816, 602);
-            this.homePanel2.TabIndex = 1;
+            this.homePanel3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.homePanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homePanel3.Location = new System.Drawing.Point(194, 0);
+            this.homePanel3.Name = "homePanel3";
+            this.homePanel3.Size = new System.Drawing.Size(816, 602);
+            this.homePanel3.TabIndex = 1;
             // 
-            // floorPlanPanel2
+            // floorPlanPanel3
             // 
-            this.floorPlanPanel2.AutoSize = true;
-            this.floorPlanPanel2.BackColor = System.Drawing.Color.White;
-            this.floorPlanPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.floorPlanPanel2.Location = new System.Drawing.Point(194, 0);
-            this.floorPlanPanel2.Name = "floorPlanPanel2";
-            this.floorPlanPanel2.Size = new System.Drawing.Size(816, 602);
-            this.floorPlanPanel2.TabIndex = 3;
+            this.floorPlanPanel3.BackColor = System.Drawing.Color.White;
+            this.floorPlanPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.floorPlanPanel3.Location = new System.Drawing.Point(194, 0);
+            this.floorPlanPanel3.Name = "floorPlanPanel3";
+            this.floorPlanPanel3.Size = new System.Drawing.Size(816, 602);
+            this.floorPlanPanel3.TabIndex = 2;
             // 
-            // insidePanel1
+            // insidePanel2
             // 
-            this.insidePanel1.Location = new System.Drawing.Point(194, 0);
-            this.insidePanel1.Name = "insidePanel1";
-            this.insidePanel1.Size = new System.Drawing.Size(816, 602);
-            this.insidePanel1.TabIndex = 4;
+            this.insidePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.insidePanel2.Location = new System.Drawing.Point(194, 0);
+            this.insidePanel2.Name = "insidePanel2";
+            this.insidePanel2.Size = new System.Drawing.Size(816, 602);
+            this.insidePanel2.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1010, 602);
-            this.Controls.Add(this.insidePanel1);
-            this.Controls.Add(this.floorPlanPanel2);
-            this.Controls.Add(this.homePanel2);
+            this.Controls.Add(this.insidePanel2);
+            this.Controls.Add(this.floorPlanPanel3);
+            this.Controls.Add(this.homePanel3);
             this.Controls.Add(this.panelMenu);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -228,7 +207,6 @@
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -241,12 +219,8 @@
         private FontAwesome.Sharp.IconButton menuIcon;
         private Label groupName;
         private FontAwesome.Sharp.IconButton floorPlanButton;
-        private HomePanel homePanel1;
-        private InsidePanel insidePanel1;
-        private FloorPlanPanel floorPlanPanel1;
-        private HomePanel homePanel2;
-        private FloorPlanPanel floorPlanPanel2;
-        private FontAwesome.Sharp.IconButton rawDataButton;
-        private RawDataPanel rawDataPanel1;
+        private HomePanel homePanel3;
+        private FloorPlanPanel floorPlanPanel3;
+        private InsidePanel insidePanel2;
     }
 }

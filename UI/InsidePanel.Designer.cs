@@ -112,6 +112,7 @@
             this.listView1.Size = new System.Drawing.Size(287, 308);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            
             // 
             // label1
             // 

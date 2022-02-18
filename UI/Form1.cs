@@ -13,29 +13,29 @@ namespace UI
             var _context = new RoboGenderContext();
             _context.Database.EnsureCreated();
             InitializeComponent();
-            homePanel2.BringToFront();
+            homePanel3.BringToFront();
            
         }
         
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            homePanel2.Show();
-            homePanel2.BringToFront();
+            homePanel3.Show();
+            homePanel3.BringToFront();
         }
 
         private void insideButton_Click(object sender, EventArgs e)
         {
-            insidePanel1.Show();
-            insidePanel1.BringToFront();
+            insidePanel2.Show();
+            insidePanel2.BringToFront();
         }
 
     
 
         private void floorPlanButton_Click(object sender, EventArgs e)
         {
-            floorPlanPanel2.Show();
-            floorPlanPanel2.BringToFront();
+            floorPlanPanel3.Show();
+            floorPlanPanel3.BringToFront();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -43,10 +43,6 @@ namespace UI
             Application.Exit();
         }
 
-        private void rawDataButton_Click(object sender, EventArgs e)
-        {
-            rawDataPanel1.Show();
-            rawDataPanel1.BringToFront();
-        }
+       
     }
 }
