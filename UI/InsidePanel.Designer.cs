@@ -76,10 +76,10 @@
             this.tempDataGridViewTextBoxColumn,
             this.luftfuktighetDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.weatherBindingSource4;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 120);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 121);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(476, 560);
+            this.dataGridView1.Size = new System.Drawing.Size(440, 308);
             this.dataGridView1.TabIndex = 1;
             // 
             // datumDataGridViewTextBoxColumn
@@ -122,7 +122,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(577, 52);
+            this.dateTimePicker1.Location = new System.Drawing.Point(466, 49);
             this.dateTimePicker1.MaxDate = new System.DateTime(2016, 11, 30, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -133,7 +133,7 @@
             // insideCheckBox
             // 
             this.insideCheckBox.AutoSize = true;
-            this.insideCheckBox.Location = new System.Drawing.Point(574, 99);
+            this.insideCheckBox.Location = new System.Drawing.Point(672, 49);
             this.insideCheckBox.Name = "insideCheckBox";
             this.insideCheckBox.Size = new System.Drawing.Size(57, 19);
             this.insideCheckBox.TabIndex = 4;
@@ -143,7 +143,7 @@
             // outsideCheckBox
             // 
             this.outsideCheckBox.AutoSize = true;
-            this.outsideCheckBox.Location = new System.Drawing.Point(716, 99);
+            this.outsideCheckBox.Location = new System.Drawing.Point(735, 47);
             this.outsideCheckBox.Name = "outsideCheckBox";
             this.outsideCheckBox.Size = new System.Drawing.Size(66, 22);
             this.outsideCheckBox.TabIndex = 5;
@@ -153,7 +153,7 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(641, 141);
+            this.showButton.Location = new System.Drawing.Point(569, 78);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(75, 23);
             this.showButton.TabIndex = 6;
@@ -163,9 +163,9 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(522, 170);
+            this.listView1.Location = new System.Drawing.Point(469, 121);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(344, 510);
+            this.listView1.Size = new System.Drawing.Size(310, 389);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -182,7 +182,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panelInsideLabel);
             this.Name = "InsidePanel";
-            this.Size = new System.Drawing.Size(895, 683);
+            this.Size = new System.Drawing.Size(849, 568);
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).EndInit();

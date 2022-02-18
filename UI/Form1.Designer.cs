@@ -35,9 +35,9 @@
             this.homeButton = new FontAwesome.Sharp.IconButton();
             this.menuIcon = new FontAwesome.Sharp.IconButton();
             this.groupName = new System.Windows.Forms.Label();
-            this.homePanel1 = new UI.HomePanel();
+            this.homePanel2 = new UI.HomePanel();
+            this.floorPlanPanel2 = new UI.FloorPlanPanel();
             this.insidePanel1 = new UI.InsidePanel();
-            this.floorPlanPanel1 = new UI.FloorPlanPanel();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +53,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(194, 626);
+            this.panelMenu.Size = new System.Drawing.Size(194, 602);
             this.panelMenu.TabIndex = 0;
             // 
             // floorPlanButton
@@ -67,7 +67,7 @@
             this.floorPlanButton.IconColor = System.Drawing.Color.White;
             this.floorPlanButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.floorPlanButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.floorPlanButton.Location = new System.Drawing.Point(0, 518);
+            this.floorPlanButton.Location = new System.Drawing.Point(0, 494);
             this.floorPlanButton.Name = "floorPlanButton";
             this.floorPlanButton.Size = new System.Drawing.Size(194, 56);
             this.floorPlanButton.TabIndex = 7;
@@ -87,7 +87,7 @@
             this.exitButton.IconColor = System.Drawing.Color.White;
             this.exitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.exitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitButton.Location = new System.Drawing.Point(0, 574);
+            this.exitButton.Location = new System.Drawing.Point(0, 550);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(194, 52);
             this.exitButton.TabIndex = 6;
@@ -163,47 +163,51 @@
             this.groupName.Text = "Robo \r\nGender";
             this.groupName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // homePanel1
+            // homePanel2
             // 
-            this.homePanel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.homePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homePanel1.Location = new System.Drawing.Point(194, 0);
-            this.homePanel1.Name = "homePanel1";
-            this.homePanel1.Size = new System.Drawing.Size(594, 626);
-            this.homePanel1.TabIndex = 1;
+            this.homePanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.homePanel2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.homePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.homePanel2.Location = new System.Drawing.Point(194, 0);
+            this.homePanel2.Name = "homePanel2";
+            this.homePanel2.Size = new System.Drawing.Size(816, 602);
+            this.homePanel2.TabIndex = 1;
+            // 
+            // floorPlanPanel2
+            // 
+            this.floorPlanPanel2.AutoSize = true;
+            this.floorPlanPanel2.BackColor = System.Drawing.Color.White;
+            this.floorPlanPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.floorPlanPanel2.Location = new System.Drawing.Point(194, 0);
+            this.floorPlanPanel2.Name = "floorPlanPanel2";
+            this.floorPlanPanel2.Size = new System.Drawing.Size(816, 602);
+            this.floorPlanPanel2.TabIndex = 3;
             // 
             // insidePanel1
             // 
-            this.insidePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.insidePanel1.Location = new System.Drawing.Point(194, 0);
             this.insidePanel1.Name = "insidePanel1";
-            this.insidePanel1.Size = new System.Drawing.Size(594, 626);
-            this.insidePanel1.TabIndex = 2;
-            // 
-            // floorPlanPanel1
-            // 
-            this.floorPlanPanel1.BackColor = System.Drawing.Color.White;
-            this.floorPlanPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.floorPlanPanel1.Location = new System.Drawing.Point(194, 0);
-            this.floorPlanPanel1.Name = "floorPlanPanel1";
-            this.floorPlanPanel1.Size = new System.Drawing.Size(594, 626);
-            this.floorPlanPanel1.TabIndex = 4;
+            this.insidePanel1.Size = new System.Drawing.Size(816, 602);
+            this.insidePanel1.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 626);
-            this.Controls.Add(this.floorPlanPanel1);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1010, 602);
             this.Controls.Add(this.insidePanel1);
-            this.Controls.Add(this.homePanel1);
+            this.Controls.Add(this.floorPlanPanel2);
+            this.Controls.Add(this.homePanel2);
             this.Controls.Add(this.panelMenu);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Robo Gender Weather";
+            this.TopMost = true;
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -219,5 +223,7 @@
         private HomePanel homePanel1;
         private InsidePanel insidePanel1;
         private FloorPlanPanel floorPlanPanel1;
+        private HomePanel homePanel2;
+        private FloorPlanPanel floorPlanPanel2;
     }
 }

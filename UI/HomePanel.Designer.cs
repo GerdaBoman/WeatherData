@@ -45,7 +45,7 @@
             // 
             this.panelHomeLabel.AutoSize = true;
             this.panelHomeLabel.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.panelHomeLabel.Location = new System.Drawing.Point(26, 20);
+            this.panelHomeLabel.Location = new System.Drawing.Point(22, 22);
             this.panelHomeLabel.Name = "panelHomeLabel";
             this.panelHomeLabel.Size = new System.Drawing.Size(317, 72);
             this.panelHomeLabel.TabIndex = 0;
@@ -54,7 +54,7 @@
             // infolabel
             // 
             this.infolabel.AutoSize = true;
-            this.infolabel.Location = new System.Drawing.Point(104, 404);
+            this.infolabel.Location = new System.Drawing.Point(94, 374);
             this.infolabel.Name = "infolabel";
             this.infolabel.Size = new System.Drawing.Size(99, 15);
             this.infolabel.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(483, 401);
+            this.browseButton.Location = new System.Drawing.Point(512, 374);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 2;
@@ -72,14 +72,14 @@
             // 
             // textFilePath
             // 
-            this.textFilePath.Location = new System.Drawing.Point(221, 401);
+            this.textFilePath.Location = new System.Drawing.Point(233, 374);
             this.textFilePath.Name = "textFilePath";
             this.textFilePath.Size = new System.Drawing.Size(245, 23);
             this.textFilePath.TabIndex = 3;
             // 
             // importButton
             // 
-            this.importButton.Location = new System.Drawing.Point(483, 430);
+            this.importButton.Location = new System.Drawing.Point(512, 403);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(75, 23);
             this.importButton.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             this.welcomeMessageLabel.AutoSize = true;
             this.welcomeMessageLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.welcomeMessageLabel.Location = new System.Drawing.Point(65, 125);
+            this.welcomeMessageLabel.Location = new System.Drawing.Point(155, 104);
             this.welcomeMessageLabel.Name = "welcomeMessageLabel";
             this.welcomeMessageLabel.Size = new System.Drawing.Size(493, 252);
             this.welcomeMessageLabel.TabIndex = 5;
@@ -106,9 +106,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importMessageStatusBar});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 479);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 540);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(649, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(755, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -131,7 +131,7 @@
             this.Controls.Add(this.infolabel);
             this.Controls.Add(this.panelHomeLabel);
             this.Name = "HomePanel";
-            this.Size = new System.Drawing.Size(649, 501);
+            this.Size = new System.Drawing.Size(755, 562);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
