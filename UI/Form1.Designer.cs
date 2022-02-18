@@ -53,7 +53,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(200, 948);
+            this.panelMenu.Size = new System.Drawing.Size(194, 626);
             this.panelMenu.TabIndex = 0;
             // 
             // floorPlanButton
@@ -67,9 +67,9 @@
             this.floorPlanButton.IconColor = System.Drawing.Color.White;
             this.floorPlanButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.floorPlanButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.floorPlanButton.Location = new System.Drawing.Point(0, 840);
+            this.floorPlanButton.Location = new System.Drawing.Point(0, 518);
             this.floorPlanButton.Name = "floorPlanButton";
-            this.floorPlanButton.Size = new System.Drawing.Size(200, 56);
+            this.floorPlanButton.Size = new System.Drawing.Size(194, 56);
             this.floorPlanButton.TabIndex = 7;
             this.floorPlanButton.Tag = "Floor Plan";
             this.floorPlanButton.Text = "Floor Plan";
@@ -87,9 +87,9 @@
             this.exitButton.IconColor = System.Drawing.Color.White;
             this.exitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.exitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitButton.Location = new System.Drawing.Point(0, 896);
+            this.exitButton.Location = new System.Drawing.Point(0, 574);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(200, 52);
+            this.exitButton.Size = new System.Drawing.Size(194, 52);
             this.exitButton.TabIndex = 6;
             this.exitButton.Tag = "Exit";
             this.exitButton.Text = "Exit";
@@ -109,10 +109,10 @@
             this.WeatherDataButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.WeatherDataButton.Location = new System.Drawing.Point(0, 130);
             this.WeatherDataButton.Name = "WeatherDataButton";
-            this.WeatherDataButton.Size = new System.Drawing.Size(200, 56);
+            this.WeatherDataButton.Size = new System.Drawing.Size(194, 56);
             this.WeatherDataButton.TabIndex = 3;
             this.WeatherDataButton.Tag = "Inside Temperature";
-            this.WeatherDataButton.Text = "Weather Data";
+            this.WeatherDataButton.Text = "          Weather Data\r\n\r\n";
             this.WeatherDataButton.UseVisualStyleBackColor = true;
             this.WeatherDataButton.Click += new System.EventHandler(this.insideButton_Click);
             // 
@@ -129,7 +129,7 @@
             this.homeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.homeButton.Location = new System.Drawing.Point(0, 74);
             this.homeButton.Name = "homeButton";
-            this.homeButton.Size = new System.Drawing.Size(200, 56);
+            this.homeButton.Size = new System.Drawing.Size(194, 56);
             this.homeButton.TabIndex = 2;
             this.homeButton.Tag = "Home";
             this.homeButton.Text = "Home";
@@ -144,7 +144,7 @@
             this.menuIcon.IconColor = System.Drawing.Color.White;
             this.menuIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.menuIcon.IconSize = 30;
-            this.menuIcon.Location = new System.Drawing.Point(116, 12);
+            this.menuIcon.Location = new System.Drawing.Point(107, 12);
             this.menuIcon.Name = "menuIcon";
             this.menuIcon.Size = new System.Drawing.Size(72, 41);
             this.menuIcon.TabIndex = 1;
@@ -165,34 +165,35 @@
             // 
             // homePanel1
             // 
+            this.homePanel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.homePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homePanel1.Location = new System.Drawing.Point(200, 0);
+            this.homePanel1.Location = new System.Drawing.Point(194, 0);
             this.homePanel1.Name = "homePanel1";
-            this.homePanel1.Size = new System.Drawing.Size(1129, 948);
+            this.homePanel1.Size = new System.Drawing.Size(594, 626);
             this.homePanel1.TabIndex = 1;
             // 
             // insidePanel1
             // 
             this.insidePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.insidePanel1.Location = new System.Drawing.Point(200, 0);
+            this.insidePanel1.Location = new System.Drawing.Point(194, 0);
             this.insidePanel1.Name = "insidePanel1";
-            this.insidePanel1.Size = new System.Drawing.Size(1129, 948);
+            this.insidePanel1.Size = new System.Drawing.Size(594, 626);
             this.insidePanel1.TabIndex = 2;
             // 
             // floorPlanPanel1
             // 
             this.floorPlanPanel1.BackColor = System.Drawing.Color.White;
             this.floorPlanPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.floorPlanPanel1.Location = new System.Drawing.Point(200, 0);
+            this.floorPlanPanel1.Location = new System.Drawing.Point(194, 0);
             this.floorPlanPanel1.Name = "floorPlanPanel1";
-            this.floorPlanPanel1.Size = new System.Drawing.Size(1129, 948);
+            this.floorPlanPanel1.Size = new System.Drawing.Size(594, 626);
             this.floorPlanPanel1.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1329, 948);
+            this.ClientSize = new System.Drawing.Size(788, 626);
             this.Controls.Add(this.floorPlanPanel1);
             this.Controls.Add(this.insidePanel1);
             this.Controls.Add(this.homePanel1);

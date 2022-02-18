@@ -45,12 +45,17 @@ namespace UI
 
         private void importButton_Click(object sender, EventArgs e)
         {
-            
-                ImportData import = new ImportData();
+            importMessageStatusBar.Text = "Importing .csv file....";
+            statusStrip1.Update();
+
+            ImportData import = new ImportData();
 
             import.ImportFile(textFilePath.Text);
-           
 
+            MessageBox.Show("ImportCompleted!");
+
+            importMessageStatusBar.Text = "";
+            statusStrip1.Update();
 
 
         }
