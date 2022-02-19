@@ -28,8 +28,8 @@ namespace DataAccess
                 {
                     csvDatum = csvTable.Rows[i][0].ToString(),
                     csvPlats = csvTable.Rows[i][1].ToString(),
-                    csvTemp = RemoveNonNumeric(csvTable.Rows[i][2].ToString()),
-                    csvLuftFuktighet = RemoveNonNumeric(csvTable.Rows[i][3].ToString())
+                    csvTemp = RemoveNonNumeric(csvTable.Rows[i][2].ToString().Trim()),
+                    csvLuftFuktighet = RemoveNonNumeric(csvTable.Rows[i][3].ToString().Trim())
                 });
             }
             return searches;
