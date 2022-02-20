@@ -50,6 +50,7 @@ namespace UI
             var maxDay = timywimy.Last();
             DateTime dayCount = minDay;
             int i = 1;
+            listView1.BeginUpdate();
             while (dayCount < maxDay)
             {
                 var places = dataCalculating.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
@@ -74,6 +75,7 @@ namespace UI
                 }
                 dayCount = dayCount.AddDays(1);
             }
+            listView1.EndUpdate();
             //if (insideCheckBox.Checked && !outsideCheckBox.Checked)
             //{
             //    List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature("Inne", year, month, day);
