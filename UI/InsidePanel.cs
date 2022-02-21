@@ -24,13 +24,13 @@ namespace UI
 
             //Column headers
 
-            listView1.View = View.Details;
-            listView1.Columns.Add("Date", 70, HorizontalAlignment.Left);
-            listView1.Columns.Add("Place", 40, HorizontalAlignment.Left);
-            listView1.Columns.Add("Temp", 40, HorizontalAlignment.Left);
-            listView1.Columns.Add("Hum", 40, HorizontalAlignment.Left);
-            listView1.Columns.Add("Mold Risk", 40, HorizontalAlignment.Left);
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            resultView.View = View.Details;
+            resultView.Columns.Add("Date", 70, HorizontalAlignment.Left);
+            resultView.Columns.Add("Place", 40, HorizontalAlignment.Left);
+            resultView.Columns.Add("Temp", 40, HorizontalAlignment.Left);
+            resultView.Columns.Add("Hum", 40, HorizontalAlignment.Left);
+            resultView.Columns.Add("Mold Risk", 40, HorizontalAlignment.Left);
+            resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             //Initialize ListViewer
 
@@ -56,14 +56,12 @@ namespace UI
 
                     int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
 
-                    item1.SubItems.Add(test);
-                    item1.SubItems.Add(Math.Round(avergageDayTemp.Average(), 2).ToString());
-                    item1.SubItems.Add(Math.Round(averageDayHum.Average(), 2).ToString());
-                    item1.SubItems.Add(moldrisk.ToString());
+                   string avgTemp = Math.Round(avergageDayTemp.Average(), 2).ToString();
+                   string avgHum = Math.Round(averageDayHum.Average(), 2).ToString();
+                   string moldRisk = moldrisk.ToString();
 
-                    listView1.Items.AddRange(new ListViewItem[] { item1 });
-                    listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-                    int etst = places.Distinct().Count();
+                   ListViewItem varItem = new ListViewItem(new string[] {dayCount.ToString(), test,avgTemp, avgHum, moldRisk });
+                    listView1.Items.Add(varItem);
 
                 }
                 dayCount = dayCount.AddDays(1);
@@ -73,7 +71,7 @@ namespace UI
 
         }
 
-
+        delegate void SetListViewCallBacks(string yourtext);
         private void showButton_Click(object sender, EventArgs e)
         {
             MoldCalculation mold = new();
@@ -98,8 +96,8 @@ namespace UI
                 item1.SubItems.Add(Math.Round(averageDayHum.Average(), 2).ToString());
                 item1.SubItems.Add(moldrisk.ToString());
 
-                listView1.Items.AddRange(new ListViewItem[] { item1 });
-                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                resultView.Items.AddRange(new ListViewItem[] { item1 });
+                resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             }
             else if (!insideCheckBox.Checked && outsideCheckBox.Checked)
@@ -115,8 +113,8 @@ namespace UI
                 item1.SubItems.Add(Math.Round(averageDayHum.Average(), 2).ToString());
                 item1.SubItems.Add(moldrisk.ToString());
 
-                listView1.Items.AddRange(new ListViewItem[] { item1 });
-                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                resultView.Items.AddRange(new ListViewItem[] { item1 });
+                resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             }
             else if (!insideCheckBox.Checked && !outsideCheckBox.Checked)
@@ -125,12 +123,15 @@ namespace UI
             }
             else
             {
-                MessageBox.Show("Please choose only one");
+                MessageBox.Show("Please choose only one option");
             }
 
 
         }
 
-
+        private void InsidePanel_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

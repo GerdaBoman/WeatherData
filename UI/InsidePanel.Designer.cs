@@ -41,7 +41,14 @@
             this.outsideCheckBox = new System.Windows.Forms.CheckBox();
             this.showButton = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.Date = new System.Windows.Forms.ColumnHeader();
+            this.Location = new System.Windows.Forms.ColumnHeader();
+            this.Temperature = new System.Windows.Forms.ColumnHeader();
+            this.Humidity = new System.Windows.Forms.ColumnHeader();
+            this.moldRisk = new System.Windows.Forms.ColumnHeader();
             this.label1 = new System.Windows.Forms.Label();
+            this.resultView = new System.Windows.Forms.ListView();
+            this.resultLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).BeginInit();
@@ -66,7 +73,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(358, 207);
+            this.dateTimePicker1.Location = new System.Drawing.Point(554, 153);
             this.dateTimePicker1.MaxDate = new System.DateTime(2016, 11, 30, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -77,7 +84,7 @@
             // insideCheckBox
             // 
             this.insideCheckBox.AutoSize = true;
-            this.insideCheckBox.Location = new System.Drawing.Point(358, 249);
+            this.insideCheckBox.Location = new System.Drawing.Point(554, 191);
             this.insideCheckBox.Name = "insideCheckBox";
             this.insideCheckBox.Size = new System.Drawing.Size(57, 19);
             this.insideCheckBox.TabIndex = 4;
@@ -87,7 +94,7 @@
             // outsideCheckBox
             // 
             this.outsideCheckBox.AutoSize = true;
-            this.outsideCheckBox.Location = new System.Drawing.Point(492, 249);
+            this.outsideCheckBox.Location = new System.Drawing.Point(688, 189);
             this.outsideCheckBox.Name = "outsideCheckBox";
             this.outsideCheckBox.Size = new System.Drawing.Size(66, 22);
             this.outsideCheckBox.TabIndex = 5;
@@ -97,7 +104,7 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(406, 305);
+            this.showButton.Location = new System.Drawing.Point(596, 230);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(75, 23);
             this.showButton.TabIndex = 6;
@@ -107,26 +114,71 @@
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Date,
+            this.Location,
+            this.Temperature,
+            this.Humidity,
+            this.moldRisk});
             this.listView1.Location = new System.Drawing.Point(34, 119);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(287, 308);
+            this.listView1.Size = new System.Drawing.Size(318, 347);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // Date
+            // 
+            this.Date.Text = "Date";
+            // 
+            // Location
+            // 
+            this.Location.Text = "Location";
+            // 
+            // Temperature
+            // 
+            this.Temperature.Text = "Temperature";
+            // 
+            // Humidity
+            // 
+            this.Humidity.Text = "Humidity";
+            // 
+            // moldRisk
+            // 
+            this.moldRisk.Text = "Mold Risk";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(349, 158);
+            this.label1.Location = new System.Drawing.Point(545, 119);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(231, 15);
             this.label1.TabIndex = 9;
             this.label1.Text = "Average Temperatur and Humidity per day";
             // 
+            // resultView
+            // 
+            this.resultView.Location = new System.Drawing.Point(523, 306);
+            this.resultView.Name = "resultView";
+            this.resultView.Size = new System.Drawing.Size(272, 121);
+            this.resultView.TabIndex = 10;
+            this.resultView.UseCompatibleStateImageBehavior = false;
+            // 
+            // resultLabel
+            // 
+            this.resultLabel.AutoSize = true;
+            this.resultLabel.Location = new System.Drawing.Point(526, 277);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(42, 15);
+            this.resultLabel.TabIndex = 11;
+            this.resultLabel.Text = "Result:";
+            // 
             // InsidePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.resultLabel);
+            this.Controls.Add(this.resultView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.showButton);
@@ -136,6 +188,7 @@
             this.Controls.Add(this.panelInsideLabel);
             this.Name = "InsidePanel";
             this.Size = new System.Drawing.Size(849, 568);
+            this.Load += new System.EventHandler(this.InsidePanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).EndInit();
@@ -162,5 +215,12 @@
         private BindingSource weatherBindingSource4;
         private ListView listView1;
         private Label label1;
+        private ListView resultView;
+        private Label resultLabel;
+        private ColumnHeader Date;
+        private ColumnHeader Location;
+        private ColumnHeader Temperature;
+        private ColumnHeader Humidity;
+        private ColumnHeader moldRisk;
     }
 }
