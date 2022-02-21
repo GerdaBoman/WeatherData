@@ -13,7 +13,6 @@ namespace DataAccess
     {
         public static List<SearchParameters> Filter(string connection) //Purpose: Read in the data from a CSV file 
         {
-            static string RemoveNonNumeric(string value) => Regex.Replace(value, "[^0-9.]", ""); //Made to remove any unwanted Char
 
             var searches = new List<SearchParameters>();
             var csvTable = new DataTable();
@@ -24,13 +23,26 @@ namespace DataAccess
 
             for (int i = 0; i < csvTable.Rows.Count; i++)//Goes through all the rows in said file and adds it to a list 
             {
-                searches.Add(new SearchParameters
+                switch(double.TryParse(csvTable.Rows[i][2].ToString().Trim(), out var value))
                 {
-                    csvDatum = csvTable.Rows[i][0].ToString(),
-                    csvPlats = csvTable.Rows[i][1].ToString(),
-                    csvTemp = RemoveNonNumeric(csvTable.Rows[i][2].ToString()),
-                    csvLuftFuktighet = RemoveNonNumeric(csvTable.Rows[i][3].ToString())
-                });
+                    case false:
+                        {
+                            break;
+                        }
+                        case true:
+                        {
+                            searches.Add(new SearchParameters
+                            {
+                                csvDatum = csvTable.Rows[i][0].ToString(),
+                                csvPlats = csvTable.Rows[i][1].ToString(),
+                                csvTemp = csvTable.Rows[i][2].ToString().Trim(),
+                                csvLuftFuktighet = csvTable.Rows[i][3].ToString().Trim()
+                            });
+                            break;
+                        }
+                }
+
+                
             }
             return searches;
         }

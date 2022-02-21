@@ -1,4 +1,5 @@
 ﻿using DataAccess.Data;
+using DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -33,6 +34,29 @@ namespace Core
                                                                               w.Datum.Month == (month) &&
                                                                               w.Datum.Day == (day))
                                               .Select(s => s.Luftfuktighet);
+
+                return weather.ToList();
+            }
+        }
+        public List<DateTime> date()
+        {
+
+            using var context = new RoboGenderContext();
+            {
+                var weather = context.Weathers.Select(s => s.Datum);
+
+                return weather.ToList();
+            }
+        }
+        public List<string> DailyPlace(int year, int month, int day)
+        {
+
+            using var context = new RoboGenderContext();
+            {
+                var weather = context.Weathers.Where(w => w.Datum.Year == (year) &&
+                                                                              w.Datum.Month == (month) &&
+                                                                              w.Datum.Day == (day))
+                                              .Select(s => s.Plats);
 
                 return weather.ToList();
             }
