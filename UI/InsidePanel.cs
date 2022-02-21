@@ -12,10 +12,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SortOrder = System.Windows.Forms.SortOrder;
 
 namespace UI
 {
-    public partial class InsidePanel : UserControl 
+    public partial class InsidePanel : UserControl
     {
         public bool listvieInitialize = ImportData.DataExsist();
         public InsidePanel()
@@ -113,4 +114,5 @@ namespace UI
 
         }
     }
+
 }

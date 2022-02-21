@@ -37,7 +37,6 @@
             this.groupName = new System.Windows.Forms.Label();
             this.homePanel3 = new UI.HomePanel();
             this.floorPlanPanel3 = new UI.FloorPlanPanel();
-            this.insidePanel2 = new UI.InsidePanel();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -181,14 +180,6 @@
             this.floorPlanPanel3.Size = new System.Drawing.Size(816, 602);
             this.floorPlanPanel3.TabIndex = 2;
             // 
-            // insidePanel2
-            // 
-            this.insidePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.insidePanel2.Location = new System.Drawing.Point(194, 0);
-            this.insidePanel2.Name = "insidePanel2";
-            this.insidePanel2.Size = new System.Drawing.Size(816, 602);
-            this.insidePanel2.TabIndex = 3;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -196,7 +187,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1010, 602);
-            this.Controls.Add(this.insidePanel2);
             this.Controls.Add(this.floorPlanPanel3);
             this.Controls.Add(this.homePanel3);
             this.Controls.Add(this.panelMenu);

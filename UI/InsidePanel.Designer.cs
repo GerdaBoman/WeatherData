@@ -68,10 +68,6 @@
             this.panelInsideLabel.TabIndex = 0;
             this.panelInsideLabel.Text = "Weather Data";
             // 
-            // weatherBindingSource4
-            // 
-            this.weatherBindingSource4.DataSource = typeof(DataAccess.Models.Weather);
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(633, 204);
@@ -132,26 +128,32 @@
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnIndexChanged);
             // 
             // Date
             // 
             this.Date.Text = "Date";
+            this.Date.Width = 100;
             // 
             // Location
             // 
             this.Location.Text = "Location";
+            this.Location.Width = 100;
             // 
             // Temperature
             // 
             this.Temperature.Text = "Temperature";
+            this.Temperature.Width = 100;
             // 
             // Humidity
             // 
             this.Humidity.Text = "Humidity";
+            this.Humidity.Width = 100;
             // 
             // moldRisk
             // 
             this.moldRisk.Text = "Mold Risk";
+            this.moldRisk.Width = 100;
             // 
             // label1
             // 
