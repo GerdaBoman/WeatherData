@@ -2,6 +2,7 @@
 using DataAccess;
 using Microsoft.Data.SqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class InsidePanel : UserControl
+    public partial class InsidePanel : UserControl 
     {
         
         public InsidePanel()
