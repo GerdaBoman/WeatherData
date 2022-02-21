@@ -96,8 +96,15 @@ namespace UI
         private void homeButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 form = new Form1();
-            form.ShowDialog();
+
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm is Form1)
+                {
+                    frm.Show();
+                    return;
+                }
+            }
         }
 
         private void WeatherDataButton_Click(object sender, EventArgs e)
@@ -108,6 +115,55 @@ namespace UI
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private ColumnHeader SortingColumn = null;
+
+        private void listView1_SelectedIndexChanged(object sender, ColumnClickEventArgs e)
+        {
+            ColumnHeader new_sorting_column = listView1.Columns[e.Column];
+
+            System.Windows.Forms.SortOrder sort_order;
+            if (SortingColumn == null)
+            {
+                sort_order = SortOrder.Ascending;
+            }
+            else
+            {
+                if (new_sorting_column == SortingColumn)
+                {
+                    if (SortingColumn.Text.StartsWith("> "))
+                    {
+                        sort_order = SortOrder.Descending;
+                    }
+                    else
+                    {
+                        sort_order = SortOrder.Ascending;
+                    }
+                }
+                else
+                {
+                    sort_order = SortOrder.Ascending;
+                }
+
+                SortingColumn.Text = SortingColumn.Text.Substring(2);
+            }
+
+            SortingColumn = new_sorting_column;
+
+            if (sort_order == SortOrder.Ascending)
+            {
+                SortingColumn.Text = "> " + SortingColumn.Text;
+            }
+            else
+            {
+                SortingColumn.Text = "< " + SortingColumn.Text;
+            }
+
+            listView1.ListViewItemSorter =
+            new ListViewComparer(e.Column, sort_order);
+
+            listView1.Sort();
         }
     }
 }

@@ -27,8 +27,18 @@ namespace UI
         private void insideButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            InsideForm insideForm = new InsideForm();
-            insideForm.ShowDialog();
+
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm is InsideForm)
+                {
+                    frm.Show();
+                    return;
+                }
+            }
+
+            InsideForm f2 = new InsideForm();
+            f2.Show();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
