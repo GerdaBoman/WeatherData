@@ -67,13 +67,9 @@
             this.panelInsideLabel.TabIndex = 0;
             this.panelInsideLabel.Text = "Weather Data";
             // 
-            // weatherBindingSource4
-            // 
-            this.weatherBindingSource4.DataSource = typeof(DataAccess.Models.Weather);
-            // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(554, 153);
+            this.dateTimePicker1.Location = new System.Drawing.Point(538, 177);
             this.dateTimePicker1.MaxDate = new System.DateTime(2016, 11, 30, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -84,7 +80,7 @@
             // insideCheckBox
             // 
             this.insideCheckBox.AutoSize = true;
-            this.insideCheckBox.Location = new System.Drawing.Point(554, 191);
+            this.insideCheckBox.Location = new System.Drawing.Point(538, 215);
             this.insideCheckBox.Name = "insideCheckBox";
             this.insideCheckBox.Size = new System.Drawing.Size(57, 19);
             this.insideCheckBox.TabIndex = 4;
@@ -94,7 +90,7 @@
             // outsideCheckBox
             // 
             this.outsideCheckBox.AutoSize = true;
-            this.outsideCheckBox.Location = new System.Drawing.Point(688, 189);
+            this.outsideCheckBox.Location = new System.Drawing.Point(672, 213);
             this.outsideCheckBox.Name = "outsideCheckBox";
             this.outsideCheckBox.Size = new System.Drawing.Size(66, 22);
             this.outsideCheckBox.TabIndex = 5;
@@ -104,7 +100,7 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(596, 230);
+            this.showButton.Location = new System.Drawing.Point(580, 254);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(75, 23);
             this.showButton.TabIndex = 6;
@@ -122,35 +118,42 @@
             this.moldRisk});
             this.listView1.Location = new System.Drawing.Point(34, 119);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(318, 347);
+            this.listView1.Size = new System.Drawing.Size(405, 347);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
+            
             // 
             // Date
             // 
             this.Date.Text = "Date";
+            this.Date.Width = 80;
             // 
             // Location
             // 
             this.Location.Text = "Location";
+            this.Location.Width = 80;
             // 
             // Temperature
             // 
             this.Temperature.Text = "Temperature";
+            this.Temperature.Width = 80;
             // 
             // Humidity
             // 
             this.Humidity.Text = "Humidity";
+            this.Humidity.Width = 80;
             // 
             // moldRisk
             // 
             this.moldRisk.Text = "Mold Risk";
+            this.moldRisk.Width = 80;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(545, 119);
+            this.label1.Location = new System.Drawing.Point(529, 143);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(231, 15);
             this.label1.TabIndex = 9;
@@ -158,7 +161,7 @@
             // 
             // resultView
             // 
-            this.resultView.Location = new System.Drawing.Point(523, 306);
+            this.resultView.Location = new System.Drawing.Point(510, 329);
             this.resultView.Name = "resultView";
             this.resultView.Size = new System.Drawing.Size(272, 121);
             this.resultView.TabIndex = 10;
@@ -167,7 +170,7 @@
             // resultLabel
             // 
             this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(526, 277);
+            this.resultLabel.Location = new System.Drawing.Point(510, 301);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(42, 15);
             this.resultLabel.TabIndex = 11;
@@ -188,7 +191,6 @@
             this.Controls.Add(this.panelInsideLabel);
             this.Name = "InsidePanel";
             this.Size = new System.Drawing.Size(849, 568);
-            this.Load += new System.EventHandler(this.InsidePanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).EndInit();

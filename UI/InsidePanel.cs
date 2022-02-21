@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SortOrder = System.Windows.Forms.SortOrder;
 
 namespace UI
 {
@@ -34,38 +35,38 @@ namespace UI
 
             //Initialize ListViewer
 
-            //    Avg_Calucations dataCalculating = new();
-            //    MoldCalculation mold = new();
+                Avg_Calucations dataCalculating = new();
+            MoldCalculation mold = new();
 
-            //    var timywimy = dataCalculating.date();
-            //    var minDay = timywimy.First();
-            //    var maxDay = timywimy.Last();
-            //    DateTime dayCount = minDay;
+            var timywimy = dataCalculating.date();
+            var minDay = timywimy.First();
+            var maxDay = timywimy.Last();
+            DateTime dayCount = minDay;
 
-            //    listView1.BeginUpdate();
+            listView1.BeginUpdate();
 
-            //    while (dayCount < maxDay)
-            //    {
-            //        var places = dataCalculating.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
-            //        var place = places.Distinct();
-            //        foreach (var test in place)
-            //        {
-            //            List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature(test, dayCount.Year, dayCount.Month, dayCount.Day);
-            //            List<double> averageDayHum = dataCalculating.Daily_AverageHumidity(test, dayCount.Year, dayCount.Month, dayCount.Day);
+            while (dayCount < maxDay)
+            {
+                var places = dataCalculating.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
+                var place = places.Distinct();
+                foreach (var test in place)
+                {
+                    List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature(test, dayCount.Year, dayCount.Month, dayCount.Day);
+                    List<double> averageDayHum = dataCalculating.Daily_AverageHumidity(test, dayCount.Year, dayCount.Month, dayCount.Day);
 
-            //            int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
+                    int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
 
-            //           string avgTemp = Math.Round(avergageDayTemp.Average(), 2).ToString();
-            //           string avgHum = Math.Round(averageDayHum.Average(), 2).ToString();
-            //           string moldRisk = moldrisk.ToString();
+                    string avgTemp = Math.Round(avergageDayTemp.Average(), 2).ToString();
+                    string avgHum = Math.Round(averageDayHum.Average(), 2).ToString();
+                    string moldRisk = moldrisk.ToString();
 
-            //           ListViewItem varItem = new(new string[] {dayCount.ToString().Substring(0, 10), test,avgTemp, avgHum, moldRisk });
-            //            listView1.Items.Add(varItem);
+                    ListViewItem varItem = new(new string[] { dayCount.ToString().Substring(0, 10), test, avgTemp, avgHum, moldRisk });
+                    listView1.Items.Add(varItem);
 
-            //        }
-            //        dayCount = dayCount.AddDays(1);
-            //    }
-            //    listView1.EndUpdate();
+                }
+                dayCount = dayCount.AddDays(1);
+            }
+            listView1.EndUpdate();
 
 
         }
@@ -102,10 +103,89 @@ namespace UI
 
 
         }
+        private ColumnHeader SortingColumn = null;
 
-        private void InsidePanel_Load(object sender, EventArgs e)
+        private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            
+            ColumnHeader new_sorting_column = listView1.Columns[e.Column];
+
+            System.Windows.Forms.SortOrder sort_order;
+            if (SortingColumn == null)
+            {
+                sort_order = SortOrder.Ascending;
+            }
+            else
+            {
+                if (new_sorting_column == SortingColumn)
+                {
+                    if (SortingColumn.Text.StartsWith("> "))
+                    {
+                        sort_order = SortOrder.Descending;
+                    }
+                    else
+                    {
+                        sort_order = SortOrder.Ascending;
+                    }
+                }
+                else
+                {
+                    sort_order = SortOrder.Ascending;
+                }
+
+                SortingColumn.Text = SortingColumn.Text.Substring(2);
+            }
+
+            SortingColumn = new_sorting_column;
+
+            if (sort_order == SortOrder.Ascending)
+            {
+                SortingColumn.Text = "> " + SortingColumn.Text;
+            }
+            else
+            {
+                SortingColumn.Text = "< " + SortingColumn.Text;
+            }
+
+            listView1.ListViewItemSorter =
+            new ListViewComparer(e.Column, sort_order);
+
+            listView1.Sort();
+
         }
+
+        class ListViewComparer : IComparer
+        {
+            private int col;
+            private SortOrder order;
+            public ListViewComparer()
+            {
+                col = 0;
+                order = SortOrder.Ascending;
+            }
+
+            public ListViewComparer(int column, SortOrder order)
+            {
+                col = column;
+                this.order = order;
+            }
+
+            public int Compare(object x, object y)
+            {
+                int returnVal = -1;
+                returnVal = String.Compare(((ListViewItem)x).SubItems[col].Text,
+                                           ((ListViewItem)y).SubItems[col].Text);
+
+                // Determine whether the sort order is descending.
+                if (order == SortOrder.Descending)
+                    // Invert the value returned by String.Compare.
+                    returnVal *= -1;
+
+                return returnVal;
+            }
+        }
+
+
+
     }
+    
 }
