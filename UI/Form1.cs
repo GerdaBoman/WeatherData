@@ -1,3 +1,4 @@
+using DataAccess;
 using DataAccess.Data;
 
 namespace UI
@@ -9,33 +10,25 @@ namespace UI
         
         public Form1()
         {
-
             var _context = new RoboGenderContext();
             _context.Database.EnsureCreated();
             InitializeComponent();
-            homePanel3.BringToFront();
-           
+
         }
         
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            homePanel3.Show();
-            homePanel3.BringToFront();
+            Form1 form = new Form1();
+            form.ShowDialog();
+               
         }
 
         private void insideButton_Click(object sender, EventArgs e)
         {
-            insidePanel2.Show();
-            insidePanel2.BringToFront();
-        }
-
-    
-
-        private void floorPlanButton_Click(object sender, EventArgs e)
-        {
-            floorPlanPanel3.Show();
-            floorPlanPanel3.BringToFront();
+            this.Hide();
+            InsideForm insideForm = new InsideForm();
+            insideForm.ShowDialog();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -43,6 +36,39 @@ namespace UI
             Application.Exit();
         }
 
-       
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new()
+            {
+                Title = "Select File",
+                FileName = textFilePath.Text,
+                Filter = "Excel Sheets (*.csv)|*.csv|All files(*.*)|*.*",
+                FilterIndex = 1,
+                RestoreDirectory = true
+            };
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                textFilePath.Text = openFileDialog.FileName;
+            }
+            else
+            {
+                textFilePath.Text = null;
+            }
+        }
+
+        private void importButton_Click(object sender, EventArgs e)
+        {
+            InsideForm inside = new InsideForm();
+            importMessageBar.Text = "Importing .csv file....";
+            statusStrip1.Update();
+
+            ImportData.ImportFile(textFilePath.Text);
+            inside.listvieInitialize = true;
+            MessageBox.Show("ImportCompleted!");
+
+            importMessageStatusBar.Text = "";
+            statusStrip1.Update();
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace UI
         public static ListViewItem listDaily(string place, int year, int month, int day)
         {
             MoldCalculation mold = new();
-            InsidePanel inside = new();
+            InsideForm inside = new();
            
             inside.listView1.BeginUpdate();
 

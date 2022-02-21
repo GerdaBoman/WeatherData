@@ -1,29 +1,15 @@
 ﻿using Core;
 using DataAccess;
-using Microsoft.Data.SqlClient;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using SortOrder = System.Windows.Forms.SortOrder;
+
 
 namespace UI
 {
-    public partial class InsidePanel : UserControl
+    public partial class InsideForm : Form
     {
         public bool listvieInitialize = ImportData.DataExsist();
-        public InsidePanel()
+        public InsideForm()
         {
             InitializeComponent();
-
-            //Column headers
 
             resultView.View = View.Details;
             resultView.Columns.Add("Date", 70, HorizontalAlignment.Left);
@@ -32,14 +18,7 @@ namespace UI
             resultView.Columns.Add("Hum", 40, HorizontalAlignment.Left);
             resultView.Columns.Add("Mold Risk", 40, HorizontalAlignment.Left);
             resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-
-            //Initialize ListViewer
-
-            
-
         }
-
-
 
         private void Reveal_Click(object sender, EventArgs e)
         {
@@ -83,9 +62,9 @@ namespace UI
         }
 
         delegate void SetListViewCallBacks(string yourtext);
+
         private void showButton_Click(object sender, EventArgs e)
         {
-
             int year = dateTimePicker1.Value.Year;
             int month = dateTimePicker1.Value.Month;
             int day = dateTimePicker1.Value.Day;
@@ -113,6 +92,22 @@ namespace UI
             }
 
         }
-    }
 
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 form = new Form1();
+            form.ShowDialog();
+        }
+
+        private void WeatherDataButton_Click(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
 }
