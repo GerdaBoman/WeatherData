@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Core
 {
     //Mold calcualation taken from https://pastebin.com/VXyATTWw
-    public class MoldCalcuation
+    public class MoldCalculation
     {
 //  0 = No risk
 //  1 = Mould growth possible after > 8 weeks
