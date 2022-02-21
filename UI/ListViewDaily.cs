@@ -13,13 +13,24 @@ namespace UI
         {
             MoldCalculation mold = new();
             InsideForm inside = new();
-           
+
             inside.listView1.BeginUpdate();
 
 
             List<double> avergageDayTemp = Avg_Calucations.Daily_AverageTemperature(place, year, month, day);
             List<double> averageDayHum = Avg_Calucations.Daily_AverageHumidity(place, year, month, day);
-            ListViewItem item1 = new($"{year}-{month}-{day}");
+            string dayLength = "";
+            ListViewItem item1 = new();
+            if (day.ToString().Count() == 1)
+            {
+                dayLength = $"0{day}";
+                item1 = new($"{year}-{month}-{dayLength}");
+
+            }
+            else
+            {
+                item1 = new($"{year}-{month}-{day}");
+            }
 
             int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
 
@@ -28,7 +39,7 @@ namespace UI
             item1.SubItems.Add(Math.Round(averageDayHum.Average(), 2).ToString());
             item1.SubItems.Add(moldrisk.ToString());
 
-            return item1 ;
+            return item1;
         }
     }
 }
