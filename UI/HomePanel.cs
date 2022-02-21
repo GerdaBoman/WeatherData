@@ -34,11 +34,12 @@ namespace UI
 
         private void importButton_Click(object sender, EventArgs e)
         {
+            InsidePanel inside  = new InsidePanel();
             importMessageStatusBar.Text = "Importing .csv file....";
             statusStrip1.Update();
 
             ImportData.ImportFile(textFilePath.Text);
-
+            inside.listvieInitialize=true;
             MessageBox.Show("ImportCompleted!");
 
             importMessageStatusBar.Text = "";

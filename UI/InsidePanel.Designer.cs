@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.resultView = new System.Windows.Forms.ListView();
             this.resultLabel = new System.Windows.Forms.Label();
+            this.Reveal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).BeginInit();
@@ -61,9 +62,9 @@
             // 
             this.panelInsideLabel.AutoSize = true;
             this.panelInsideLabel.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.panelInsideLabel.Location = new System.Drawing.Point(23, 24);
+            this.panelInsideLabel.Location = new System.Drawing.Point(26, 32);
             this.panelInsideLabel.Name = "panelInsideLabel";
-            this.panelInsideLabel.Size = new System.Drawing.Size(354, 72);
+            this.panelInsideLabel.Size = new System.Drawing.Size(442, 89);
             this.panelInsideLabel.TabIndex = 0;
             this.panelInsideLabel.Text = "Weather Data";
             // 
@@ -73,20 +74,22 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(554, 153);
+            this.dateTimePicker1.Location = new System.Drawing.Point(633, 204);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimePicker1.MaxDate = new System.DateTime(2016, 11, 30, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(228, 27);
             this.dateTimePicker1.TabIndex = 3;
             this.dateTimePicker1.Value = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             // 
             // insideCheckBox
             // 
             this.insideCheckBox.AutoSize = true;
-            this.insideCheckBox.Location = new System.Drawing.Point(554, 191);
+            this.insideCheckBox.Location = new System.Drawing.Point(633, 255);
+            this.insideCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.insideCheckBox.Name = "insideCheckBox";
-            this.insideCheckBox.Size = new System.Drawing.Size(57, 19);
+            this.insideCheckBox.Size = new System.Drawing.Size(70, 24);
             this.insideCheckBox.TabIndex = 4;
             this.insideCheckBox.Text = "Inside";
             this.insideCheckBox.UseVisualStyleBackColor = true;
@@ -94,9 +97,10 @@
             // outsideCheckBox
             // 
             this.outsideCheckBox.AutoSize = true;
-            this.outsideCheckBox.Location = new System.Drawing.Point(688, 189);
+            this.outsideCheckBox.Location = new System.Drawing.Point(786, 252);
+            this.outsideCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.outsideCheckBox.Name = "outsideCheckBox";
-            this.outsideCheckBox.Size = new System.Drawing.Size(66, 22);
+            this.outsideCheckBox.Size = new System.Drawing.Size(81, 26);
             this.outsideCheckBox.TabIndex = 5;
             this.outsideCheckBox.Text = "Outside";
             this.outsideCheckBox.UseCompatibleTextRendering = true;
@@ -104,9 +108,10 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(596, 230);
+            this.showButton.Location = new System.Drawing.Point(681, 307);
+            this.showButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.showButton.Name = "showButton";
-            this.showButton.Size = new System.Drawing.Size(75, 23);
+            this.showButton.Size = new System.Drawing.Size(86, 31);
             this.showButton.TabIndex = 6;
             this.showButton.Text = "Show";
             this.showButton.UseVisualStyleBackColor = true;
@@ -120,9 +125,10 @@
             this.Temperature,
             this.Humidity,
             this.moldRisk});
-            this.listView1.Location = new System.Drawing.Point(34, 119);
+            this.listView1.Location = new System.Drawing.Point(40, 160);
+            this.listView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(318, 347);
+            this.listView1.Size = new System.Drawing.Size(360, 460);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -150,33 +156,46 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(545, 119);
+            this.label1.Location = new System.Drawing.Point(623, 159);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(231, 15);
+            this.label1.Size = new System.Drawing.Size(292, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "Average Temperatur and Humidity per day";
             // 
             // resultView
             // 
-            this.resultView.Location = new System.Drawing.Point(523, 306);
+            this.resultView.Location = new System.Drawing.Point(598, 408);
+            this.resultView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.resultView.Name = "resultView";
-            this.resultView.Size = new System.Drawing.Size(272, 121);
+            this.resultView.Size = new System.Drawing.Size(310, 160);
             this.resultView.TabIndex = 10;
             this.resultView.UseCompatibleStateImageBehavior = false;
             // 
             // resultLabel
             // 
             this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(526, 277);
+            this.resultLabel.Location = new System.Drawing.Point(601, 369);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(42, 15);
+            this.resultLabel.Size = new System.Drawing.Size(52, 20);
             this.resultLabel.TabIndex = 11;
             this.resultLabel.Text = "Result:";
             // 
+            // Reveal
+            // 
+            this.Reveal.Location = new System.Drawing.Point(169, 120);
+            this.Reveal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Reveal.Name = "Reveal";
+            this.Reveal.Size = new System.Drawing.Size(86, 31);
+            this.Reveal.TabIndex = 12;
+            this.Reveal.Text = "Reveal";
+            this.Reveal.UseVisualStyleBackColor = true;
+            this.Reveal.Click += new System.EventHandler(this.Reveal_Click);
+            // 
             // InsidePanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Reveal);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.resultView);
             this.Controls.Add(this.label1);
@@ -186,9 +205,9 @@
             this.Controls.Add(this.insideCheckBox);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.panelInsideLabel);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "InsidePanel";
-            this.Size = new System.Drawing.Size(849, 568);
-            this.Load += new System.EventHandler(this.InsidePanel_Load);
+            this.Size = new System.Drawing.Size(970, 757);
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).EndInit();
@@ -222,5 +241,6 @@
         private ColumnHeader Temperature;
         private ColumnHeader Humidity;
         private ColumnHeader moldRisk;
+        private Button Reveal;
     }
 }

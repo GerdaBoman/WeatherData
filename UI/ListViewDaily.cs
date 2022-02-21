@@ -13,13 +13,12 @@ namespace UI
         {
             MoldCalculation mold = new();
             InsidePanel inside = new();
-            Avg_Calucations dataCalculating = new();
            
             inside.listView1.BeginUpdate();
 
 
-            List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature(place, year, month, day);
-            List<double> averageDayHum = dataCalculating.Daily_AverageHumidity(place, year, month, day);
+            List<double> avergageDayTemp = Avg_Calucations.Daily_AverageTemperature(place, year, month, day);
+            List<double> averageDayHum = Avg_Calucations.Daily_AverageHumidity(place, year, month, day);
             ListViewItem item1 = new($"{year}-{month}-{day}");
 
             int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));

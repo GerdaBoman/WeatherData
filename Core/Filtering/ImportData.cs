@@ -1,4 +1,5 @@
-﻿using LumenWorks.Framework.IO.Csv;
+﻿using DataAccess.Data;
+using LumenWorks.Framework.IO.Csv;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Text.RegularExpressions;
@@ -30,6 +31,12 @@ namespace DataAccess
                 cmd.ExecuteNonQuery();
             }
             importtest.Close();
+        }
+        public static bool DataExsist()
+        {
+            RoboGenderContext context = new();
+            var exsist = context.Weathers.Any();
+            return exsist;
         }
 
     }

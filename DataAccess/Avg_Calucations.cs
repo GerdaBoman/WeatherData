@@ -11,7 +11,7 @@ namespace Core
 {
     public class Avg_Calucations //Purpose: send data out of DataAccess
     {//has not yet figured out how to send out 2 columns in 1 list
-        public List<double> Daily_AverageTemperature(string place, int year, int month, int day)
+        public static List<double> Daily_AverageTemperature(string place, int year, int month, int day)
         {
 
             using var context = new RoboGenderContext();
@@ -25,7 +25,7 @@ namespace Core
             }
         }
 
-        public List<double> Daily_AverageHumidity(string place, int year,int month, int day)
+        public static List<double> Daily_AverageHumidity(string place, int year,int month, int day)
         {
 
             using var context = new RoboGenderContext();
@@ -38,7 +38,7 @@ namespace Core
                 return weather.ToList();
             }
         }
-        public List<DateTime> date()
+        public static List<DateTime> date()
         {
 
             using var context = new RoboGenderContext();
@@ -48,7 +48,7 @@ namespace Core
                 return weather.ToList();
             }
         }
-        public List<string> DailyPlace(int year, int month, int day)
+        public static List<string> DailyPlace(int year, int month, int day)
         {
 
             using var context = new RoboGenderContext();

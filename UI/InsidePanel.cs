@@ -17,7 +17,7 @@ namespace UI
 {
     public partial class InsidePanel : UserControl 
     {
-
+        public bool listvieInitialize = ImportData.DataExsist();
         public InsidePanel()
         {
             InitializeComponent();
@@ -34,40 +34,51 @@ namespace UI
 
             //Initialize ListViewer
 
-            //    Avg_Calucations dataCalculating = new();
-            //    MoldCalculation mold = new();
+            
 
-            //    var timywimy = dataCalculating.date();
-            //    var minDay = timywimy.First();
-            //    var maxDay = timywimy.Last();
-            //    DateTime dayCount = minDay;
-
-            //    listView1.BeginUpdate();
-
-            //    while (dayCount < maxDay)
-            //    {
-            //        var places = dataCalculating.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
-            //        var place = places.Distinct();
-            //        foreach (var test in place)
-            //        {
-            //            List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature(test, dayCount.Year, dayCount.Month, dayCount.Day);
-            //            List<double> averageDayHum = dataCalculating.Daily_AverageHumidity(test, dayCount.Year, dayCount.Month, dayCount.Day);
-
-            //            int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
-
-            //           string avgTemp = Math.Round(avergageDayTemp.Average(), 2).ToString();
-            //           string avgHum = Math.Round(averageDayHum.Average(), 2).ToString();
-            //           string moldRisk = moldrisk.ToString();
-
-            //           ListViewItem varItem = new(new string[] {dayCount.ToString().Substring(0, 10), test,avgTemp, avgHum, moldRisk });
-            //            listView1.Items.Add(varItem);
-
-            //        }
-            //        dayCount = dayCount.AddDays(1);
-            //    }
-            //    listView1.EndUpdate();
+        }
 
 
+
+        private void Reveal_Click(object sender, EventArgs e)
+        {
+            switch (listvieInitialize)
+            {
+                case true:
+                    {
+
+                        var timywimy = Avg_Calucations.date();
+                        var minDay = timywimy.First();
+                        var maxDay = timywimy.Last();
+                        DateTime dayCount = minDay;
+
+                        listView1.BeginUpdate();
+
+
+
+                        while (dayCount < maxDay)
+                        {
+                            var places = Avg_Calucations.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
+                            var place = places.Distinct();
+                            foreach (var test in place)
+                            {
+                                listView1.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily(test, dayCount.Year, dayCount.Month, dayCount.Day) });
+                                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                                int etst = places.Distinct().Count();
+                            }
+                            dayCount = dayCount.AddDays(1);
+                        }
+                        listView1.EndUpdate();
+
+                        break;
+                    }
+                case false:
+                    {
+                        break;
+                    }
+            }
+
+            listView1.EndUpdate();
         }
 
         delegate void SetListViewCallBacks(string yourtext);
@@ -100,12 +111,6 @@ namespace UI
                 MessageBox.Show("Please choose only one option");
             }
 
-
-        }
-
-        private void InsidePanel_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }
