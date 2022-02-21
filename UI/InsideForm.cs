@@ -132,7 +132,7 @@ namespace UI
             {
                 if (new_sorting_column == SortingColumn)
                 {
-                    if (SortingColumn.Text.StartsWith("> "))
+                    if (SortingColumn.Text.StartsWith("↑ "))
                     {
                         sort_order = SortOrder.Descending;
                     }
@@ -153,11 +153,11 @@ namespace UI
 
             if (sort_order == SortOrder.Ascending)
             {
-                SortingColumn.Text = "> " + SortingColumn.Text;
+                SortingColumn.Text = "↑ " + SortingColumn.Text;
             }
             else
             {
-                SortingColumn.Text = "< " + SortingColumn.Text;
+                SortingColumn.Text = "↓ " + SortingColumn.Text;
             }
 
             listView1.ListViewItemSorter =
