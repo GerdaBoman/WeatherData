@@ -36,7 +36,8 @@ namespace DataAccess.Data
         {
             modelBuilder.Entity<Weather>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.Datum, e.Plats })
+                    .HasName("PK__weather__57CEE3F82B0E9861");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -213,7 +213,7 @@
         private CheckBox outsideCheckBox;
         private Button showButton;
         private BindingSource weatherBindingSource4;
-        private ListView listView1;
+        public ListView listView1;
         private Label label1;
         private ListView resultView;
         private Label resultLabel;

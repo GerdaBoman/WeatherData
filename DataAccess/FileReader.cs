@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -23,13 +24,26 @@ namespace DataAccess
 
             for (int i = 0; i < csvTable.Rows.Count; i++)//Goes through all the rows in said file and adds it to a list 
             {
-                switch(double.TryParse(csvTable.Rows[i][2].ToString().Trim(), out var value))
+                switch(double.TryParse(csvTable.Rows[i][2].ToString().Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out var value))
                 {
                     case false:
                         {
+                            for (int backwars = i - 1; backwars == 0; backwars--)
+                            {
+                                if (csvTable.Rows[backwars][1].ToString() == csvTable.Rows[i][1].ToString())
+                                {
+                                    searches.Add(new SearchParameters
+                                    {
+                                        csvDatum = csvTable.Rows[i][0].ToString(),
+                                        csvPlats = csvTable.Rows[i][1].ToString(),
+                                        csvTemp = csvTable.Rows[backwars][2].ToString().Trim(),
+                                        csvLuftFuktighet = csvTable.Rows[i][3].ToString().Trim()
+                                    });
+                                }
+                            }
                             break;
                         }
-                        case true:
+                    case true:
                         {
                             searches.Add(new SearchParameters
                             {
@@ -50,7 +64,7 @@ namespace DataAccess
         {
 
 
-            var GroupByMultipleKeysMS = searches.GroupBy(x => new { x.csvDatum, x.csvPlats, x.csvTemp }) //Looks for all duplicates 
+            var GroupByMultipleKeysMS = searches.GroupBy(x => new { x.csvDatum, x.csvPlats }) //Looks for all duplicates 
                                                     .Where(g => g.Count() > 1)
                                                     .Select(x => x.Key);
             while (GroupByMultipleKeysMS.Any()) 

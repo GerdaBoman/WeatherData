@@ -34,39 +34,38 @@ namespace UI
 
             //Initialize ListViewer
 
-            Avg_Calucations dataCalculating = new Avg_Calucations();
-            MoldCalculation mold = new();
+            //    Avg_Calucations dataCalculating = new();
+            //    MoldCalculation mold = new();
 
-            var timywimy = dataCalculating.date();
-            var minDay = timywimy.First();
-            var maxDay = timywimy.Last();
-            DateTime dayCount = minDay;
-            int i = 1;
-            listView1.BeginUpdate();
+            //    var timywimy = dataCalculating.date();
+            //    var minDay = timywimy.First();
+            //    var maxDay = timywimy.Last();
+            //    DateTime dayCount = minDay;
 
-            while (dayCount < maxDay)
-            {
-                var places = dataCalculating.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
-                var place = places.Distinct();
-                foreach (var test in place)
-                {
-                    List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature(test, dayCount.Year, dayCount.Month, dayCount.Day);
-                    List<double> averageDayHum = dataCalculating.Daily_AverageHumidity(test, dayCount.Year, dayCount.Month, dayCount.Day);
-                    ListViewItem item1 = new ListViewItem(dayCount.ToString().Substring(0, 10));
+            //    listView1.BeginUpdate();
 
-                    int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
+            //    while (dayCount < maxDay)
+            //    {
+            //        var places = dataCalculating.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
+            //        var place = places.Distinct();
+            //        foreach (var test in place)
+            //        {
+            //            List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature(test, dayCount.Year, dayCount.Month, dayCount.Day);
+            //            List<double> averageDayHum = dataCalculating.Daily_AverageHumidity(test, dayCount.Year, dayCount.Month, dayCount.Day);
 
-                   string avgTemp = Math.Round(avergageDayTemp.Average(), 2).ToString();
-                   string avgHum = Math.Round(averageDayHum.Average(), 2).ToString();
-                   string moldRisk = moldrisk.ToString();
+            //            int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
 
-                   ListViewItem varItem = new ListViewItem(new string[] {dayCount.ToString(), test,avgTemp, avgHum, moldRisk });
-                    listView1.Items.Add(varItem);
+            //           string avgTemp = Math.Round(avergageDayTemp.Average(), 2).ToString();
+            //           string avgHum = Math.Round(averageDayHum.Average(), 2).ToString();
+            //           string moldRisk = moldrisk.ToString();
 
-                }
-                dayCount = dayCount.AddDays(1);
-            }
-            listView1.EndUpdate();
+            //           ListViewItem varItem = new(new string[] {dayCount.ToString().Substring(0, 10), test,avgTemp, avgHum, moldRisk });
+            //            listView1.Items.Add(varItem);
+
+            //        }
+            //        dayCount = dayCount.AddDays(1);
+            //    }
+            //    listView1.EndUpdate();
 
 
         }
@@ -74,46 +73,21 @@ namespace UI
         delegate void SetListViewCallBacks(string yourtext);
         private void showButton_Click(object sender, EventArgs e)
         {
-            MoldCalculation mold = new();
-            DateTime dateTime = dateTimePicker1.Value;
 
             int year = dateTimePicker1.Value.Year;
             int month = dateTimePicker1.Value.Month;
             int day = dateTimePicker1.Value.Day;
-            Avg_Calucations dataCalculating = new Avg_Calucations();
 
 
             if (insideCheckBox.Checked && !outsideCheckBox.Checked)
             {
-                List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature("Inne", year, month, day);
-                List<double> averageDayHum = dataCalculating.Daily_AverageHumidity("Inne", year, month, day);
-                ListViewItem item1 = new ListViewItem(dateTime.ToString().Substring(0, 10));
-
-                int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
-
-                item1.SubItems.Add("Inne");
-                item1.SubItems.Add(Math.Round(avergageDayTemp.Average(), 2).ToString());
-                item1.SubItems.Add(Math.Round(averageDayHum.Average(), 2).ToString());
-                item1.SubItems.Add(moldrisk.ToString());
-
-                resultView.Items.AddRange(new ListViewItem[] { item1 });
+                resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Inne", year, month, day) });
                 resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             }
             else if (!insideCheckBox.Checked && outsideCheckBox.Checked)
             {
-                List<double> avergageDayTemp = dataCalculating.Daily_AverageTemperature("Ute", year, month, day);
-                List<double> averageDayHum = dataCalculating.Daily_AverageHumidity("Ute", year, month, day);
-                ListViewItem item1 = new ListViewItem(dateTime.ToString().Substring(0, 10));
-
-                int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
-
-                item1.SubItems.Add("Ute");
-                item1.SubItems.Add(Math.Round(avergageDayTemp.Average(), 2).ToString());
-                item1.SubItems.Add(Math.Round(averageDayHum.Average(), 2).ToString());
-                item1.SubItems.Add(moldrisk.ToString());
-
-                resultView.Items.AddRange(new ListViewItem[] { item1 });
+                resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Ute", year, month, day) });
                 resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             }
