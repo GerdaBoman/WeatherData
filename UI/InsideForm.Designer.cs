@@ -351,7 +351,7 @@
             this.Controls.Add(this.panelMenu);
             this.Name = "InsideForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "InsideForm";
+            this.Text = "Weather Data";
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).EndInit();
