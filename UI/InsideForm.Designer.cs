@@ -56,6 +56,9 @@
             this.roboGenderContextBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.outsideCheckBox = new System.Windows.Forms.CheckBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.statusStripInside = new System.Windows.Forms.StatusStrip();
+            this.updatingListViewMessage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.updateMessageStrip = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource3)).BeginInit();
@@ -63,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).BeginInit();
+            this.statusStripInside.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -294,11 +298,35 @@
             this.dateTimePicker1.TabIndex = 14;
             this.dateTimePicker1.Value = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             // 
+            // statusStripInside
+            // 
+            this.statusStripInside.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updatingListViewMessage,
+            this.updateMessageStrip});
+            this.statusStripInside.Location = new System.Drawing.Point(194, 616);
+            this.statusStripInside.Name = "statusStripInside";
+            this.statusStripInside.Size = new System.Drawing.Size(750, 22);
+            this.statusStripInside.TabIndex = 23;
+            this.statusStripInside.Text = "statusStripInside";
+            // 
+            // updatingListViewMessage
+            // 
+            this.updatingListViewMessage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.updatingListViewMessage.Name = "updatingListViewMessage";
+            this.updatingListViewMessage.Size = new System.Drawing.Size(0, 17);
+            // 
+            // updateMessageStrip
+            // 
+            this.updateMessageStrip.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.updateMessageStrip.Name = "updateMessageStrip";
+            this.updateMessageStrip.Size = new System.Drawing.Size(0, 17);
+            // 
             // InsideForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 638);
+            this.Controls.Add(this.statusStripInside);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.Reveal);
             this.Controls.Add(this.resultLabel);
@@ -321,6 +349,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).EndInit();
+            this.statusStripInside.ResumeLayout(false);
+            this.statusStripInside.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,5 +385,8 @@
         private BindingSource roboGenderContextBindingSource;
         private CheckBox outsideCheckBox;
         private DateTimePicker dateTimePicker1;
+        private StatusStrip statusStripInside;
+        private ToolStripStatusLabel updatingListViewMessage;
+        private ToolStripStatusLabel updateMessageStrip;
     }
 }

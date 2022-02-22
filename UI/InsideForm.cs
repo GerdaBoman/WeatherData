@@ -33,6 +33,9 @@ namespace UI
                         var maxDay = timywimy.Last();
                         DateTime dayCount = minDay;
 
+                        updateMessageStrip.Text = "Updating Data List....";
+                        statusStripInside.Update();
+
                         listView1.BeginUpdate();
 
 
@@ -50,6 +53,8 @@ namespace UI
                             dayCount = dayCount.AddDays(1);
                         }
                         listView1.EndUpdate();
+                        updateMessageStrip.Text = "";
+                        statusStripInside.Update();
 
                         break;
                     }
