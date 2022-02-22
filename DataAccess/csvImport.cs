@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-    public class Avg_Calucations //Purpose: send data out of DataAccess
+    public class csvImport //Purpose: send data out of DataAccess
     {//has not yet figured out how to send out 2 columns in 1 list
         public static List<double> Daily_AverageTemperature(string place, int year, int month, int day)
         {

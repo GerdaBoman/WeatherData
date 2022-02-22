@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DataAccess.Models
 {
     [Keyless]
-    public partial class WeatherAvrage
+    public partial class WeatherAverage
     {
         public DateTime Date { get; set; }
         [StringLength(50)]

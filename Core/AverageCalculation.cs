@@ -1,37 +1,27 @@
-﻿using Core;
+﻿using DataAccess.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UI
+namespace Core
 {
-    public class ListViewDaily
+    public class AverageCalculation
     {
-        public static ListViewItem listDaily(string place, int year, int month, int day, List<double> dayLenght, int seasonCheck)
+        public static WeatherAverage average(string place, int year, int month, int day, List<double> dayLenght, int seasonCheck)
         {
             MoldCalculation mold = new();
-            InsideForm inside = new();
-
-            inside.listView1.BeginUpdate();
-
-
 
             List<double> avergageDayTemp = csvImport.Daily_AverageTemperature(place, year, month, day);
             List<double> averageDayHum = csvImport.Daily_AverageHumidity(place, year, month, day);
 
-            ListViewItem item1 = new();
-            if (day.ToString().Length == 1)
-            {
-                string dayLength = $"0{day}";
-                item1 = new($"{year}-{month}-{dayLength}");
+            WeatherAverage item1 = new();
+            string
 
-            }
-            else
-            {
-                item1 = new($"{year}-{month}-{day}");
-            }
+                date = new($"{year}-{month}-{day}");
+
             int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
 
             if (place.Trim() == "Ute")
@@ -69,11 +59,12 @@ namespace UI
                 case 1:
                     { season = "Fall"; break; }
             }
-            item1.SubItems.Add(place);
-            item1.SubItems.Add(Math.Round(avergageDayTemp.Average(), 2).ToString());
-            item1.SubItems.Add(Math.Round(averageDayHum.Average(), 2).ToString());
-            item1.SubItems.Add(moldrisk.ToString());
-            item1.SubItems.Add(season);
+            item1.Date = DateTime.ParseExact(date, "yyyy-M-d", CultureInfo.InvariantCulture);
+            item1.Place = place;
+            item1.TempAverage = avergageDayTemp.Average();
+            item1.HumAverage = averageDayHum.Average();
+            item1.MoldRisk = moldrisk;
+            item1.Seasons = season;
 
             return item1;
         }

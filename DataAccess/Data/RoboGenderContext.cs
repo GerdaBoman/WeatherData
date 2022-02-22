@@ -20,9 +20,7 @@ namespace DataAccess.Data
         }
 
         public virtual DbSet<Weather> Weathers { get; set; } = null!;
-        public virtual DbSet<WeatherAvrage> WeatherAvrages { get; set; } = null!;
 
-        public virtual DbSet<Weather> Weathers { get; set; } = null!;
         public virtual DbSet<WeatherAverage> WeatherAverages { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

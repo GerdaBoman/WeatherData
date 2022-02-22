@@ -1,3 +1,4 @@
+using Core;
 using DataAccess;
 using DataAccess.Data;
 
@@ -77,8 +78,29 @@ namespace UI
                 importMessageBar.Text = "Importing .csv file....";
                 statusStrip1.Update();
 
-                ImportData.EFImport(textFilePath.Text);
-                inside.listvieInitialize = true;
+                csvFormatting.EFImport(textFilePath.Text);
+                var timywimy = Core.csvImport.date();
+                var minDay = timywimy.First();
+                var maxDay = timywimy.Last();
+                DateTime dayCount = minDay;
+
+               
+
+
+                List<double> dayLenght = new();
+
+                while (dayCount < maxDay)
+                {
+                    var places = Core.csvImport.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
+                    var place = places.Distinct();
+                    foreach (var test in place)
+                    {
+                      AvrageImport.AvrageDB(AverageCalculation.average(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3));
+                       
+                    }
+                    dayCount = dayCount.AddDays(1);
+                }
+
                 MessageBox.Show("ImportCompleted!");
 
                 importMessageStatusBar.Text = "";

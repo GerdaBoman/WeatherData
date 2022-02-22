@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class FileReader
+    public class csvFilter
     {
         public  List<SearchParameters> Filter(string connection) //Purpose: Read in the data from a CSV file 
         {

@@ -6,7 +6,6 @@ namespace UI
 {
     public partial class InsideForm : Form
     {
-        public bool listvieInitialize = ImportData.DataExsist();
 
         public InsideForm()
         {
@@ -25,57 +24,50 @@ namespace UI
 
         private void Reveal_Click(object sender, EventArgs e)
         {
-            switch (listvieInitialize)
+
+
+            var timywimy = Core.csvImport.date();
+            var minDay = timywimy.First();
+            var maxDay = timywimy.Last();
+            DateTime dayCount = minDay;
+
+            updateMessageStrip.Text = "Updating Data List....";
+            statusStripInside.Update();
+
+            listView1.BeginUpdate();
+
+
+            List<double> dayLenght = new();
+
+            while (dayCount < maxDay)
             {
-                case true:
-                    {
-
-                        var timywimy = Avg_Calucations.date();
-                        var minDay = timywimy.First();
-                        var maxDay = timywimy.Last();
-                        DateTime dayCount = minDay;
-
-                        updateMessageStrip.Text = "Updating Data List....";
-                        statusStripInside.Update();
-
-                        listView1.BeginUpdate();
-
-
-                        List<double> dayLenght = new();
-
-                        while (dayCount < maxDay)
-                        {
-                            var places = Avg_Calucations.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
-                            var place = places.Distinct();
-                            foreach (var test in place)
-                            {
-                                listView1.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily(test, dayCount.Year, dayCount.Month, dayCount.Day,dayLenght,3) });
-                                listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-                                int etst = places.Distinct().Count();
-                            }
-                            dayCount = dayCount.AddDays(1);
-                        }
-                        listView1.EndUpdate();
-
-                        updateMessageStrip.Text = "";
-                        statusStripInside.Update();
-
-                        break;
-                    }
-                case false:
-                    {
-                        break;
-                    }
+                var places = Core.csvImport.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
+                var place = places.Distinct();
+                foreach (var test in place)
+                {
+                    listView1.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3) });
+                    listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                    int etst = places.Distinct().Count();
+                }
+                dayCount = dayCount.AddDays(1);
             }
+            listView1.EndUpdate();
+
+            updateMessageStrip.Text = "";
+            statusStripInside.Update();
 
             listView1.EndUpdate();
+
         }
+
+
+
 
         delegate void SetListViewCallBacks(string yourtext);
 
         private void showButton_Click(object sender, EventArgs e)
         {
-            List<double> dayLenght = new ();
+            List<double> dayLenght = new();
             int year = dateTimePicker1.Value.Year;
             int month = dateTimePicker1.Value.Month;
             int day = dateTimePicker1.Value.Day;
@@ -83,13 +75,13 @@ namespace UI
 
             if (insideCheckBox.Checked && !outsideCheckBox.Checked)
             {
-                resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Inne", year, month, day,dayLenght,3) });
+                resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Inne", year, month, day, dayLenght, 3) });
                 resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             }
             else if (!insideCheckBox.Checked && outsideCheckBox.Checked)
             {
-                resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Ute", year, month, day,dayLenght,3) });
+                resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Ute", year, month, day, dayLenght, 3) });
                 resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             }
@@ -177,8 +169,8 @@ namespace UI
             listView1.Sort();
         }
 
-        
 
-        
+
+
     }
 }
