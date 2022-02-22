@@ -77,7 +77,7 @@ namespace UI
                 importMessageBar.Text = "Importing .csv file....";
                 statusStrip1.Update();
 
-                ImportData.ImportFile(textFilePath.Text);
+                ImportData.EFImport(textFilePath.Text);
                 inside.listvieInitialize = true;
                 MessageBox.Show("ImportCompleted!");
 

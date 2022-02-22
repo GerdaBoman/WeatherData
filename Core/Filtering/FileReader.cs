@@ -12,7 +12,7 @@ namespace DataAccess
 {
     public class FileReader
     {
-        public static List<SearchParameters> Filter(string connection) //Purpose: Read in the data from a CSV file 
+        public  List<SearchParameters> Filter(string connection) //Purpose: Read in the data from a CSV file 
         {
 
             var searches = new List<SearchParameters>();
@@ -60,7 +60,7 @@ namespace DataAccess
             }
             return searches;
         }
-        public static List<SearchParameters> Procesor(List<SearchParameters> searches) //Purpose: Remove all duplicates 
+        public  List<SearchParameters> Procesor(List<SearchParameters> searches) //Purpose: Remove all duplicates 
         {
 
 
