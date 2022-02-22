@@ -4,6 +4,8 @@ using DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
+using DataAccess.Models;
+
 namespace DataAccess.Data
 {
     public partial class RoboGenderContext : DbContext
@@ -20,6 +22,9 @@ namespace DataAccess.Data
         public virtual DbSet<Weather> Weathers { get; set; } = null!;
         public virtual DbSet<WeatherAvrage> WeatherAvrages { get; set; } = null!;
 
+        public virtual DbSet<Weather> Weathers { get; set; } = null!;
+        public virtual DbSet<WeatherAverage> WeatherAverages { get; set; } = null!;
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -35,6 +40,12 @@ namespace DataAccess.Data
             {
                 entity.HasKey(e => new { e.Datum, e.Plats })
                     .HasName("PK__weather__57CEE3F82B0E9861");
+            });
+
+            modelBuilder.Entity<WeatherAverage>(entity =>
+            {
+                entity.HasKey(e => new { e.Date, e.Place })
+                    .HasName("PK__WeatherA__EF09729F51E9F0EE");
             });
 
             OnModelCreatingPartial(modelBuilder);
