@@ -59,6 +59,16 @@ namespace UI
                     else
                         returnVal = 0;
                     break;
+                case MoldRiskHeader:
+                    int firstNum = int.Parse(((ListViewItem)x).SubItems[col].Text);
+                    int secondNum = int.Parse(((ListViewItem)y).SubItems[col].Text);
+                    if (firstNum < secondNum)
+                        returnVal = -1;
+                    else if (firstNum > secondNum)
+                        returnVal = 1;
+                    else
+                        returnVal = 0;
+                    break;
 
             }
 
