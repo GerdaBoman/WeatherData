@@ -1,12 +1,13 @@
 ﻿using Core;
 using DataAccess;
-
+using System.Collections;
 
 namespace UI
 {
     public partial class InsideForm : Form
     {
         public bool listvieInitialize = ImportData.DataExsist();
+
         public InsideForm()
         {
             InitializeComponent();
@@ -165,5 +166,9 @@ namespace UI
 
             listView1.Sort();
         }
+
+        
+
+        
     }
 }
