@@ -17,6 +17,8 @@ namespace UI
             resultView.Columns.Add("Temp", 40, HorizontalAlignment.Left);
             resultView.Columns.Add("Hum", 40, HorizontalAlignment.Left);
             resultView.Columns.Add("Mold Risk", 40, HorizontalAlignment.Left);
+            resultView.Columns.Add("Season", 40, HorizontalAlignment.Left);
+
             resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
@@ -35,6 +37,7 @@ namespace UI
                         listView1.BeginUpdate();
 
 
+                        List<double> dayLenght = new();
 
                         while (dayCount < maxDay)
                         {
@@ -42,7 +45,7 @@ namespace UI
                             var place = places.Distinct();
                             foreach (var test in place)
                             {
-                                listView1.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily(test, dayCount.Year, dayCount.Month, dayCount.Day) });
+                                listView1.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily(test, dayCount.Year, dayCount.Month, dayCount.Day,dayLenght,3) });
                                 listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                                 int etst = places.Distinct().Count();
                             }
@@ -65,6 +68,7 @@ namespace UI
 
         private void showButton_Click(object sender, EventArgs e)
         {
+            List<double> dayLenght = new ();
             int year = dateTimePicker1.Value.Year;
             int month = dateTimePicker1.Value.Month;
             int day = dateTimePicker1.Value.Day;
@@ -72,13 +76,13 @@ namespace UI
 
             if (insideCheckBox.Checked && !outsideCheckBox.Checked)
             {
-                resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Inne", year, month, day) });
+                resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Inne", year, month, day,dayLenght,3) });
                 resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             }
             else if (!insideCheckBox.Checked && outsideCheckBox.Checked)
             {
-                resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Ute", year, month, day) });
+                resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Ute", year, month, day,dayLenght,3) });
                 resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             }
