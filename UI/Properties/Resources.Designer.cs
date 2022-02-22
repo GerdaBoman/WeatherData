@@ -73,6 +73,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap b7b9175d8dba8065f71d0d7a8bba9d91 {
+            get {
+                object obj = ResourceManager.GetObject("b7b9175d8dba8065f71d0d7a8bba9d91", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap planlösning {
             get {
                 object obj = ResourceManager.GetObject("planlösning", resourceCulture);

@@ -154,7 +154,7 @@
             this.welcomeMessageLabel.AutoSize = true;
             this.welcomeMessageLabel.BackColor = System.Drawing.Color.Transparent;
             this.welcomeMessageLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.welcomeMessageLabel.Location = new System.Drawing.Point(310, 130);
+            this.welcomeMessageLabel.Location = new System.Drawing.Point(315, 130);
             this.welcomeMessageLabel.Name = "welcomeMessageLabel";
             this.welcomeMessageLabel.Size = new System.Drawing.Size(493, 252);
             this.welcomeMessageLabel.TabIndex = 11;
