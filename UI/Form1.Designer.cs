@@ -59,7 +59,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(194, 638);
+            this.panelMenu.Size = new System.Drawing.Size(194, 562);
             this.panelMenu.TabIndex = 0;
             // 
             // exitButton
@@ -73,7 +73,7 @@
             this.exitButton.IconColor = System.Drawing.Color.White;
             this.exitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.exitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitButton.Location = new System.Drawing.Point(0, 586);
+            this.exitButton.Location = new System.Drawing.Point(0, 510);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(194, 52);
             this.exitButton.TabIndex = 6;
@@ -212,9 +212,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importMessageStatusBar,
             this.importMessageBar});
-            this.statusStrip1.Location = new System.Drawing.Point(194, 616);
+            this.statusStrip1.Location = new System.Drawing.Point(194, 540);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(750, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(780, 22);
             this.statusStrip1.TabIndex = 12;
             // 
             // importMessageStatusBar
@@ -235,7 +235,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(944, 638);
+            this.ClientSize = new System.Drawing.Size(974, 562);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.welcomeMessageLabel);
             this.Controls.Add(this.importButton);

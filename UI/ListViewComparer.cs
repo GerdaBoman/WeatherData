@@ -34,6 +34,7 @@ namespace UI
 
             int returnVal = -1;
             double numFirst, numSecond;
+            int firstNum, secondNum;
 
             switch (col)
             {
@@ -60,8 +61,8 @@ namespace UI
                         returnVal = 0;
                     break;
                 case MoldRiskHeader:
-                    int firstNum = int.Parse(((ListViewItem)x).SubItems[col].Text);
-                    int secondNum = int.Parse(((ListViewItem)y).SubItems[col].Text);
+                    firstNum = int.Parse(((ListViewItem)x).SubItems[col].Text);
+                    secondNum = int.Parse(((ListViewItem)y).SubItems[col].Text);
                     if (firstNum < secondNum)
                         returnVal = -1;
                     else if (firstNum > secondNum)

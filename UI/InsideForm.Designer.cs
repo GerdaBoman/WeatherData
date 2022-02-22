@@ -59,6 +59,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.statusStripInside = new System.Windows.Forms.StatusStrip();
             this.updateMessageStrip = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource3)).BeginInit();
@@ -67,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).BeginInit();
             this.statusStripInside.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -237,16 +239,16 @@
             // 
             // resultView
             // 
-            this.resultView.Location = new System.Drawing.Point(657, 377);
+            this.resultView.Location = new System.Drawing.Point(657, 382);
             this.resultView.Name = "resultView";
-            this.resultView.Size = new System.Drawing.Size(272, 121);
+            this.resultView.Size = new System.Drawing.Size(305, 121);
             this.resultView.TabIndex = 20;
             this.resultView.UseCompatibleStateImageBehavior = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(674, 152);
+            this.label1.Location = new System.Drawing.Point(699, 227);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(231, 15);
             this.label1.TabIndex = 19;
@@ -254,7 +256,7 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(752, 265);
+            this.showButton.Location = new System.Drawing.Point(777, 340);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(75, 23);
             this.showButton.TabIndex = 17;
@@ -265,7 +267,7 @@
             // insideCheckBox
             // 
             this.insideCheckBox.AutoSize = true;
-            this.insideCheckBox.Location = new System.Drawing.Point(689, 229);
+            this.insideCheckBox.Location = new System.Drawing.Point(714, 304);
             this.insideCheckBox.Name = "insideCheckBox";
             this.insideCheckBox.Size = new System.Drawing.Size(57, 19);
             this.insideCheckBox.TabIndex = 15;
@@ -285,7 +287,7 @@
             // outsideCheckBox
             // 
             this.outsideCheckBox.AutoSize = true;
-            this.outsideCheckBox.Location = new System.Drawing.Point(823, 227);
+            this.outsideCheckBox.Location = new System.Drawing.Point(848, 302);
             this.outsideCheckBox.Name = "outsideCheckBox";
             this.outsideCheckBox.Size = new System.Drawing.Size(66, 22);
             this.outsideCheckBox.TabIndex = 16;
@@ -295,7 +297,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(689, 198);
+            this.dateTimePicker1.Location = new System.Drawing.Point(714, 273);
             this.dateTimePicker1.MaxDate = new System.DateTime(2016, 11, 30, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -309,7 +311,7 @@
             this.updateMessageStrip});
             this.statusStripInside.Location = new System.Drawing.Point(194, 540);
             this.statusStripInside.Name = "statusStripInside";
-            this.statusStripInside.Size = new System.Drawing.Size(758, 22);
+            this.statusStripInside.Size = new System.Drawing.Size(780, 22);
             this.statusStripInside.TabIndex = 23;
             this.statusStripInside.Text = "statusStrip1";
             // 
@@ -319,11 +321,22 @@
             this.updateMessageStrip.Name = "updateMessageStrip";
             this.updateMessageStrip.Size = new System.Drawing.Size(0, 17);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UI.Properties.Resources._5f18d89c79362f875744a59d750f0a65;
+            this.pictureBox1.Location = new System.Drawing.Point(697, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(265, 184);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
             // InsideForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 562);
+            this.ClientSize = new System.Drawing.Size(974, 562);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStripInside);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.Reveal);
@@ -349,6 +362,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).EndInit();
             this.statusStripInside.ResumeLayout(false);
             this.statusStripInside.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,5 +400,6 @@
         private StatusStrip statusStripInside;
         private ToolStripStatusLabel updateMessageStrip;
         private ColumnHeader Season;
+        private PictureBox pictureBox1;
     }
 }
