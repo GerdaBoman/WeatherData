@@ -60,6 +60,8 @@
             this.statusStripInside = new System.Windows.Forms.StatusStrip();
             this.updateMessageStrip = new System.Windows.Forms.ToolStripStatusLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.MoldRiskLabelIndex = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource3)).BeginInit();
@@ -181,9 +183,9 @@
             this.Humidity,
             this.moldRisk,
             this.Season});
-            this.listView1.Location = new System.Drawing.Point(210, 152);
+            this.listView1.Location = new System.Drawing.Point(210, 185);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(434, 351);
+            this.listView1.Size = new System.Drawing.Size(423, 318);
             this.listView1.TabIndex = 18;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -220,7 +222,7 @@
             // 
             // Reveal
             // 
-            this.Reveal.Location = new System.Drawing.Point(355, 107);
+            this.Reveal.Location = new System.Drawing.Point(558, 33);
             this.Reveal.Name = "Reveal";
             this.Reveal.Size = new System.Drawing.Size(75, 23);
             this.Reveal.TabIndex = 22;
@@ -331,11 +333,33 @@
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(210, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 21);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Mold Risk index:";
+            // 
+            // MoldRiskLabelIndex
+            // 
+            this.MoldRiskLabelIndex.AutoSize = true;
+            this.MoldRiskLabelIndex.Location = new System.Drawing.Point(210, 112);
+            this.MoldRiskLabelIndex.Name = "MoldRiskLabelIndex";
+            this.MoldRiskLabelIndex.Size = new System.Drawing.Size(272, 60);
+            this.MoldRiskLabelIndex.TabIndex = 26;
+            this.MoldRiskLabelIndex.Text = "0 = No risk\r\n1 = Mold would possibly growth  after > 8 weeks\r\n2 = Mold would poss" +
+    "ibly growth  within 4-8 weeks\r\n3 = Mold would possibly growth  0-4 weeks";
+            // 
             // InsideForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 562);
+            this.Controls.Add(this.MoldRiskLabelIndex);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStripInside);
             this.Controls.Add(this.listView1);
@@ -401,5 +425,7 @@
         private ToolStripStatusLabel updateMessageStrip;
         private ColumnHeader Season;
         private PictureBox pictureBox1;
+        private Label label2;
+        private Label MoldRiskLabelIndex;
     }
 }

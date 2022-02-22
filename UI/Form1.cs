@@ -83,9 +83,7 @@ namespace UI
 
                 importMessageStatusBar.Text = "";
                 statusStrip1.Update();
-            }
-
-            
+            } 
         }
     }
 }
