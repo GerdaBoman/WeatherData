@@ -248,7 +248,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(699, 227);
+            this.label1.Location = new System.Drawing.Point(685, 225);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(231, 15);
             this.label1.TabIndex = 19;
@@ -256,7 +256,7 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(777, 340);
+            this.showButton.Location = new System.Drawing.Point(758, 342);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(75, 23);
             this.showButton.TabIndex = 17;
@@ -267,7 +267,7 @@
             // insideCheckBox
             // 
             this.insideCheckBox.AutoSize = true;
-            this.insideCheckBox.Location = new System.Drawing.Point(714, 304);
+            this.insideCheckBox.Location = new System.Drawing.Point(700, 302);
             this.insideCheckBox.Name = "insideCheckBox";
             this.insideCheckBox.Size = new System.Drawing.Size(57, 19);
             this.insideCheckBox.TabIndex = 15;
@@ -287,7 +287,7 @@
             // outsideCheckBox
             // 
             this.outsideCheckBox.AutoSize = true;
-            this.outsideCheckBox.Location = new System.Drawing.Point(848, 302);
+            this.outsideCheckBox.Location = new System.Drawing.Point(834, 300);
             this.outsideCheckBox.Name = "outsideCheckBox";
             this.outsideCheckBox.Size = new System.Drawing.Size(66, 22);
             this.outsideCheckBox.TabIndex = 16;
@@ -297,7 +297,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(714, 273);
+            this.dateTimePicker1.Location = new System.Drawing.Point(700, 271);
             this.dateTimePicker1.MaxDate = new System.DateTime(2016, 11, 30, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -324,7 +324,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::UI.Properties.Resources._5f18d89c79362f875744a59d750f0a65;
-            this.pictureBox1.Location = new System.Drawing.Point(697, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(674, 23);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(265, 184);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
