@@ -6,6 +6,8 @@ namespace UI
 
     public class ListViewComparer : IComparer
     {
+
+
         const int DateHeader = 0;
         const int LocationHeader = 1;
         const int TemperaturHeader = 2;
@@ -30,7 +32,6 @@ namespace UI
         public int Compare(object x, object y)
         {
 
-
             int returnVal = -1;
             double numFirst, numSecond;
 
@@ -38,18 +39,9 @@ namespace UI
             {
 
                 case DateHeader:
-                    try
-                    {
-                        System.DateTime firstDate = DateTime.Parse(((ListViewItem)x).SubItems[col].Text);
-                        System.DateTime secondDate = DateTime.Parse(((ListViewItem)x).SubItems[col].Text);
-                        returnVal = DateTime.Compare(firstDate, secondDate);
-                    }
-                    catch
-                    {
-                        returnVal = String.Compare(((ListViewItem)x).SubItems[col].Text,
+                   
+                    returnVal = String.Compare(((ListViewItem)x).SubItems[col].Text,
                                        ((ListViewItem)y).SubItems[col].Text);
-
-                    }
                     break;
                 case LocationHeader:
                     returnVal = String.Compare(((ListViewItem)x).SubItems[col].Text,
