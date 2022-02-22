@@ -44,8 +44,10 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.importMessageStatusBar = new System.Windows.Forms.ToolStripStatusLabel();
             this.importMessageBar = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -154,7 +156,7 @@
             this.welcomeMessageLabel.AutoSize = true;
             this.welcomeMessageLabel.BackColor = System.Drawing.Color.Transparent;
             this.welcomeMessageLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.welcomeMessageLabel.Location = new System.Drawing.Point(315, 130);
+            this.welcomeMessageLabel.Location = new System.Drawing.Point(349, 196);
             this.welcomeMessageLabel.Name = "welcomeMessageLabel";
             this.welcomeMessageLabel.Size = new System.Drawing.Size(493, 252);
             this.welcomeMessageLabel.TabIndex = 11;
@@ -163,7 +165,7 @@
             // 
             // importButton
             // 
-            this.importButton.Location = new System.Drawing.Point(733, 414);
+            this.importButton.Location = new System.Drawing.Point(744, 144);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(75, 23);
             this.importButton.TabIndex = 10;
@@ -173,14 +175,14 @@
             // 
             // textFilePath
             // 
-            this.textFilePath.Location = new System.Drawing.Point(454, 385);
+            this.textFilePath.Location = new System.Drawing.Point(465, 115);
             this.textFilePath.Name = "textFilePath";
             this.textFilePath.Size = new System.Drawing.Size(245, 23);
             this.textFilePath.TabIndex = 9;
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(733, 385);
+            this.browseButton.Location = new System.Drawing.Point(744, 115);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 8;
@@ -191,7 +193,7 @@
             // infolabel
             // 
             this.infolabel.AutoSize = true;
-            this.infolabel.Location = new System.Drawing.Point(315, 385);
+            this.infolabel.Location = new System.Drawing.Point(326, 115);
             this.infolabel.Name = "infolabel";
             this.infolabel.Size = new System.Drawing.Size(99, 15);
             this.infolabel.TabIndex = 7;
@@ -203,9 +205,9 @@
             this.panelHomeLabel.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.panelHomeLabel.Location = new System.Drawing.Point(207, 7);
             this.panelHomeLabel.Name = "panelHomeLabel";
-            this.panelHomeLabel.Size = new System.Drawing.Size(317, 72);
+            this.panelHomeLabel.Size = new System.Drawing.Size(190, 72);
             this.panelHomeLabel.TabIndex = 6;
-            this.panelHomeLabel.Text = "Home Panel";
+            this.panelHomeLabel.Text = "Home ";
             // 
             // statusStrip1
             // 
@@ -229,6 +231,16 @@
             this.importMessageBar.Name = "importMessageBar";
             this.importMessageBar.Size = new System.Drawing.Size(0, 17);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UI.Properties.Resources._5f18d89c79362f875744a59d750f0a65;
+            this.pictureBox1.Location = new System.Drawing.Point(228, 320);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(263, 177);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -236,6 +248,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(974, 562);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.welcomeMessageLabel);
             this.Controls.Add(this.importButton);
@@ -252,6 +265,7 @@
             this.panelMenu.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +288,6 @@
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel importMessageStatusBar;
         private ToolStripStatusLabel importMessageBar;
+        private PictureBox pictureBox1;
     }
 }
