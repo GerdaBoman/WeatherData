@@ -17,8 +17,8 @@ namespace UI
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            form.ShowDialog();
+            
+          
                
         }
 
@@ -67,16 +67,25 @@ namespace UI
 
         private void importButton_Click(object sender, EventArgs e)
         {
-            InsideForm inside = new InsideForm();
-            importMessageBar.Text = "Importing .csv file....";
-            statusStrip1.Update();
+            if(String.IsNullOrEmpty(textFilePath.Text))
+            {
+                MessageBox.Show("Please select a file before you import!");
+            }
+            else
+            {
+                InsideForm inside = new InsideForm();
+                importMessageBar.Text = "Importing .csv file....";
+                statusStrip1.Update();
 
-            ImportData.ImportFile(textFilePath.Text);
-            inside.listvieInitialize = true;
-            MessageBox.Show("ImportCompleted!");
+                ImportData.ImportFile(textFilePath.Text);
+                inside.listvieInitialize = true;
+                MessageBox.Show("ImportCompleted!");
 
-            importMessageStatusBar.Text = "";
-            statusStrip1.Update();
+                importMessageStatusBar.Text = "";
+                statusStrip1.Update();
+            }
+
+            
         }
     }
 }
