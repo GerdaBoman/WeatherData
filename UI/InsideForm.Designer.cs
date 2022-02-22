@@ -57,6 +57,9 @@
             this.outsideCheckBox = new System.Windows.Forms.CheckBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.Season = new System.Windows.Forms.ColumnHeader();
+            this.statusStripInside = new System.Windows.Forms.StatusStrip();
+            this.updatingListViewMessage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.updateMessageStrip = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource3)).BeginInit();
@@ -64,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).BeginInit();
+            this.statusStripInside.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -308,15 +312,11 @@
             this.dateTimePicker1.TabIndex = 14;
             this.dateTimePicker1.Value = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             // 
-            // Season
-            // 
-            this.Season.Text = "Season";
-            // 
             // InsideForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 851);
+            this.ClientSize = new System.Drawing.Size(944, 638);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.Reveal);
             this.Controls.Add(this.resultLabel);
@@ -340,6 +340,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roboGenderContextBindingSource)).EndInit();
+            this.statusStripInside.ResumeLayout(false);
+            this.statusStripInside.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,6 +376,5 @@
         private BindingSource roboGenderContextBindingSource;
         private CheckBox outsideCheckBox;
         private DateTimePicker dateTimePicker1;
-        private ColumnHeader Season;
     }
 }

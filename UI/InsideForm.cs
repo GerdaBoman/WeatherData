@@ -1,12 +1,13 @@
 ﻿using Core;
 using DataAccess;
-
+using System.Collections;
 
 namespace UI
 {
     public partial class InsideForm : Form
     {
         public bool listvieInitialize = ImportData.DataExsist();
+
         public InsideForm()
         {
             InitializeComponent();
@@ -34,6 +35,9 @@ namespace UI
                         var maxDay = timywimy.Last();
                         DateTime dayCount = minDay;
 
+                        updateMessageStrip.Text = "Updating Data List....";
+                        statusStripInside.Update();
+
                         listView1.BeginUpdate();
 
 
@@ -52,6 +56,8 @@ namespace UI
                             dayCount = dayCount.AddDays(1);
                         }
                         listView1.EndUpdate();
+                        updateMessageStrip.Text = "";
+                        statusStripInside.Update();
 
                         break;
                     }
@@ -169,5 +175,9 @@ namespace UI
 
             listView1.Sort();
         }
+
+        
+
+        
     }
 }
