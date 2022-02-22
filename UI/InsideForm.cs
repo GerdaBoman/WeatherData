@@ -56,6 +56,7 @@ namespace UI
                             dayCount = dayCount.AddDays(1);
                         }
                         listView1.EndUpdate();
+
                         updateMessageStrip.Text = "";
                         statusStripInside.Update();
 
