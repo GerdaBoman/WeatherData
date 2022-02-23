@@ -8,11 +8,15 @@ namespace UI
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             var _context = new RoboGenderContext();
             _context.Database.EnsureCreated();
             InitializeComponent();
+
+           
+
         }
 
         private void homeButton_Click(object sender, EventArgs e)
