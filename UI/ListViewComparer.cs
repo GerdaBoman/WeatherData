@@ -3,20 +3,18 @@ using SortOrder = System.Windows.Forms.SortOrder;
 
 namespace UI
 {
-
     public class ListViewComparer : IComparer
     {
-
-
-        const int DateHeader = 0;
-        const int LocationHeader = 1;
-        const int TemperaturHeader = 2;
-        const int HumidityHeader = 3;
-        const int MoldRiskHeader = 4;
+        private const int DateHeader = 0;
+        private const int LocationHeader = 1;
+        private const int TemperaturHeader = 2;
+        private const int HumidityHeader = 3;
+        private const int MoldRiskHeader = 4;
 
         private int sortColumn = -1;
         private int col;
         private SortOrder order;
+
         public ListViewComparer()
         {
             col = 0;
@@ -31,19 +29,18 @@ namespace UI
 
         public int Compare(object x, object y)
         {
-
             int returnVal = -1;
             double numFirst, numSecond;
             int firstNum, secondNum;
 
             switch (col)
             {
-
                 case DateHeader:
-                   
+
                     returnVal = String.Compare(((ListViewItem)x).SubItems[col].Text,
                                        ((ListViewItem)y).SubItems[col].Text);
                     break;
+
                 case LocationHeader:
                     returnVal = String.Compare(((ListViewItem)x).SubItems[col].Text,
                                        ((ListViewItem)y).SubItems[col].Text);
@@ -60,6 +57,7 @@ namespace UI
                     else
                         returnVal = 0;
                     break;
+
                 case MoldRiskHeader:
                     firstNum = int.Parse(((ListViewItem)x).SubItems[col].Text);
                     secondNum = int.Parse(((ListViewItem)y).SubItems[col].Text);
@@ -70,7 +68,6 @@ namespace UI
                     else
                         returnVal = 0;
                     break;
-
             }
 
             if (order == SortOrder.Descending)

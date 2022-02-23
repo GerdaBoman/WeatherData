@@ -45,6 +45,12 @@
             this.Reveal = new System.Windows.Forms.Button();
             this.resultLabel = new System.Windows.Forms.Label();
             this.resultView = new System.Windows.Forms.ListView();
+            this.DateResults = new System.Windows.Forms.ColumnHeader();
+            this.LocationResults = new System.Windows.Forms.ColumnHeader();
+            this.TempResults = new System.Windows.Forms.ColumnHeader();
+            this.HumResults = new System.Windows.Forms.ColumnHeader();
+            this.MoldResults = new System.Windows.Forms.ColumnHeader();
+            this.SeasonResult = new System.Windows.Forms.ColumnHeader();
             this.label1 = new System.Windows.Forms.Label();
             this.showButton = new System.Windows.Forms.Button();
             this.insideCheckBox = new System.Windows.Forms.CheckBox();
@@ -83,9 +89,8 @@
             this.panelMenu.Controls.Add(this.groupName);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(222, 749);
+            this.panelMenu.Size = new System.Drawing.Size(194, 566);
             this.panelMenu.TabIndex = 1;
             // 
             // exitButton
@@ -99,10 +104,9 @@
             this.exitButton.IconColor = System.Drawing.Color.White;
             this.exitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.exitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitButton.Location = new System.Drawing.Point(0, 680);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.exitButton.Location = new System.Drawing.Point(0, 514);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(222, 69);
+            this.exitButton.Size = new System.Drawing.Size(194, 52);
             this.exitButton.TabIndex = 6;
             this.exitButton.Tag = "Exit";
             this.exitButton.Text = "Exit";
@@ -120,10 +124,9 @@
             this.WeatherDataButton.IconColor = System.Drawing.Color.White;
             this.WeatherDataButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.WeatherDataButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.WeatherDataButton.Location = new System.Drawing.Point(0, 167);
-            this.WeatherDataButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.WeatherDataButton.Location = new System.Drawing.Point(0, 130);
             this.WeatherDataButton.Name = "WeatherDataButton";
-            this.WeatherDataButton.Size = new System.Drawing.Size(222, 75);
+            this.WeatherDataButton.Size = new System.Drawing.Size(194, 56);
             this.WeatherDataButton.TabIndex = 3;
             this.WeatherDataButton.Tag = "Inside Temperature";
             this.WeatherDataButton.Text = "           Weather Data\r\n\r\n";
@@ -141,10 +144,9 @@
             this.homeButton.IconColor = System.Drawing.Color.White;
             this.homeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.homeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.homeButton.Location = new System.Drawing.Point(0, 92);
-            this.homeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.homeButton.Location = new System.Drawing.Point(0, 74);
             this.homeButton.Name = "homeButton";
-            this.homeButton.Size = new System.Drawing.Size(222, 75);
+            this.homeButton.Size = new System.Drawing.Size(194, 56);
             this.homeButton.TabIndex = 2;
             this.homeButton.Tag = "Home";
             this.homeButton.Text = "Home";
@@ -159,10 +161,9 @@
             this.menuIcon.IconColor = System.Drawing.Color.White;
             this.menuIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.menuIcon.IconSize = 30;
-            this.menuIcon.Location = new System.Drawing.Point(122, 16);
-            this.menuIcon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.menuIcon.Location = new System.Drawing.Point(107, 12);
             this.menuIcon.Name = "menuIcon";
-            this.menuIcon.Size = new System.Drawing.Size(82, 55);
+            this.menuIcon.Size = new System.Drawing.Size(72, 41);
             this.menuIcon.TabIndex = 1;
             this.menuIcon.UseVisualStyleBackColor = true;
             // 
@@ -174,7 +175,7 @@
             this.groupName.ForeColor = System.Drawing.Color.White;
             this.groupName.Location = new System.Drawing.Point(0, 0);
             this.groupName.Name = "groupName";
-            this.groupName.Size = new System.Drawing.Size(136, 92);
+            this.groupName.Size = new System.Drawing.Size(110, 74);
             this.groupName.TabIndex = 0;
             this.groupName.Text = "Robo \r\nGender";
             this.groupName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -188,10 +189,9 @@
             this.Humidity,
             this.moldRisk,
             this.Season});
-            this.listView1.Location = new System.Drawing.Point(240, 247);
-            this.listView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.listView1.Location = new System.Drawing.Point(210, 185);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(483, 423);
+            this.listView1.Size = new System.Drawing.Size(511, 318);
             this.listView1.TabIndex = 18;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -228,48 +228,77 @@
             // 
             // Reveal
             // 
-            this.Reveal.Location = new System.Drawing.Point(638, 44);
-            this.Reveal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Reveal.FlatAppearance.BorderSize = 0;
+            this.Reveal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Reveal.Location = new System.Drawing.Point(590, 29);
             this.Reveal.Name = "Reveal";
-            this.Reveal.Size = new System.Drawing.Size(86, 31);
+            this.Reveal.Size = new System.Drawing.Size(75, 23);
             this.Reveal.TabIndex = 22;
-            this.Reveal.Text = "Reveal";
             this.Reveal.UseVisualStyleBackColor = true;
-            this.Reveal.Click += new System.EventHandler(this.Reveal_Click);
             // 
             // resultLabel
             // 
             this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(751, 467);
+            this.resultLabel.Location = new System.Drawing.Point(742, 364);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(52, 20);
+            this.resultLabel.Size = new System.Drawing.Size(42, 15);
             this.resultLabel.TabIndex = 21;
             this.resultLabel.Text = "Result:";
             // 
             // resultView
             // 
-            this.resultView.Location = new System.Drawing.Point(751, 509);
-            this.resultView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.resultView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.DateResults,
+            this.LocationResults,
+            this.TempResults,
+            this.HumResults,
+            this.MoldResults,
+            this.SeasonResult});
+            this.resultView.Location = new System.Drawing.Point(742, 382);
             this.resultView.Name = "resultView";
-            this.resultView.Size = new System.Drawing.Size(348, 160);
+            this.resultView.Size = new System.Drawing.Size(363, 121);
             this.resultView.TabIndex = 20;
             this.resultView.UseCompatibleStateImageBehavior = false;
+            this.resultView.View = System.Windows.Forms.View.Details;
+            // 
+            // DateResults
+            // 
+            this.DateResults.Text = "Date";
+            // 
+            // LocationResults
+            // 
+            this.LocationResults.Text = "Location";
+            // 
+            // TempResults
+            // 
+            this.TempResults.Text = "Temperature";
+            // 
+            // HumResults
+            // 
+            this.HumResults.Text = "Humidity";
+            // 
+            // MoldResults
+            // 
+            this.MoldResults.Text = "Mold Risk";
+            // 
+            // SeasonResult
+            // 
+            this.SeasonResult.Text = "Season";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(783, 300);
+            this.label1.Location = new System.Drawing.Point(793, 249);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(292, 20);
+            this.label1.Size = new System.Drawing.Size(231, 15);
             this.label1.TabIndex = 19;
             this.label1.Text = "Average Temperatur and Humidity per day";
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(866, 456);
-            this.showButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.showButton.Location = new System.Drawing.Point(870, 337);
             this.showButton.Name = "showButton";
-            this.showButton.Size = new System.Drawing.Size(86, 31);
+            this.showButton.Size = new System.Drawing.Size(75, 23);
             this.showButton.TabIndex = 17;
             this.showButton.Text = "Show";
             this.showButton.UseVisualStyleBackColor = true;
@@ -278,10 +307,9 @@
             // insideCheckBox
             // 
             this.insideCheckBox.AutoSize = true;
-            this.insideCheckBox.Location = new System.Drawing.Point(800, 403);
-            this.insideCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.insideCheckBox.Location = new System.Drawing.Point(805, 311);
             this.insideCheckBox.Name = "insideCheckBox";
-            this.insideCheckBox.Size = new System.Drawing.Size(70, 24);
+            this.insideCheckBox.Size = new System.Drawing.Size(57, 19);
             this.insideCheckBox.TabIndex = 15;
             this.insideCheckBox.Text = "Inside";
             this.insideCheckBox.UseVisualStyleBackColor = true;
@@ -290,19 +318,18 @@
             // 
             this.panelInsideLabel.AutoSize = true;
             this.panelInsideLabel.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.panelInsideLabel.Location = new System.Drawing.Point(226, 9);
+            this.panelInsideLabel.Location = new System.Drawing.Point(198, 7);
             this.panelInsideLabel.Name = "panelInsideLabel";
-            this.panelInsideLabel.Size = new System.Drawing.Size(442, 89);
+            this.panelInsideLabel.Size = new System.Drawing.Size(354, 72);
             this.panelInsideLabel.TabIndex = 13;
             this.panelInsideLabel.Text = "Weather Data";
             // 
             // outsideCheckBox
             // 
             this.outsideCheckBox.AutoSize = true;
-            this.outsideCheckBox.Location = new System.Drawing.Point(953, 400);
-            this.outsideCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.outsideCheckBox.Location = new System.Drawing.Point(939, 309);
             this.outsideCheckBox.Name = "outsideCheckBox";
-            this.outsideCheckBox.Size = new System.Drawing.Size(81, 26);
+            this.outsideCheckBox.Size = new System.Drawing.Size(66, 22);
             this.outsideCheckBox.TabIndex = 16;
             this.outsideCheckBox.Text = "Outside";
             this.outsideCheckBox.UseCompatibleTextRendering = true;
@@ -310,12 +337,11 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(800, 361);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateTimePicker1.Location = new System.Drawing.Point(805, 280);
             this.dateTimePicker1.MaxDate = new System.DateTime(2016, 11, 30, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(228, 27);
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
             this.dateTimePicker1.TabIndex = 14;
             this.dateTimePicker1.Value = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             // 
@@ -324,10 +350,9 @@
             this.statusStripInside.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripInside.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.updateMessageStrip});
-            this.statusStripInside.Location = new System.Drawing.Point(222, 727);
+            this.statusStripInside.Location = new System.Drawing.Point(194, 544);
             this.statusStripInside.Name = "statusStripInside";
-            this.statusStripInside.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
-            this.statusStripInside.Size = new System.Drawing.Size(891, 22);
+            this.statusStripInside.Size = new System.Drawing.Size(944, 22);
             this.statusStripInside.TabIndex = 23;
             this.statusStripInside.Text = "statusStrip1";
             // 
@@ -335,15 +360,14 @@
             // 
             this.updateMessageStrip.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.updateMessageStrip.Name = "updateMessageStrip";
-            this.updateMessageStrip.Size = new System.Drawing.Size(0, 16);
+            this.updateMessageStrip.Size = new System.Drawing.Size(0, 17);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::UI.Properties.Resources.b7b9175d8dba8065f71d0d7a8bba9d91;
-            this.pictureBox1.Location = new System.Drawing.Point(770, 31);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(775, 49);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(303, 245);
+            this.pictureBox1.Size = new System.Drawing.Size(265, 184);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
@@ -352,33 +376,33 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(240, 121);
+            this.label2.Location = new System.Drawing.Point(210, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 28);
+            this.label2.Size = new System.Drawing.Size(123, 21);
             this.label2.TabIndex = 25;
             this.label2.Text = "Mold Risk index:";
             // 
             // MoldRiskLabelIndex
             // 
             this.MoldRiskLabelIndex.AutoSize = true;
-            this.MoldRiskLabelIndex.Location = new System.Drawing.Point(240, 149);
+            this.MoldRiskLabelIndex.Location = new System.Drawing.Point(210, 112);
             this.MoldRiskLabelIndex.Name = "MoldRiskLabelIndex";
-            this.MoldRiskLabelIndex.Size = new System.Drawing.Size(342, 80);
+            this.MoldRiskLabelIndex.Size = new System.Drawing.Size(272, 60);
             this.MoldRiskLabelIndex.TabIndex = 26;
             this.MoldRiskLabelIndex.Text = "0 = No risk\r\n1 = Mold would possibly growth  after > 8 weeks\r\n2 = Mold would poss" +
     "ibly growth  within 4-8 weeks\r\n3 = Mold would possibly growth  0-4 weeks";
             // 
             // InsideForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 749);
+            this.ClientSize = new System.Drawing.Size(1138, 566);
+            this.Controls.Add(this.Reveal);
             this.Controls.Add(this.MoldRiskLabelIndex);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStripInside);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.Reveal);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.resultView);
             this.Controls.Add(this.label1);
@@ -388,10 +412,10 @@
             this.Controls.Add(this.outsideCheckBox);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.panelMenu);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "InsideForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Weather Data";
+            this.Load += new System.EventHandler(this.InsideForm_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).EndInit();
@@ -443,5 +467,11 @@
         private PictureBox pictureBox1;
         private Label label2;
         private Label MoldRiskLabelIndex;
+        private ColumnHeader DateResults;
+        private ColumnHeader LocationResults;
+        private ColumnHeader TempResults;
+        private ColumnHeader HumResults;
+        private ColumnHeader MoldResults;
+        private ColumnHeader SeasonResult;
     }
 }

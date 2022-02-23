@@ -1,10 +1,6 @@
-﻿using Core.Calculations;
-using DataAccess;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+﻿using Core;
+
 
 namespace UI
 {
@@ -17,17 +13,14 @@ namespace UI
 
             inside.listView1.BeginUpdate();
 
-
-
-            List<double> avergageDayTemp = Avg_Calucations.Daily_AverageTemperature(place, year, month, day);
-            List<double> averageDayHum = Avg_Calucations.Daily_AverageHumidity(place, year, month, day);
+            List<double> avergageDayTemp = csvImport.Daily_AverageTemperature(place, year, month, day);
+            List<double> averageDayHum = csvImport.Daily_AverageHumidity(place, year, month, day);
 
             ListViewItem item1 = new();
             if (day.ToString().Length == 1)
             {
                 string dayLength = $"0{day}";
                 item1 = new($"{year}-{month}-{dayLength}");
-
             }
             else
             {

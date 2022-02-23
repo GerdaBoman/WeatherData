@@ -1,21 +1,17 @@
-﻿using DataAccess;
-using LumenWorks.Framework.IO.Csv;
-using System;
-using System.Collections.Generic;
+
+﻿using LumenWorks.Framework.IO.Csv;
+
 using System.Data;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Core.Filtering
 {
-    public class FileReader
+    public class csvFilter
     {
-        public List<SearchParameters> Filter(string connection) //Purpose: Read in the data from a CSV file 
-        {
 
+        public List<SearchParameters> Filter(string connection) //Purpose: Read in the data from a CSV file
+
+        {
             var searches = new List<SearchParameters>();
             var csvTable = new DataTable();
             using (var csvReader = new CsvReader(new StreamReader(File.OpenRead(connection)), true)) //Loads the file so it can be read
@@ -23,7 +19,7 @@ namespace Core.Filtering
                 csvTable.Load(csvReader);
             }
 
-            for (int i = 0; i < csvTable.Rows.Count; i++)//Goes through all the rows in said file and adds it to a list 
+            for (int i = 0; i < csvTable.Rows.Count; i++)//Goes through all the rows in said file and adds it to a list
             {
                 switch (double.TryParse(csvTable.Rows[i][2].ToString().Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out var value))
                 {
@@ -57,15 +53,14 @@ namespace Core.Filtering
                         }
                 }
 
-
             }
             return searches;
         }
-        public List<SearchParameters> Procesor(List<SearchParameters> searches) //Purpose: Remove all duplicates 
+
+
+        public List<SearchParameters> Procesor(List<SearchParameters> searches) //Purpose: Remove all duplicates
         {
-
-
-            var GroupByMultipleKeysMS = searches.GroupBy(x => new { x.csvDatum, x.csvPlats }) //Looks for all duplicates 
+            var GroupByMultipleKeysMS = searches.GroupBy(x => new { x.csvDatum, x.csvPlats }) //Looks for all duplicates
                                                     .Where(g => g.Count() > 1)
                                                     .Select(x => x.Key);
             while (GroupByMultipleKeysMS.Any())

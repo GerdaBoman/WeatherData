@@ -1,25 +1,23 @@
-using Core.Calculations;
-using Core.Filtering;
+
+using Core;
+using DataAccess;
+
 using DataAccess.Data;
 
 namespace UI
 {
     public partial class Form1 : Form
     {
-
         public Form1()
         {
             var _context = new RoboGenderContext();
             _context.Database.EnsureCreated();
             InitializeComponent();
-
         }
-        
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-         
-               
+
         }
 
         private void insideButton_Click(object sender, EventArgs e)
@@ -67,23 +65,49 @@ namespace UI
 
         private void importButton_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(textFilePath.Text))
+            if (String.IsNullOrEmpty(textFilePath.Text))
             {
                 MessageBox.Show("Please select a file before you import!");
             }
             else
             {
-                InsideForm inside = new InsideForm();
-                importMessageBar.Text = "Importing .csv file....";
+                
+                importMessage.Text = "Importing .csv file....";
                 statusStrip1.Update();
 
-                ImportData.EFImport(textFilePath.Text);
-                inside.listvieInitialize = true;
-                MessageBox.Show("ImportCompleted!");
+                csvFormatting.EFImport(textFilePath.Text);
+                var timywimy = Core.csvImport.date();
+                var minDay = timywimy.First();
+                var maxDay = timywimy.Last();
+                DateTime dayCount = minDay;
 
-                importMessageStatusBar.Text = "";
+                List<double> dayLenght = new();
+
+                importMessage.Text = "Calculating days averages...";
                 statusStrip1.Update();
-            } 
+
+                while (dayCount < maxDay)
+                {
+                    var places = Core.csvImport.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
+                    var place = places.Distinct();
+                    foreach (var test in place)
+                    {
+                        AvrageImport.AvrageDB(AverageCalculation.average(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3));
+                    }
+                    dayCount = dayCount.AddDays(1);
+
+                    
+                }
+
+                importMessage.Text = "";
+                statusStrip1.Update();
+
+                MessageBox.Show("Import Completed!");
+
+                
+            }
         }
+
+       
     }
 }

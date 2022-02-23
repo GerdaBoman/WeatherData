@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Core.Calculations
+﻿namespace Core
+
 {
     //Mold calcualation taken from https://pastebin.com/VXyATTWw
     public class MoldCalculation
@@ -13,7 +9,9 @@ namespace Core.Calculations
         //  1 = Mould growth possible after > 8 weeks
         //  2 = Mould growth after 4-8 weeks
         //  3 = Mould growth after 0-4 weeks
-        int[,] mold =
+
+        private int[,] mold =
+
         {
          {0,0,0,0}, //0°
      {0,97,98,100}, //1°
@@ -67,7 +65,9 @@ namespace Core.Calculations
      { 0,79,80,86}, //49°
      { 0,79,80,86}  //50°
         };
+
         public int Mindex = 0;
+
         public int moldCalc(int temp, int fukt)
         {
 
@@ -84,12 +84,9 @@ namespace Core.Calculations
                         Mindex = i;
                         break;
                     }
-
                 }
             }
             return Mindex;
-
         }
-
     }
 }
