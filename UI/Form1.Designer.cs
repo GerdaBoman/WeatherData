@@ -235,11 +235,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::UI.Properties.Resources._5f18d89c79362f875744a59d750f0a65;
-<<<<<<< Updated upstream
+
             this.pictureBox1.Location = new System.Drawing.Point(228, 320);
-=======
-            this.pictureBox1.Location = new System.Drawing.Point(249, 324);
->>>>>>> Stashed changes
+
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(263, 177);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
