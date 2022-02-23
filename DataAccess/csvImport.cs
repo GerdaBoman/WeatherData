@@ -57,7 +57,7 @@ namespace Core
         {
             using var context = new RoboGenderContext();
             {
-                var weathers = context.Weathers;
+                var weathers = context.WeatherAverages.Select(s=>s).ToList();
                 return weathers;
             }
         }
