@@ -61,5 +61,12 @@ namespace Core
                 return weathers;
             }
         }
+        public static bool DataExsist()
+        {
+            RoboGenderContext context = new();
+            var exsist = context.WeatherAverages.Any();
+            return exsist;
+        }
+
     }
 }
