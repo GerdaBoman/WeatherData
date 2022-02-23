@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core
+namespace Core.Calculations
 {
     //Mold calcualation taken from https://pastebin.com/VXyATTWw
     public class MoldCalculation
     {
-//  0 = No risk
-//  1 = Mould growth possible after > 8 weeks
-//  2 = Mould growth after 4-8 weeks
-//  3 = Mould growth after 0-4 weeks
+        //  0 = No risk
+        //  1 = Mould growth possible after > 8 weeks
+        //  2 = Mould growth after 4-8 weeks
+        //  3 = Mould growth after 0-4 weeks
         int[,] mold =
         {
          {0,0,0,0}, //0°
@@ -70,7 +70,7 @@ namespace Core
         public int Mindex = 0;
         public int moldCalc(int temp, int fukt)
         {
-            
+
             if (temp <= 0 || temp > 50)
             {
                 Mindex = 0;

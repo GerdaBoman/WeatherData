@@ -1,4 +1,5 @@
-﻿using DataAccess.Data;
+﻿using DataAccess;
+using DataAccess.Data;
 using DataAccess.Models;
 using LumenWorks.Framework.IO.Csv;
 using Microsoft.Data.SqlClient;
@@ -6,9 +7,9 @@ using System.Data;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace DataAccess
+namespace Core.Filtering
 {
-    public class ImportData : FileReader 
+    public class ImportData : FileReader
     {
         public static void ImportFile(string path)// Purpose: Import a list to an SQLDB
         {
@@ -42,7 +43,7 @@ namespace DataAccess
             List<SearchParameters> parameters = reader.Procesor(reader.Filter(path));
             using var contect = new RoboGenderContext();
             {
-                foreach(SearchParameters param in parameters)
+                foreach (SearchParameters param in parameters)
                 {
                     List<Weather> wArr = new();
                     wArr.Add(new Weather
@@ -52,16 +53,16 @@ namespace DataAccess
                         Temp = double.Parse(param.csvTemp, NumberStyles.Float, CultureInfo.InvariantCulture),
                         Luftfuktighet = double.Parse(param.csvLuftFuktighet)
                     });
-                    
-                    
+
+
 
                     contect.Weathers.AddRangeAsync(wArr);
 
                     i++;
-                    if(i== 27955)
+                    if (i == 27955)
                     {
                         contect.SaveChanges();
-                        i= 0;
+                        i = 0;
                     }
                 }
             }

@@ -1,4 +1,5 @@
-using DataAccess;
+using Core.Calculations;
+using Core.Filtering;
 using DataAccess.Data;
 
 namespace UI
@@ -17,8 +18,7 @@ namespace UI
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            
-          
+         
                
         }
 
