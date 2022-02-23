@@ -8,7 +8,7 @@ namespace UI
 {
     public partial class Form1 : Form
     {
-        
+
         public Form1()
         {
             var _context = new RoboGenderContext();
@@ -17,16 +17,14 @@ namespace UI
 
             InitializeComponent();
 
-           
-
         }
 
-        private void homeButton_Click(object sender, EventArgs e)
+        private void HomeButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void insideButton_Click(object sender, EventArgs e)
+        private void InsideButton_Click(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -39,16 +37,16 @@ namespace UI
                 }
             }
 
-            InsideForm f2 = new InsideForm();
+            InsideForm f2 = new();
             f2.Show();
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
+        private void ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void browseButton_Click(object sender, EventArgs e)
+        private void BrowseButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new()
             {
@@ -69,7 +67,7 @@ namespace UI
             }
         }
 
-        private void importButton_Click(object sender, EventArgs e)
+        private void ImportButton_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textFilePath.Text))
             {
@@ -77,12 +75,12 @@ namespace UI
             }
             else
             {
-                
+
                 importMessage.Text = "Importing .csv file....";
                 statusStrip1.Update();
 
-                csvFormatting.EFImport(textFilePath.Text);
-                var timywimy = csvImport.date();
+                CsvFormatting.EFImport(textFilePath.Text);
+                var timywimy = CsvImport.Date();
                 var minDay = timywimy.First();
                 var maxDay = timywimy.Last();
                 DateTime dayCount = minDay;
@@ -94,15 +92,15 @@ namespace UI
 
                 while (dayCount < maxDay)
                 {
-                    var places = csvImport.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
+                    var places = CsvImport.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
                     var place = places.Distinct();
                     foreach (var test in place)
                     {
-                        AvrageImport.AvrageDB(AverageCalculation.average(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3));
+                        AverageImport.AverageDB(AverageCalculation.average(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3));
                     }
                     dayCount = dayCount.AddDays(1);
 
-                    
+
                 }
 
                 importMessage.Text = "";
@@ -110,10 +108,10 @@ namespace UI
 
                 MessageBox.Show("Import Completed!");
 
-                
+
             }
         }
 
-       
+
     }
 }

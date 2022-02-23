@@ -83,7 +83,7 @@
             this.exitButton.Tag = "Exit";
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // WeatherDataButton
             // 
@@ -103,7 +103,7 @@
             this.WeatherDataButton.Tag = "Inside Temperature";
             this.WeatherDataButton.Text = "           Weather Data\r\n\r\n";
             this.WeatherDataButton.UseVisualStyleBackColor = true;
-            this.WeatherDataButton.Click += new System.EventHandler(this.insideButton_Click);
+            this.WeatherDataButton.Click += new System.EventHandler(this.InsideButton_Click);
             // 
             // homeButton
             // 
@@ -123,7 +123,7 @@
             this.homeButton.Tag = "Home";
             this.homeButton.Text = "Home";
             this.homeButton.UseVisualStyleBackColor = true;
-            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
+            this.homeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
             // menuIcon
             // 
@@ -172,7 +172,7 @@
             this.importButton.TabIndex = 10;
             this.importButton.Text = "Import";
             this.importButton.UseVisualStyleBackColor = true;
-            this.importButton.Click += new System.EventHandler(this.importButton_Click);
+            this.importButton.Click += new System.EventHandler(this.ImportButton_Click);
             // 
             // textFilePath
             // 
@@ -189,7 +189,7 @@
             this.browseButton.TabIndex = 8;
             this.browseButton.Text = "Browse";
             this.browseButton.UseVisualStyleBackColor = true;
-            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
+            this.browseButton.Click += new System.EventHandler(this.BrowseButton_Click);
             // 
             // infolabel
             // 

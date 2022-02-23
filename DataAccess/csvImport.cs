@@ -3,7 +3,7 @@ using DataAccess.Models;
 
 namespace DataAccess
 {
-    public class csvImport //Purpose: send data out of DataAccess
+    public class CsvImport //Purpose: send data out of DataAccess
     {//has not yet figured out how to send out 2 columns in 1 list
         public static List<double> Daily_AverageTemperature(string place, int year, int month, int day)
         {
@@ -31,8 +31,9 @@ namespace DataAccess
             }
         }
 
-        public static List<DateTime> date()
+        public static List<DateTime> Date()
         {
+
             using var context = new RoboGenderContext();
             {
                 var weather = context.Weathers.Select(s => s.Datum);
@@ -53,19 +54,19 @@ namespace DataAccess
                 return weather.ToList();
             }
         }
-        public static List<WeatherAverage> outportAverage()
+        public static List<WeatherAverage> OutputAverage()
         {
             using var context = new RoboGenderContext();
             {
-                var weathers = context.WeatherAverages.Select(s=>s).ToList();
+                var weathers = context.WeatherAverages.Select(s => s).ToList();
                 return weathers;
             }
         }
-        public static bool DataExsist()
+        public static bool DataExist()
         {
             RoboGenderContext context = new();
-            var exsist = context.WeatherAverages.Any();
-            return exsist;
+            var exist = context.WeatherAverages.Any();
+            return exist;
         }
 
     }

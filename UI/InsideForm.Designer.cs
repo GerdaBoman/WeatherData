@@ -35,7 +35,7 @@
             this.homeButton = new FontAwesome.Sharp.IconButton();
             this.menuIcon = new FontAwesome.Sharp.IconButton();
             this.groupName = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.ListViewer = new System.Windows.Forms.ListView();
             this.Date = new System.Windows.Forms.ColumnHeader();
             this.Location = new System.Windows.Forms.ColumnHeader();
             this.Temperature = new System.Windows.Forms.ColumnHeader();
@@ -115,7 +115,7 @@
             this.exitButton.Tag = "Exit";
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // WeatherDataButton
             // 
@@ -155,7 +155,7 @@
             this.homeButton.Tag = "Home";
             this.homeButton.Text = "Home";
             this.homeButton.UseVisualStyleBackColor = true;
-            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
+            this.homeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
             // menuIcon
             // 
@@ -184,22 +184,22 @@
             this.groupName.Text = "Robo \r\nGender";
             this.groupName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // listView1
+            // ListViewer
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ListViewer.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Date,
             this.Location,
             this.Temperature,
             this.Humidity,
             this.moldRisk,
             this.Season});
-            this.listView1.Location = new System.Drawing.Point(210, 185);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(511, 318);
-            this.listView1.TabIndex = 18;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_SelectedIndexChanged);
+            this.ListViewer.Location = new System.Drawing.Point(210, 185);
+            this.ListViewer.Name = "ListViewer";
+            this.ListViewer.Size = new System.Drawing.Size(511, 318);
+            this.ListViewer.TabIndex = 18;
+            this.ListViewer.UseCompatibleStateImageBehavior = false;
+            this.ListViewer.View = System.Windows.Forms.View.Details;
+            this.ListViewer.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ListViewer_SelectedIndexChanged);
             // 
             // Date
             // 
@@ -306,7 +306,7 @@
             this.showButton.TabIndex = 17;
             this.showButton.Text = "Show";
             this.showButton.UseVisualStyleBackColor = true;
-            this.showButton.Click += new System.EventHandler(this.showButton_Click);
+            this.showButton.Click += new System.EventHandler(this.ShowButton_Click);
             // 
             // insideCheckBox
             // 
@@ -401,9 +401,9 @@
             this.officalAutumnLAbel.AutoSize = true;
             this.officalAutumnLAbel.Location = new System.Drawing.Point(214, 514);
             this.officalAutumnLAbel.Name = "officalAutumnLAbel";
-            this.officalAutumnLAbel.Size = new System.Drawing.Size(119, 15);
+            this.officalAutumnLAbel.Size = new System.Drawing.Size(123, 15);
             this.officalAutumnLAbel.TabIndex = 27;
-            this.officalAutumnLAbel.Text = "Meteological Autum:";
+            this.officalAutumnLAbel.Text = "Meterological Autum:";
             // 
             // autumnResults
             // 
@@ -418,9 +418,9 @@
             this.officialWinterDayLabel.AutoSize = true;
             this.officialWinterDayLabel.Location = new System.Drawing.Point(463, 514);
             this.officialWinterDayLabel.Name = "officialWinterDayLabel";
-            this.officialWinterDayLabel.Size = new System.Drawing.Size(117, 15);
+            this.officialWinterDayLabel.Size = new System.Drawing.Size(128, 15);
             this.officialWinterDayLabel.TabIndex = 29;
-            this.officialWinterDayLabel.Text = "Meteological Winter:";
+            this.officialWinterDayLabel.Text = "Meteorological Winter:";
             // 
             // winterResultsLabel
             // 
@@ -445,7 +445,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStripInside);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.ListViewer);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.resultView);
             this.Controls.Add(this.label1);
@@ -483,7 +483,7 @@
         private FontAwesome.Sharp.IconButton homeButton;
         private FontAwesome.Sharp.IconButton menuIcon;
         private Label groupName;
-        public ListView listView1;
+        public ListView ListViewer;
         private ColumnHeader Date;
         private ColumnHeader Location;
         private ColumnHeader Temperature;

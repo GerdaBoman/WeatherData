@@ -1,5 +1,5 @@
 
-﻿namespace Core
+namespace Core
 
 {
     //Mold calcualation taken from https://pastebin.com/VXyATTWw
@@ -68,7 +68,7 @@
 
         public int Mindex = 0;
 
-        public int moldCalc(int temp, int fukt)
+        public int MoldCalculator(int temp, int fukt)
         {
 
             if (temp <= 0 || temp > 50)

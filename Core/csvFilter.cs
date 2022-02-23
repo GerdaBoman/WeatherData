@@ -1,16 +1,15 @@
 
 using DataAccess;
 using LumenWorks.Framework.IO.Csv;
-
 using System.Data;
 using System.Globalization;
 
 namespace Core.Filtering
 {
-    public class csvFilter
+    public class CsvFilter
     {
 
-        public List<SearchParameters> Filter(string connection) //Purpose: Read in the data from a CSV file
+        public List<SearchParameters> FilteringData(string connection) //Purpose: Read in the data from a CSV file
 
         {
             var searches = new List<SearchParameters>();
@@ -59,7 +58,7 @@ namespace Core.Filtering
         }
 
 
-        public List<SearchParameters> Procesor(List<SearchParameters> searches) //Purpose: Remove all duplicates
+        public List<SearchParameters> ProcessingData(List<SearchParameters> searches) //Purpose: Remove all duplicates
         {
             var GroupByMultipleKeysMS = searches.GroupBy(x => new { x.csvDatum, x.csvPlats }) //Looks for all duplicates
                                                     .Where(g => g.Count() > 1)

@@ -1,8 +1,6 @@
 
 using Core;
 using DataAccess;
-using DataAccess.Models;
-using System;
 
 
 namespace UI
@@ -17,7 +15,7 @@ namespace UI
 
         private void Reveal_Click(object sender, EventArgs e)
         {
-            var timywimy = csvImport.date();
+            var timywimy = CsvImport.Date();
             var minDay = timywimy.First();
             var maxDay = timywimy.Last();
             DateTime dayCount = minDay;
@@ -25,32 +23,32 @@ namespace UI
             updateMessageStrip.Text = "Updating Data List....";
             statusStripInside.Update();
 
-            listView1.BeginUpdate();
+            ListViewer.BeginUpdate();
 
             List<double> dayLenght = new();
 
             while (dayCount < maxDay)
             {
-                var places = csvImport.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
+                var places = CsvImport.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
                 var place = places.Distinct();
                 foreach (var test in place)
                 {
-                    listView1.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3) });
+                    ListViewer.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3) });
                     int etst = places.Distinct().Count();
                 }
                 dayCount = dayCount.AddDays(1);
             }
-            listView1.EndUpdate();
+            ListViewer.EndUpdate();
 
             updateMessageStrip.Text = "";
             statusStripInside.Update();
 
-            listView1.EndUpdate();
+            ListViewer.EndUpdate();
         }
 
         private delegate void SetListViewCallBacks(string yourtext);
 
-        private void showButton_Click(object sender, EventArgs e)
+        private void ShowButton_Click(object sender, EventArgs e)
         {
             List<double> dayLenght = new();
             int year = dateTimePicker1.Value.Year;
@@ -75,7 +73,7 @@ namespace UI
             }
         }
 
-        private void homeButton_Click(object sender, EventArgs e)
+        private void HomeButton_Click(object sender, EventArgs e)
         {
             this.Hide();
 
@@ -94,16 +92,16 @@ namespace UI
             this.Show();
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
+        private void ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
         private ColumnHeader SortingColumn = null;
 
-        private void listView1_SelectedIndexChanged(object sender, ColumnClickEventArgs e)
+        private void ListViewer_SelectedIndexChanged(object sender, ColumnClickEventArgs e)
         {
-            ColumnHeader new_sorting_column = listView1.Columns[e.Column];
+            ColumnHeader new_sorting_column = ListViewer.Columns[e.Column];
 
             System.Windows.Forms.SortOrder sort_order;
             if (SortingColumn == null)
@@ -142,35 +140,35 @@ namespace UI
                 SortingColumn.Text = "↓ " + SortingColumn.Text;
             }
 
-            listView1.ListViewItemSorter =
+            ListViewer.ListViewItemSorter =
             new ListViewComparer(e.Column, sort_order);
 
-            listView1.Sort();
+            ListViewer.Sort();
         }
 
         private void InsideForm_Load(object sender, EventArgs e)
         {
-            switch (csvImport.DataExsist())
+            switch (CsvImport.DataExist())
             {
                 case true:
                     {
-                        var averagelist = csvImport.outportAverage();
-                        foreach (var item in averagelist)
+                        var averageList = CsvImport.OutputAverage();
+                        foreach (var item in averageList)
                         {
 
-                            ListViewItem item1 = new();
+                            ListViewItem AvgDataRow = new();
 
 
-                            item1 = new(item.Date.ToString().Substring(5, 5));
-                            item1.SubItems.Add(item.Place.ToString());
-                            item1.SubItems.Add(Math.Round((decimal)item.TempAverage, 2).ToString());
-                            item1.SubItems.Add(Math.Round((decimal)item.HumAverage, 2).ToString());
-                            item1.SubItems.Add(item.MoldRisk.ToString());
-                            item1.SubItems.Add(item.Seasons.ToString());
-                            listView1.Items.AddRange(new ListViewItem[] { item1 });
+                            AvgDataRow = new(item.Date.ToString().Substring(5, 5));
+                            AvgDataRow.SubItems.Add(item.Place.ToString());
+                            AvgDataRow.SubItems.Add(Math.Round((decimal)item.TempAverage, 2).ToString());
+                            AvgDataRow.SubItems.Add(Math.Round((decimal)item.HumAverage, 2).ToString());
+                            AvgDataRow.SubItems.Add(item.MoldRisk.ToString());
+                            AvgDataRow.SubItems.Add(item.Seasons.ToString());
+                            ListViewer.Items.AddRange(new ListViewItem[] { AvgDataRow });
                         }
 
-                        listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.None);
+                        ListViewer.AutoResizeColumns(ColumnHeaderAutoResizeStyle.None);
                         break;
                     }
                 case false:
@@ -179,20 +177,17 @@ namespace UI
                     }
             }
 
-            MeterologicalAutumn autumn = new();
+            MeteorologicalAutumn autumn = new();
             string autumDate = autumn.OfficialAutumnDay();
             autumnResults.Text = autumDate;
 
-            MeteorologicalWinter winter = new MeteorologicalWinter();
+            MeteorologicalWinter winter = new();
             string winterDay = winter.OfficialWinterDay();
             winterResultsLabel.Text = winterDay;
 
 
         }
 
-        private void officalAutumnTextBox_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
+
     }
 }

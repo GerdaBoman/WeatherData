@@ -1,5 +1,5 @@
 
-﻿using Core;
+using Core;
 using DataAccess;
 
 namespace UI
@@ -11,10 +11,10 @@ namespace UI
             MoldCalculation mold = new();
             InsideForm inside = new();
 
-            inside.listView1.BeginUpdate();
+            inside.ListViewer.BeginUpdate();
 
-            List<double> avergageDayTemp = csvImport.Daily_AverageTemperature(place, year, month, day);
-            List<double> averageDayHum = csvImport.Daily_AverageHumidity(place, year, month, day);
+            List<double> avergageDayTemp = CsvImport.Daily_AverageTemperature(place, year, month, day);
+            List<double> averageDayHum = CsvImport.Daily_AverageHumidity(place, year, month, day);
 
             ListViewItem item1 = new();
             if (day.ToString().Length == 1)
@@ -26,7 +26,7 @@ namespace UI
             {
                 item1 = new($"{year}-{month}-{day}");
             }
-            int moldrisk = mold.moldCalc(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
+            int moldrisk = mold.MoldCalculator(int.Parse(Math.Round(avergageDayTemp.Average()).ToString()), int.Parse(Math.Round(averageDayHum.Average()).ToString()));
 
             if (place.Trim() == "Ute")
             {
