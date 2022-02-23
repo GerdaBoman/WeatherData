@@ -10,42 +10,6 @@ namespace UI
         {
             InitializeComponent();
 
-            resultView.View = View.Details;
-            resultView.Columns.Add("Date", 70, HorizontalAlignment.Left);
-            resultView.Columns.Add("Place", 40, HorizontalAlignment.Left);
-            resultView.Columns.Add("Temp", 40, HorizontalAlignment.Left);
-            resultView.Columns.Add("Hum", 40, HorizontalAlignment.Left);
-            resultView.Columns.Add("Mold Risk", 40, HorizontalAlignment.Left);
-            resultView.Columns.Add("Season", 40, HorizontalAlignment.Left);
-
-            switch (csvImport.DataExsist())
-            {
-                case true:
-                    {
-                        var averagelist = csvImport.outportAverage();
-                        foreach (var item in averagelist)
-                        {
-
-                            ListViewItem item1 = new();
-
-
-                            item1 = new(item.Date.ToString().Substring(5, 5));
-                            item1.SubItems.Add(item.Place.ToString());
-                            item1.SubItems.Add(Math.Round((decimal)item.TempAverage, 2).ToString());
-                            item1.SubItems.Add(Math.Round((decimal)item.HumAverage, 2).ToString());
-                            item1.SubItems.Add(item.MoldRisk.ToString());
-                            item1.SubItems.Add(item.Seasons.ToString());
-                            listView1.Items.AddRange(new ListViewItem[] { item1 });
-                        }
-
-                        listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.None);
-                        break;
-                    }
-                case false:
-                    {
-                        break;
-                    }
-            }
         }
 
         private void Reveal_Click(object sender, EventArgs e)

@@ -45,6 +45,12 @@
             this.Reveal = new System.Windows.Forms.Button();
             this.resultLabel = new System.Windows.Forms.Label();
             this.resultView = new System.Windows.Forms.ListView();
+            this.DateResults = new System.Windows.Forms.ColumnHeader();
+            this.LocationResults = new System.Windows.Forms.ColumnHeader();
+            this.TempResults = new System.Windows.Forms.ColumnHeader();
+            this.HumResults = new System.Windows.Forms.ColumnHeader();
+            this.MoldResults = new System.Windows.Forms.ColumnHeader();
+            this.SeasonResult = new System.Windows.Forms.ColumnHeader();
             this.label1 = new System.Windows.Forms.Label();
             this.showButton = new System.Windows.Forms.Button();
             this.insideCheckBox = new System.Windows.Forms.CheckBox();
@@ -84,7 +90,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(194, 562);
+            this.panelMenu.Size = new System.Drawing.Size(194, 566);
             this.panelMenu.TabIndex = 1;
             // 
             // exitButton
@@ -98,7 +104,7 @@
             this.exitButton.IconColor = System.Drawing.Color.White;
             this.exitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.exitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitButton.Location = new System.Drawing.Point(0, 510);
+            this.exitButton.Location = new System.Drawing.Point(0, 514);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(194, 52);
             this.exitButton.TabIndex = 6;
@@ -185,7 +191,7 @@
             this.Season});
             this.listView1.Location = new System.Drawing.Point(210, 185);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(423, 318);
+            this.listView1.Size = new System.Drawing.Size(511, 318);
             this.listView1.TabIndex = 18;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -222,17 +228,18 @@
             // 
             // Reveal
             // 
+            this.Reveal.FlatAppearance.BorderSize = 0;
+            this.Reveal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Reveal.Location = new System.Drawing.Point(590, 29);
             this.Reveal.Name = "Reveal";
             this.Reveal.Size = new System.Drawing.Size(75, 23);
             this.Reveal.TabIndex = 22;
-            this.Reveal.Text = "Reveal";
             this.Reveal.UseVisualStyleBackColor = true;
             // 
             // resultLabel
             // 
             this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(657, 350);
+            this.resultLabel.Location = new System.Drawing.Point(742, 364);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(42, 15);
             this.resultLabel.TabIndex = 21;
@@ -240,16 +247,48 @@
             // 
             // resultView
             // 
-            this.resultView.Location = new System.Drawing.Point(657, 382);
+            this.resultView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.DateResults,
+            this.LocationResults,
+            this.TempResults,
+            this.HumResults,
+            this.MoldResults,
+            this.SeasonResult});
+            this.resultView.Location = new System.Drawing.Point(742, 382);
             this.resultView.Name = "resultView";
-            this.resultView.Size = new System.Drawing.Size(305, 121);
+            this.resultView.Size = new System.Drawing.Size(363, 121);
             this.resultView.TabIndex = 20;
             this.resultView.UseCompatibleStateImageBehavior = false;
+            this.resultView.View = System.Windows.Forms.View.Details;
+            // 
+            // DateResults
+            // 
+            this.DateResults.Text = "Date";
+            // 
+            // LocationResults
+            // 
+            this.LocationResults.Text = "Location";
+            // 
+            // TempResults
+            // 
+            this.TempResults.Text = "Temperature";
+            // 
+            // HumResults
+            // 
+            this.HumResults.Text = "Humidity";
+            // 
+            // MoldResults
+            // 
+            this.MoldResults.Text = "Mold Risk";
+            // 
+            // SeasonResult
+            // 
+            this.SeasonResult.Text = "Season";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(685, 225);
+            this.label1.Location = new System.Drawing.Point(793, 249);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(231, 15);
             this.label1.TabIndex = 19;
@@ -257,7 +296,7 @@
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(758, 342);
+            this.showButton.Location = new System.Drawing.Point(870, 337);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(75, 23);
             this.showButton.TabIndex = 17;
@@ -268,7 +307,7 @@
             // insideCheckBox
             // 
             this.insideCheckBox.AutoSize = true;
-            this.insideCheckBox.Location = new System.Drawing.Point(700, 302);
+            this.insideCheckBox.Location = new System.Drawing.Point(805, 311);
             this.insideCheckBox.Name = "insideCheckBox";
             this.insideCheckBox.Size = new System.Drawing.Size(57, 19);
             this.insideCheckBox.TabIndex = 15;
@@ -288,7 +327,7 @@
             // outsideCheckBox
             // 
             this.outsideCheckBox.AutoSize = true;
-            this.outsideCheckBox.Location = new System.Drawing.Point(834, 300);
+            this.outsideCheckBox.Location = new System.Drawing.Point(939, 309);
             this.outsideCheckBox.Name = "outsideCheckBox";
             this.outsideCheckBox.Size = new System.Drawing.Size(66, 22);
             this.outsideCheckBox.TabIndex = 16;
@@ -298,7 +337,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(700, 271);
+            this.dateTimePicker1.Location = new System.Drawing.Point(805, 280);
             this.dateTimePicker1.MaxDate = new System.DateTime(2016, 11, 30, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -311,9 +350,9 @@
             this.statusStripInside.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripInside.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.updateMessageStrip});
-            this.statusStripInside.Location = new System.Drawing.Point(194, 540);
+            this.statusStripInside.Location = new System.Drawing.Point(194, 544);
             this.statusStripInside.Name = "statusStripInside";
-            this.statusStripInside.Size = new System.Drawing.Size(780, 22);
+            this.statusStripInside.Size = new System.Drawing.Size(944, 22);
             this.statusStripInside.TabIndex = 23;
             this.statusStripInside.Text = "statusStrip1";
             // 
@@ -326,7 +365,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::UI.Properties.Resources.b7b9175d8dba8065f71d0d7a8bba9d91;
-            this.pictureBox1.Location = new System.Drawing.Point(674, 23);
+            this.pictureBox1.Location = new System.Drawing.Point(775, 49);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(265, 184);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -357,7 +396,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(974, 562);
+            this.ClientSize = new System.Drawing.Size(1138, 566);
             this.Controls.Add(this.Reveal);
             this.Controls.Add(this.MoldRiskLabelIndex);
             this.Controls.Add(this.label2);
@@ -428,5 +467,11 @@
         private PictureBox pictureBox1;
         private Label label2;
         private Label MoldRiskLabelIndex;
+        private ColumnHeader DateResults;
+        private ColumnHeader LocationResults;
+        private ColumnHeader TempResults;
+        private ColumnHeader HumResults;
+        private ColumnHeader MoldResults;
+        private ColumnHeader SeasonResult;
     }
 }
