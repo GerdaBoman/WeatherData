@@ -1,4 +1,8 @@
-﻿namespace UI
+﻿using Core;
+using DataAccess.Models;
+using System;
+
+namespace UI
 {
     public partial class InsideForm : Form
     {
@@ -14,7 +18,6 @@
             resultView.Columns.Add("Mold Risk", 40, HorizontalAlignment.Left);
             resultView.Columns.Add("Season", 40, HorizontalAlignment.Left);
 
-            resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void Reveal_Click(object sender, EventArgs e)
@@ -38,7 +41,6 @@
                 foreach (var test in place)
                 {
                     listView1.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3) });
-                    listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
                     int etst = places.Distinct().Count();
                 }
                 dayCount = dayCount.AddDays(1);
@@ -63,12 +65,10 @@
             if (insideCheckBox.Checked && !outsideCheckBox.Checked)
             {
                 resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Inne", year, month, day, dayLenght, 3) });
-                resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
             else if (!insideCheckBox.Checked && outsideCheckBox.Checked)
             {
                 resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Ute", year, month, day, dayLenght, 3) });
-                resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
             else if (!insideCheckBox.Checked && !outsideCheckBox.Checked)
             {
@@ -151,6 +151,27 @@
             new ListViewComparer(e.Column, sort_order);
 
             listView1.Sort();
+        }
+
+        private void InsideForm_Load(object sender, EventArgs e)
+        {
+            var averagelist = csvImport.outportAverage();
+            foreach (var item in averagelist)
+            {
+
+                ListViewItem item1 = new();
+
+
+                item1 = new(item.Date.ToString().Substring(5,5));
+                item1.SubItems.Add(item.Place.ToString());
+                item1.SubItems.Add(Math.Round((decimal)item.TempAverage,2).ToString());
+                item1.SubItems.Add(Math.Round((decimal)item.HumAverage,2).ToString());
+                item1.SubItems.Add(item.MoldRisk.ToString());
+                item1.SubItems.Add(item.Seasons.ToString());
+                listView1.Items.AddRange(new ListViewItem[] {item1});
+            }
+
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.None);
         }
     }
 }
