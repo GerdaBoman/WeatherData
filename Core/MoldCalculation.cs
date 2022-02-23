@@ -1,21 +1,13 @@
-﻿using DataAccess.Models;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core
+﻿namespace Core
 {
     //Mold calcualation taken from https://pastebin.com/VXyATTWw
     public class MoldCalculation
     {
-//  0 = No risk
-//  1 = Mould growth possible after > 8 weeks
-//  2 = Mould growth after 4-8 weeks
-//  3 = Mould growth after 0-4 weeks
-        int[,] mold =
+        //  0 = No risk
+        //  1 = Mould growth possible after > 8 weeks
+        //  2 = Mould growth after 4-8 weeks
+        //  3 = Mould growth after 0-4 weeks
+        private int[,] mold =
         {
          {0,0,0,0}, //0°
      {0,97,98,100}, //1°
@@ -69,10 +61,11 @@ namespace Core
      { 0,79,80,86}, //49°
      { 0,79,80,86}  //50°
         };
+
         public int Mindex = 0;
+
         public int moldCalc(int temp, int fukt)
         {
-            
             if (temp <= 0 || temp > 50)
             {
                 Mindex = 0;
@@ -86,13 +79,9 @@ namespace Core
                         Mindex = i;
                         break;
                     }
-
                 }
             }
             return Mindex;
-
         }
-       
-
     }
 }

@@ -1,12 +1,7 @@
-﻿using Core;
-using DataAccess;
-using System.Collections;
-
-namespace UI
+﻿namespace UI
 {
     public partial class InsideForm : Form
     {
-
         public InsideForm()
         {
             InitializeComponent();
@@ -24,8 +19,6 @@ namespace UI
 
         private void Reveal_Click(object sender, EventArgs e)
         {
-
-
             var timywimy = Core.csvImport.date();
             var minDay = timywimy.First();
             var maxDay = timywimy.Last();
@@ -35,7 +28,6 @@ namespace UI
             statusStripInside.Update();
 
             listView1.BeginUpdate();
-
 
             List<double> dayLenght = new();
 
@@ -57,13 +49,9 @@ namespace UI
             statusStripInside.Update();
 
             listView1.EndUpdate();
-
         }
 
-
-
-
-        delegate void SetListViewCallBacks(string yourtext);
+        private delegate void SetListViewCallBacks(string yourtext);
 
         private void showButton_Click(object sender, EventArgs e)
         {
@@ -72,18 +60,15 @@ namespace UI
             int month = dateTimePicker1.Value.Month;
             int day = dateTimePicker1.Value.Day;
 
-
             if (insideCheckBox.Checked && !outsideCheckBox.Checked)
             {
                 resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Inne", year, month, day, dayLenght, 3) });
                 resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-
             }
             else if (!insideCheckBox.Checked && outsideCheckBox.Checked)
             {
                 resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Ute", year, month, day, dayLenght, 3) });
                 resultView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-
             }
             else if (!insideCheckBox.Checked && !outsideCheckBox.Checked)
             {
@@ -93,7 +78,6 @@ namespace UI
             {
                 MessageBox.Show("Please choose only one option");
             }
-
         }
 
         private void homeButton_Click(object sender, EventArgs e)
@@ -168,9 +152,5 @@ namespace UI
 
             listView1.Sort();
         }
-
-
-
-
     }
 }

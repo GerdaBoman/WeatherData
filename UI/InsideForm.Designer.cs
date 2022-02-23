@@ -235,7 +235,6 @@
             this.Reveal.TabIndex = 22;
             this.Reveal.Text = "Reveal";
             this.Reveal.UseVisualStyleBackColor = true;
-            this.Reveal.Click += new System.EventHandler(this.Reveal_Click);
             // 
             // resultLabel
             // 

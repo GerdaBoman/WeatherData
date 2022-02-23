@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Models
 {
@@ -10,11 +7,14 @@ namespace DataAccess.Models
     public partial class WeatherAverage
     {
         public DateTime Date { get; set; }
+
         [StringLength(50)]
         public string Place { get; set; } = null!;
+
         public double? TempAverage { get; set; }
         public double? HumAverage { get; set; }
         public int? MoldRisk { get; set; }
+
         [StringLength(50)]
         public string? Seasons { get; set; }
     }

@@ -6,21 +6,15 @@ namespace UI
 {
     public partial class Form1 : Form
     {
-
         public Form1()
         {
             var _context = new RoboGenderContext();
             _context.Database.EnsureCreated();
             InitializeComponent();
-
         }
-        
 
         private void homeButton_Click(object sender, EventArgs e)
         {
-            
-          
-               
         }
 
         private void insideButton_Click(object sender, EventArgs e)
@@ -68,7 +62,7 @@ namespace UI
 
         private void importButton_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(textFilePath.Text))
+            if (String.IsNullOrEmpty(textFilePath.Text))
             {
                 MessageBox.Show("Please select a file before you import!");
             }
@@ -84,9 +78,6 @@ namespace UI
                 var maxDay = timywimy.Last();
                 DateTime dayCount = minDay;
 
-               
-
-
                 List<double> dayLenght = new();
 
                 while (dayCount < maxDay)
@@ -95,8 +86,7 @@ namespace UI
                     var place = places.Distinct();
                     foreach (var test in place)
                     {
-                      AvrageImport.AvrageDB(AverageCalculation.average(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3));
-                       
+                        AvrageImport.AvrageDB(AverageCalculation.average(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3));
                     }
                     dayCount = dayCount.AddDays(1);
                 }
@@ -105,7 +95,7 @@ namespace UI
 
                 importMessageStatusBar.Text = "";
                 statusStrip1.Update();
-            } 
+            }
         }
     }
 }
