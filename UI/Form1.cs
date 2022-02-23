@@ -80,6 +80,9 @@ namespace UI
 
                 List<double> dayLenght = new();
 
+                importMessage.Text = "Calculating days averages...";
+                statusStrip1.Update();
+
                 while (dayCount < maxDay)
                 {
                     var places = Core.csvImport.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
@@ -89,6 +92,8 @@ namespace UI
                         AvrageImport.AvrageDB(AverageCalculation.average(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3));
                     }
                     dayCount = dayCount.AddDays(1);
+
+                    
                 }
 
                 importMessage.Text = "";
