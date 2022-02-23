@@ -178,6 +178,21 @@ namespace UI
                         break;
                     }
             }
+
+            MeterologicalAutumn autumn = new();
+            string autumDate = autumn.OfficialAutumnDay();
+            autumnResults.Text = autumDate;
+
+            MeteorologicalWinter winter = new MeteorologicalWinter();
+            string winterDay = winter.OfficialWinterDay();
+            winterResultsLabel.Text = winterDay;
+
+
+        }
+
+        private void officalAutumnTextBox_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

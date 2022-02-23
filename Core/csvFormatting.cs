@@ -12,7 +12,7 @@ namespace DataAccess
             int i = 0;
             csvFilter reader = new();
             List<SearchParameters> parameters = reader.Procesor(reader.Filter(path));
-            using var contect = new RoboGenderContext();
+            using var context = new RoboGenderContext();
             {
                 foreach (SearchParameters param in parameters)
                 {
@@ -25,12 +25,12 @@ namespace DataAccess
                         Luftfuktighet = double.Parse(param.csvLuftFuktighet)
                     });
 
-                    contect.Weathers.AddRangeAsync(wArr);
-
+                    context.Weathers.AddRangeAsync(wArr);
+                    //TODO: Change numbers
                     i++;
                     if (i == 139775) //saves it after it has loaded up everyhing to save time
                     {
-                        contect.SaveChanges();
+                        context.SaveChanges();
                         i = 0;
                     }
                 }

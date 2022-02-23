@@ -13,6 +13,8 @@ namespace UI
         {
             var _context = new RoboGenderContext();
             _context.Database.EnsureCreated();
+
+
             InitializeComponent();
 
            

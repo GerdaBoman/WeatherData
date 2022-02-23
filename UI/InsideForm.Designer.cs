@@ -68,6 +68,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.MoldRiskLabelIndex = new System.Windows.Forms.Label();
+            this.officalAutumnLAbel = new System.Windows.Forms.Label();
+            this.autumnResults = new System.Windows.Forms.Label();
+            this.officialWinterDayLabel = new System.Windows.Forms.Label();
+            this.winterResultsLabel = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weatherBindingSource3)).BeginInit();
@@ -392,12 +396,50 @@
             this.MoldRiskLabelIndex.Text = "0 = No risk\r\n1 = Mold would possibly growth  after > 8 weeks\r\n2 = Mold would poss" +
     "ibly growth  within 4-8 weeks\r\n3 = Mold would possibly growth  0-4 weeks";
             // 
+            // officalAutumnLAbel
+            // 
+            this.officalAutumnLAbel.AutoSize = true;
+            this.officalAutumnLAbel.Location = new System.Drawing.Point(214, 514);
+            this.officalAutumnLAbel.Name = "officalAutumnLAbel";
+            this.officalAutumnLAbel.Size = new System.Drawing.Size(119, 15);
+            this.officalAutumnLAbel.TabIndex = 27;
+            this.officalAutumnLAbel.Text = "Meteological Autum:";
+            // 
+            // autumnResults
+            // 
+            this.autumnResults.AutoSize = true;
+            this.autumnResults.Location = new System.Drawing.Point(339, 514);
+            this.autumnResults.Name = "autumnResults";
+            this.autumnResults.Size = new System.Drawing.Size(0, 15);
+            this.autumnResults.TabIndex = 28;
+            // 
+            // officialWinterDayLabel
+            // 
+            this.officialWinterDayLabel.AutoSize = true;
+            this.officialWinterDayLabel.Location = new System.Drawing.Point(463, 514);
+            this.officialWinterDayLabel.Name = "officialWinterDayLabel";
+            this.officialWinterDayLabel.Size = new System.Drawing.Size(117, 15);
+            this.officialWinterDayLabel.TabIndex = 29;
+            this.officialWinterDayLabel.Text = "Meteological Winter:";
+            // 
+            // winterResultsLabel
+            // 
+            this.winterResultsLabel.AutoSize = true;
+            this.winterResultsLabel.Location = new System.Drawing.Point(586, 514);
+            this.winterResultsLabel.Name = "winterResultsLabel";
+            this.winterResultsLabel.Size = new System.Drawing.Size(0, 15);
+            this.winterResultsLabel.TabIndex = 30;
+            // 
             // InsideForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1138, 566);
             this.ControlBox = false;
+            this.Controls.Add(this.winterResultsLabel);
+            this.Controls.Add(this.officialWinterDayLabel);
+            this.Controls.Add(this.autumnResults);
+            this.Controls.Add(this.officalAutumnLAbel);
             this.Controls.Add(this.Reveal);
             this.Controls.Add(this.MoldRiskLabelIndex);
             this.Controls.Add(this.label2);
@@ -474,5 +516,9 @@
         private ColumnHeader HumResults;
         private ColumnHeader MoldResults;
         private ColumnHeader SeasonResult;
+        private Label officalAutumnLAbel;
+        private Label autumnResults;
+        private Label officialWinterDayLabel;
+        private Label winterResultsLabel;
     }
 }
