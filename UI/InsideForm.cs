@@ -10,14 +10,6 @@ namespace UI
         {
             InitializeComponent();
 
-            resultView.View = View.Details;
-            resultView.Columns.Add("Date", 70, HorizontalAlignment.Left);
-            resultView.Columns.Add("Place", 40, HorizontalAlignment.Left);
-            resultView.Columns.Add("Temp", 40, HorizontalAlignment.Left);
-            resultView.Columns.Add("Hum", 40, HorizontalAlignment.Left);
-            resultView.Columns.Add("Mold Risk", 40, HorizontalAlignment.Left);
-            resultView.Columns.Add("Season", 40, HorizontalAlignment.Left);
-
         }
 
         private void Reveal_Click(object sender, EventArgs e)
