@@ -68,8 +68,8 @@ namespace UI
             }
             else
             {
-                InsideForm inside = new InsideForm();
-                importMessageBar.Text = "Importing .csv file....";
+                
+                importMessage.Text = "Importing .csv file....";
                 statusStrip1.Update();
 
                 csvFormatting.EFImport(textFilePath.Text);
@@ -91,11 +91,15 @@ namespace UI
                     dayCount = dayCount.AddDays(1);
                 }
 
-                MessageBox.Show("ImportCompleted!");
-
-                importMessageStatusBar.Text = "";
+                importMessage.Text = "";
                 statusStrip1.Update();
+
+                MessageBox.Show("Import Completed!");
+
+                
             }
         }
+
+       
     }
 }
