@@ -204,7 +204,7 @@
             // Date
             // 
             this.Date.Text = "Date";
-            this.Date.Width = 90;
+            this.Date.Width = 50;
             // 
             // Location
             // 
@@ -224,7 +224,7 @@
             // moldRisk
             // 
             this.moldRisk.Text = "Mold Risk";
-            this.moldRisk.Width = 90;
+            this.moldRisk.Width = 80;
             // 
             // Season
             // 
@@ -260,7 +260,7 @@
             this.SeasonResult});
             this.resultView.Location = new System.Drawing.Point(742, 382);
             this.resultView.Name = "resultView";
-            this.resultView.Size = new System.Drawing.Size(363, 121);
+            this.resultView.Size = new System.Drawing.Size(384, 121);
             this.resultView.TabIndex = 20;
             this.resultView.UseCompatibleStateImageBehavior = false;
             this.resultView.View = System.Windows.Forms.View.Details;
@@ -268,6 +268,7 @@
             // DateResults
             // 
             this.DateResults.Text = "Date";
+            this.DateResults.Width = 70;
             // 
             // LocationResults
             // 
