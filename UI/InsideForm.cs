@@ -1,5 +1,6 @@
 
 ﻿using Core;
+using DataAccess;
 using DataAccess.Models;
 using System;
 
@@ -16,7 +17,7 @@ namespace UI
 
         private void Reveal_Click(object sender, EventArgs e)
         {
-            var timywimy = Core.csvImport.date();
+            var timywimy = csvImport.date();
             var minDay = timywimy.First();
             var maxDay = timywimy.Last();
             DateTime dayCount = minDay;
@@ -30,7 +31,7 @@ namespace UI
 
             while (dayCount < maxDay)
             {
-                var places = Core.csvImport.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
+                var places = csvImport.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
                 var place = places.Distinct();
                 foreach (var test in place)
                 {

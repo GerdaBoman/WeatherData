@@ -1,4 +1,5 @@
-﻿using DataAccess.Data;
+﻿using Core.Filtering;
+using DataAccess.Data;
 using DataAccess.Models;
 using System.Globalization;
 
