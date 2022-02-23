@@ -1,5 +1,5 @@
 
-﻿using Core;
+using Core;
 using DataAccess;
 using DataAccess.Models;
 using System;
@@ -150,7 +150,34 @@ namespace UI
 
         private void InsideForm_Load(object sender, EventArgs e)
         {
-           
+            switch (csvImport.DataExsist())
+            {
+                case true:
+                    {
+                        var averagelist = csvImport.outportAverage();
+                        foreach (var item in averagelist)
+                        {
+
+                            ListViewItem item1 = new();
+
+
+                            item1 = new(item.Date.ToString().Substring(5, 5));
+                            item1.SubItems.Add(item.Place.ToString());
+                            item1.SubItems.Add(Math.Round((decimal)item.TempAverage, 2).ToString());
+                            item1.SubItems.Add(Math.Round((decimal)item.HumAverage, 2).ToString());
+                            item1.SubItems.Add(item.MoldRisk.ToString());
+                            item1.SubItems.Add(item.Seasons.ToString());
+                            listView1.Items.AddRange(new ListViewItem[] { item1 });
+                        }
+
+                        listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.None);
+                        break;
+                    }
+                case false:
+                    {
+                        break;
+                    }
+            }
         }
     }
 }
