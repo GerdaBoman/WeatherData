@@ -61,8 +61,9 @@
             this.panelMenu.Controls.Add(this.groupName);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(194, 566);
+            this.panelMenu.Size = new System.Drawing.Size(222, 755);
             this.panelMenu.TabIndex = 0;
             // 
             // exitButton
@@ -76,9 +77,10 @@
             this.exitButton.IconColor = System.Drawing.Color.White;
             this.exitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.exitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitButton.Location = new System.Drawing.Point(0, 514);
+            this.exitButton.Location = new System.Drawing.Point(0, 686);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(194, 52);
+            this.exitButton.Size = new System.Drawing.Size(222, 69);
             this.exitButton.TabIndex = 6;
             this.exitButton.Tag = "Exit";
             this.exitButton.Text = "Exit";
@@ -96,9 +98,10 @@
             this.WeatherDataButton.IconColor = System.Drawing.Color.White;
             this.WeatherDataButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.WeatherDataButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.WeatherDataButton.Location = new System.Drawing.Point(0, 130);
+            this.WeatherDataButton.Location = new System.Drawing.Point(0, 167);
+            this.WeatherDataButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.WeatherDataButton.Name = "WeatherDataButton";
-            this.WeatherDataButton.Size = new System.Drawing.Size(194, 56);
+            this.WeatherDataButton.Size = new System.Drawing.Size(222, 75);
             this.WeatherDataButton.TabIndex = 3;
             this.WeatherDataButton.Tag = "Inside Temperature";
             this.WeatherDataButton.Text = "           Weather Data\r\n\r\n";
@@ -116,9 +119,10 @@
             this.homeButton.IconColor = System.Drawing.Color.White;
             this.homeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.homeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.homeButton.Location = new System.Drawing.Point(0, 74);
+            this.homeButton.Location = new System.Drawing.Point(0, 92);
+            this.homeButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.homeButton.Name = "homeButton";
-            this.homeButton.Size = new System.Drawing.Size(194, 56);
+            this.homeButton.Size = new System.Drawing.Size(222, 75);
             this.homeButton.TabIndex = 2;
             this.homeButton.Tag = "Home";
             this.homeButton.Text = "Home";
@@ -133,9 +137,10 @@
             this.menuIcon.IconColor = System.Drawing.Color.White;
             this.menuIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.menuIcon.IconSize = 30;
-            this.menuIcon.Location = new System.Drawing.Point(107, 12);
+            this.menuIcon.Location = new System.Drawing.Point(122, 16);
+            this.menuIcon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.menuIcon.Name = "menuIcon";
-            this.menuIcon.Size = new System.Drawing.Size(72, 41);
+            this.menuIcon.Size = new System.Drawing.Size(82, 55);
             this.menuIcon.TabIndex = 1;
             this.menuIcon.UseVisualStyleBackColor = true;
             // 
@@ -147,7 +152,7 @@
             this.groupName.ForeColor = System.Drawing.Color.White;
             this.groupName.Location = new System.Drawing.Point(0, 0);
             this.groupName.Name = "groupName";
-            this.groupName.Size = new System.Drawing.Size(110, 74);
+            this.groupName.Size = new System.Drawing.Size(136, 92);
             this.groupName.TabIndex = 0;
             this.groupName.Text = "Robo \r\nGender";
             this.groupName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -157,18 +162,19 @@
             this.welcomeMessageLabel.AutoSize = true;
             this.welcomeMessageLabel.BackColor = System.Drawing.Color.Transparent;
             this.welcomeMessageLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.welcomeMessageLabel.Location = new System.Drawing.Point(348, 190);
+            this.welcomeMessageLabel.Location = new System.Drawing.Point(398, 253);
             this.welcomeMessageLabel.Name = "welcomeMessageLabel";
-            this.welcomeMessageLabel.Size = new System.Drawing.Size(493, 252);
+            this.welcomeMessageLabel.Size = new System.Drawing.Size(673, 315);
             this.welcomeMessageLabel.TabIndex = 11;
             this.welcomeMessageLabel.Text = resources.GetString("welcomeMessageLabel.Text");
             this.welcomeMessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // importButton
             // 
-            this.importButton.Location = new System.Drawing.Point(766, 144);
+            this.importButton.Location = new System.Drawing.Point(875, 192);
+            this.importButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.importButton.Name = "importButton";
-            this.importButton.Size = new System.Drawing.Size(75, 23);
+            this.importButton.Size = new System.Drawing.Size(86, 31);
             this.importButton.TabIndex = 10;
             this.importButton.Text = "Import";
             this.importButton.UseVisualStyleBackColor = true;
@@ -176,16 +182,18 @@
             // 
             // textFilePath
             // 
-            this.textFilePath.Location = new System.Drawing.Point(487, 115);
+            this.textFilePath.Location = new System.Drawing.Point(557, 153);
+            this.textFilePath.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textFilePath.Name = "textFilePath";
-            this.textFilePath.Size = new System.Drawing.Size(245, 23);
+            this.textFilePath.Size = new System.Drawing.Size(279, 27);
             this.textFilePath.TabIndex = 9;
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(766, 115);
+            this.browseButton.Location = new System.Drawing.Point(875, 153);
+            this.browseButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.browseButton.Name = "browseButton";
-            this.browseButton.Size = new System.Drawing.Size(75, 23);
+            this.browseButton.Size = new System.Drawing.Size(86, 31);
             this.browseButton.TabIndex = 8;
             this.browseButton.Text = "Browse";
             this.browseButton.UseVisualStyleBackColor = true;
@@ -194,9 +202,9 @@
             // infolabel
             // 
             this.infolabel.AutoSize = true;
-            this.infolabel.Location = new System.Drawing.Point(348, 115);
+            this.infolabel.Location = new System.Drawing.Point(398, 153);
             this.infolabel.Name = "infolabel";
-            this.infolabel.Size = new System.Drawing.Size(99, 15);
+            this.infolabel.Size = new System.Drawing.Size(124, 20);
             this.infolabel.TabIndex = 7;
             this.infolabel.Text = "Choose CSV  file: ";
             // 
@@ -204,9 +212,9 @@
             // 
             this.panelHomeLabel.AutoSize = true;
             this.panelHomeLabel.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.panelHomeLabel.Location = new System.Drawing.Point(207, 7);
+            this.panelHomeLabel.Location = new System.Drawing.Point(237, 9);
             this.panelHomeLabel.Name = "panelHomeLabel";
-            this.panelHomeLabel.Size = new System.Drawing.Size(190, 72);
+            this.panelHomeLabel.Size = new System.Drawing.Size(236, 89);
             this.panelHomeLabel.TabIndex = 6;
             this.panelHomeLabel.Text = "Home ";
             // 
@@ -217,45 +225,47 @@
             this.importMessageStatusBar,
             this.importMessageBar,
             this.importMessage});
-            this.statusStrip1.Location = new System.Drawing.Point(194, 544);
+            this.statusStrip1.Location = new System.Drawing.Point(222, 733);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(835, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(954, 22);
             this.statusStrip1.TabIndex = 12;
             // 
             // importMessageStatusBar
             // 
             this.importMessageStatusBar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.importMessageStatusBar.Name = "importMessageStatusBar";
-            this.importMessageStatusBar.Size = new System.Drawing.Size(0, 17);
+            this.importMessageStatusBar.Size = new System.Drawing.Size(0, 16);
             // 
             // importMessageBar
             // 
             this.importMessageBar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.importMessageBar.Name = "importMessageBar";
-            this.importMessageBar.Size = new System.Drawing.Size(0, 17);
+            this.importMessageBar.Size = new System.Drawing.Size(0, 16);
             // 
             // importMessage
             // 
             this.importMessage.Name = "importMessage";
-            this.importMessage.Size = new System.Drawing.Size(0, 17);
+            this.importMessage.Size = new System.Drawing.Size(0, 16);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::UI.Properties.Resources._5f18d89c79362f875744a59d750f0a65;
-            this.pictureBox1.Location = new System.Drawing.Point(239, 326);
+            this.pictureBox1.Location = new System.Drawing.Point(273, 435);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(263, 177);
+            this.pictureBox1.Size = new System.Drawing.Size(301, 236);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1029, 566);
+            this.ClientSize = new System.Drawing.Size(1176, 755);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip1);
@@ -266,6 +276,7 @@
             this.Controls.Add(this.infolabel);
             this.Controls.Add(this.panelHomeLabel);
             this.Controls.Add(this.panelMenu);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Robo Gender Weather";

@@ -6,7 +6,7 @@ namespace Core
 {
     public class AverageCalculation
     {
-        public static WeatherAverage average(string place, int year, int month, int day) //Purpose Calculate all average values 
+        public WeatherAverage average(string place, int year, int month, int day) //Purpose Calculate all average values 
         {
             MoldCalculation mold = new();
 
