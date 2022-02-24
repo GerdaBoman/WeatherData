@@ -3,6 +3,7 @@ using DataAccess;
 using LumenWorks.Framework.IO.Csv;
 using System.Data;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Core.Filtering
 {
@@ -21,38 +22,14 @@ namespace Core.Filtering
 
             for (int i = 0; i < csvTable.Rows.Count; i++)//Goes through all the rows in said file and adds it to a list
             {
-                switch (double.TryParse(csvTable.Rows[i][2].ToString().Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out var value))
+                static string RemoveNonNumeric(string value) => Regex.Replace(value, "[^0-9.-]", "");
+                searches.Add(new SearchParameters
                 {
-                    case false:
-                        {
-                            for (int backwars = i - 1; backwars == 0; backwars--)
-                            {
-                                if (csvTable.Rows[backwars][1].ToString() == csvTable.Rows[i][1].ToString())
-                                {
-                                    searches.Add(new SearchParameters
-                                    {
-                                        csvDatum = csvTable.Rows[i][0].ToString(),
-                                        csvPlats = csvTable.Rows[i][1].ToString(),
-                                        csvTemp = csvTable.Rows[backwars][2].ToString().Trim(),
-                                        csvLuftFuktighet = csvTable.Rows[i][3].ToString().Trim()
-                                    });
-                                }
-                            }
-                            break;
-                        }
-                    case true:
-                        {
-                            searches.Add(new SearchParameters
-                            {
-                                csvDatum = csvTable.Rows[i][0].ToString(),
-                                csvPlats = csvTable.Rows[i][1].ToString(),
-                                csvTemp = csvTable.Rows[i][2].ToString().Trim(),
-                                csvLuftFuktighet = csvTable.Rows[i][3].ToString().Trim()
-                            });
-                            break;
-                        }
-                }
-
+                    csvDatum = csvTable.Rows[i][0].ToString(),
+                    csvPlats = csvTable.Rows[i][1].ToString(),
+                    csvTemp = RemoveNonNumeric(csvTable.Rows[i][2].ToString().Trim()),
+                    csvLuftFuktighet = csvTable.Rows[i][3].ToString().Trim()
+                });
             }
             return searches;
         }
