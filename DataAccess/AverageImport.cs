@@ -7,11 +7,11 @@ namespace DataAccess
     {
         public static void AverageDB(WeatherAverage average)//Purpose Saves the average data calculations 
         {
-            using var contect = new RoboGenderContext();
+            using var context = new RoboGenderContext();
             {
-                contect.WeatherAverages.AddRangeAsync(average);
+                context.WeatherAverages.AddRangeAsync(average);
 
-                contect.SaveChanges();
+                context.SaveChanges();
             }
         }
     }

@@ -236,7 +236,7 @@
             // resultLabel
             // 
             this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(692, 364);
+            this.resultLabel.Location = new System.Drawing.Point(661, 138);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(42, 15);
             this.resultLabel.TabIndex = 21;
@@ -250,7 +250,7 @@
             this.TempResults,
             this.HumResults,
             this.MoldResults});
-            this.resultView.Location = new System.Drawing.Point(692, 382);
+            this.resultView.Location = new System.Drawing.Point(661, 156);
             this.resultView.Name = "resultView";
             this.resultView.Size = new System.Drawing.Size(315, 121);
             this.resultView.TabIndex = 20;
@@ -281,15 +281,15 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(736, 261);
+            this.label1.Location = new System.Drawing.Point(690, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(231, 15);
+            this.label1.Size = new System.Drawing.Size(237, 15);
             this.label1.TabIndex = 19;
-            this.label1.Text = "Average Temperatur and Humidity per day";
+            this.label1.Text = "Average Temperature and Humidity per day";
             // 
             // showButton
             // 
-            this.showButton.Location = new System.Drawing.Point(813, 349);
+            this.showButton.Location = new System.Drawing.Point(758, 116);
             this.showButton.Name = "showButton";
             this.showButton.Size = new System.Drawing.Size(75, 23);
             this.showButton.TabIndex = 17;
@@ -300,7 +300,7 @@
             // insideCheckBox
             // 
             this.insideCheckBox.AutoSize = true;
-            this.insideCheckBox.Location = new System.Drawing.Point(748, 323);
+            this.insideCheckBox.Location = new System.Drawing.Point(702, 91);
             this.insideCheckBox.Name = "insideCheckBox";
             this.insideCheckBox.Size = new System.Drawing.Size(57, 19);
             this.insideCheckBox.TabIndex = 15;
@@ -320,7 +320,7 @@
             // outsideCheckBox
             // 
             this.outsideCheckBox.AutoSize = true;
-            this.outsideCheckBox.Location = new System.Drawing.Point(882, 321);
+            this.outsideCheckBox.Location = new System.Drawing.Point(836, 89);
             this.outsideCheckBox.Name = "outsideCheckBox";
             this.outsideCheckBox.Size = new System.Drawing.Size(66, 22);
             this.outsideCheckBox.TabIndex = 16;
@@ -330,7 +330,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(748, 292);
+            this.dateTimePicker1.Location = new System.Drawing.Point(702, 60);
             this.dateTimePicker1.MaxDate = new System.DateTime(2016, 11, 30, 0, 0, 0, 0);
             this.dateTimePicker1.MinDate = new System.DateTime(2016, 10, 1, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
@@ -358,7 +358,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::UI.Properties.Resources.b7b9175d8dba8065f71d0d7a8bba9d91;
-            this.pictureBox1.Location = new System.Drawing.Point(723, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(690, 319);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(265, 184);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -369,7 +369,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(226, 101);
+            this.label2.Location = new System.Drawing.Point(226, 92);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 21);
             this.label2.TabIndex = 25;
@@ -378,7 +378,7 @@
             // MoldRiskLabelIndex
             // 
             this.MoldRiskLabelIndex.AutoSize = true;
-            this.MoldRiskLabelIndex.Location = new System.Drawing.Point(226, 122);
+            this.MoldRiskLabelIndex.Location = new System.Drawing.Point(226, 113);
             this.MoldRiskLabelIndex.Name = "MoldRiskLabelIndex";
             this.MoldRiskLabelIndex.Size = new System.Drawing.Size(272, 60);
             this.MoldRiskLabelIndex.TabIndex = 26;
@@ -388,16 +388,16 @@
             // officalAutumnLAbel
             // 
             this.officalAutumnLAbel.AutoSize = true;
-            this.officalAutumnLAbel.Location = new System.Drawing.Point(226, 514);
+            this.officalAutumnLAbel.Location = new System.Drawing.Point(225, 506);
             this.officalAutumnLAbel.Name = "officalAutumnLAbel";
-            this.officalAutumnLAbel.Size = new System.Drawing.Size(123, 15);
+            this.officalAutumnLAbel.Size = new System.Drawing.Size(130, 15);
             this.officalAutumnLAbel.TabIndex = 27;
-            this.officalAutumnLAbel.Text = "Meterological Autum:";
+            this.officalAutumnLAbel.Text = "Meterological Autumn:";
             // 
             // autumnResults
             // 
             this.autumnResults.AutoSize = true;
-            this.autumnResults.Location = new System.Drawing.Point(339, 514);
+            this.autumnResults.Location = new System.Drawing.Point(355, 506);
             this.autumnResults.Name = "autumnResults";
             this.autumnResults.Size = new System.Drawing.Size(0, 15);
             this.autumnResults.TabIndex = 28;
@@ -405,7 +405,7 @@
             // officialWinterDayLabel
             // 
             this.officialWinterDayLabel.AutoSize = true;
-            this.officialWinterDayLabel.Location = new System.Drawing.Point(463, 514);
+            this.officialWinterDayLabel.Location = new System.Drawing.Point(435, 506);
             this.officialWinterDayLabel.Name = "officialWinterDayLabel";
             this.officialWinterDayLabel.Size = new System.Drawing.Size(128, 15);
             this.officialWinterDayLabel.TabIndex = 29;
@@ -414,7 +414,7 @@
             // winterResultsLabel
             // 
             this.winterResultsLabel.AutoSize = true;
-            this.winterResultsLabel.Location = new System.Drawing.Point(586, 514);
+            this.winterResultsLabel.Location = new System.Drawing.Point(563, 506);
             this.winterResultsLabel.Name = "winterResultsLabel";
             this.winterResultsLabel.Size = new System.Drawing.Size(0, 15);
             this.winterResultsLabel.TabIndex = 30;
