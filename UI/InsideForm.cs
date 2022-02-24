@@ -18,7 +18,6 @@ namespace UI
 
         private void ShowButton_Click(object sender, EventArgs e)
         {
-            AverageCalculation averageCalculation =new();
             List<double> dayLenght = new();
             int year = dateTimePicker1.Value.Year;
             int month = dateTimePicker1.Value.Month;
@@ -26,7 +25,7 @@ namespace UI
 
             if (insideCheckBox.Checked && !outsideCheckBox.Checked)
             {
-                WeatherAverage weatherAverage = averageCalculation.average("Inne", year, month, day);
+                WeatherAverage weatherAverage = AverageCalculation.average("Inne", year, month, day);
                 ListViewItem AvgDataRow = new();
                 AvgDataRow = new(weatherAverage.Date.ToString().Substring(5, 5));
                 AvgDataRow.SubItems.Add(weatherAverage.Place.ToString());
@@ -38,7 +37,7 @@ namespace UI
             else if (!insideCheckBox.Checked && outsideCheckBox.Checked)
             {
 
-                WeatherAverage weatherAverage = averageCalculation.average("Ute", year, month, day);
+                WeatherAverage weatherAverage = AverageCalculation.average("Ute", year, month, day);
                 ListViewItem AvgDataRow = new();
                 AvgDataRow = new(weatherAverage.Date.ToString().Substring(5, 5));
                 AvgDataRow.SubItems.Add(weatherAverage.Place.ToString());

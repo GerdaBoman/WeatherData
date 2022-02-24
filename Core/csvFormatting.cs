@@ -7,7 +7,7 @@ namespace DataAccess
 {
     public class CsvFormatting : CsvFilter
     {
-        public void EFImport(string path) //Purpose Using EF to Import 
+        public static void EFImport(string path) //Purpose Using EF to Import 
         {
             int i = 0;
             CsvFilter reader = new();

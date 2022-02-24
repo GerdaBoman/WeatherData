@@ -67,11 +67,8 @@ namespace UI
             }
         }
 
-        private async void ImportButton_Click(object sender, EventArgs e)
+        private void ImportButton_Click(object sender, EventArgs e)
         {
-            AverageImport averageImport = new();
-            CsvFormatting csvFormatting = new();
-            AverageCalculation average = new();
             if (String.IsNullOrEmpty(textFilePath.Text))
             {
                 MessageBox.Show("Please select a file before you import!");
@@ -82,27 +79,27 @@ namespace UI
                 importMessage.Text = "Importing .csv file....";
                 statusStrip1.Update();
 
-                csvFormatting.EFImport(textFilePath.Text);
+                CsvFormatting.EFImport(textFilePath.Text);
                 var timywimy = CsvImport.Date();
                 var minDay = timywimy.First();
                 var maxDay = timywimy.Last();
+                DateTime dayCount = minDay;
 
+                List<double> dayLenght = new();
 
                 importMessage.Text = "Calculating days averages...";
                 statusStrip1.Update();
 
-                while (minDay < maxDay)
+                while (dayCount < maxDay)
                 {
-                    var places = CsvImport.DailyPlace(minDay.Year, minDay.Month, minDay.Day).Distinct();
-
-
-                    foreach (var test in places)
+                    var places = CsvImport.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
+                    var place = places.Distinct();
+                    foreach (var test in place)
                     {
-                        averageImport.AverageDB(average.average(test, minDay.Year, minDay.Month, minDay.Day));
+                        AverageImport.AverageDB(AverageCalculation.average(test, dayCount.Year, dayCount.Month, dayCount.Day));
                     }
+                    dayCount = dayCount.AddDays(1);
 
-
-                    minDay = minDay.AddDays(1);
 
                 }
 
