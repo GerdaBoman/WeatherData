@@ -157,7 +157,7 @@
             this.welcomeMessageLabel.AutoSize = true;
             this.welcomeMessageLabel.BackColor = System.Drawing.Color.Transparent;
             this.welcomeMessageLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.welcomeMessageLabel.Location = new System.Drawing.Point(453, 193);
+            this.welcomeMessageLabel.Location = new System.Drawing.Point(348, 190);
             this.welcomeMessageLabel.Name = "welcomeMessageLabel";
             this.welcomeMessageLabel.Size = new System.Drawing.Size(493, 252);
             this.welcomeMessageLabel.TabIndex = 11;
@@ -166,7 +166,7 @@
             // 
             // importButton
             // 
-            this.importButton.Location = new System.Drawing.Point(840, 144);
+            this.importButton.Location = new System.Drawing.Point(766, 144);
             this.importButton.Name = "importButton";
             this.importButton.Size = new System.Drawing.Size(75, 23);
             this.importButton.TabIndex = 10;
@@ -176,14 +176,14 @@
             // 
             // textFilePath
             // 
-            this.textFilePath.Location = new System.Drawing.Point(561, 115);
+            this.textFilePath.Location = new System.Drawing.Point(487, 115);
             this.textFilePath.Name = "textFilePath";
             this.textFilePath.Size = new System.Drawing.Size(245, 23);
             this.textFilePath.TabIndex = 9;
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(840, 115);
+            this.browseButton.Location = new System.Drawing.Point(766, 115);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(75, 23);
             this.browseButton.TabIndex = 8;
@@ -194,7 +194,7 @@
             // infolabel
             // 
             this.infolabel.AutoSize = true;
-            this.infolabel.Location = new System.Drawing.Point(422, 115);
+            this.infolabel.Location = new System.Drawing.Point(348, 115);
             this.infolabel.Name = "infolabel";
             this.infolabel.Size = new System.Drawing.Size(99, 15);
             this.infolabel.TabIndex = 7;
@@ -219,7 +219,7 @@
             this.importMessage});
             this.statusStrip1.Location = new System.Drawing.Point(194, 544);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(944, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(835, 22);
             this.statusStrip1.TabIndex = 12;
             // 
             // importMessageStatusBar
@@ -242,7 +242,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::UI.Properties.Resources._5f18d89c79362f875744a59d750f0a65;
-            this.pictureBox1.Location = new System.Drawing.Point(242, 314);
+            this.pictureBox1.Location = new System.Drawing.Point(239, 326);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(263, 177);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -255,7 +255,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1138, 566);
+            this.ClientSize = new System.Drawing.Size(1029, 566);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip1);
