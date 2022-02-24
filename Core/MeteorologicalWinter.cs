@@ -11,6 +11,7 @@ namespace Core
 
             var date = (from a in db.WeatherAverages
                         where a.TempAverage <= 0 && a.Place == "Ute"
+                        orderby a.Date
                         select a.Date).ToList();
 
             for (int i = 0; i < date.Count - 5; i++)
