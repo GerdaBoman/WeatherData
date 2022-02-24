@@ -96,7 +96,7 @@ namespace UI
                     var place = places.Distinct();
                     foreach (var test in place)
                     {
-                        AverageImport.AverageDB(AverageCalculation.average(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3));
+                        AverageImport.AverageDB(AverageCalculation.average(test, dayCount.Year, dayCount.Month, dayCount.Day));
                     }
                     dayCount = dayCount.AddDays(1);
 

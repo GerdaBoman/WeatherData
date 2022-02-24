@@ -1,7 +1,7 @@
 
 using Core;
 using DataAccess;
-
+using DataAccess.Models;
 
 namespace UI
 {
@@ -13,38 +13,6 @@ namespace UI
 
         }
 
-        private void Reveal_Click(object sender, EventArgs e)
-        {
-            var timywimy = CsvImport.Date();
-            var minDay = timywimy.First();
-            var maxDay = timywimy.Last();
-            DateTime dayCount = minDay;
-
-            updateMessageStrip.Text = "Updating Data List....";
-            statusStripInside.Update();
-
-            ListViewer.BeginUpdate();
-
-            List<double> dayLenght = new();
-
-            while (dayCount < maxDay)
-            {
-                var places = CsvImport.DailyPlace(dayCount.Year, dayCount.Month, dayCount.Day);
-                var place = places.Distinct();
-                foreach (var test in place)
-                {
-                    ListViewer.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily(test, dayCount.Year, dayCount.Month, dayCount.Day, dayLenght, 3) });
-                    int etst = places.Distinct().Count();
-                }
-                dayCount = dayCount.AddDays(1);
-            }
-            ListViewer.EndUpdate();
-
-            updateMessageStrip.Text = "";
-            statusStripInside.Update();
-
-            ListViewer.EndUpdate();
-        }
 
         private delegate void SetListViewCallBacks(string yourtext);
 
@@ -57,11 +25,26 @@ namespace UI
 
             if (insideCheckBox.Checked && !outsideCheckBox.Checked)
             {
-                resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Inne", year, month, day, dayLenght, 3) });
+                WeatherAverage weatherAverage = AverageCalculation.average("Inne", year, month, day);
+                ListViewItem AvgDataRow = new();
+                AvgDataRow = new(weatherAverage.Date.ToString().Substring(5, 5));
+                AvgDataRow.SubItems.Add(weatherAverage.Place.ToString());
+                AvgDataRow.SubItems.Add(Math.Round((decimal)weatherAverage.TempAverage, 2).ToString());
+                AvgDataRow.SubItems.Add(Math.Round((decimal)weatherAverage.HumAverage, 2).ToString());
+                AvgDataRow.SubItems.Add(weatherAverage.MoldRisk.ToString());
+                resultView.Items.AddRange(new ListViewItem[] { AvgDataRow });
             }
             else if (!insideCheckBox.Checked && outsideCheckBox.Checked)
             {
-                resultView.Items.AddRange(new ListViewItem[] { ListViewDaily.listDaily("Ute", year, month, day, dayLenght, 3) });
+
+                WeatherAverage weatherAverage = AverageCalculation.average("Ute", year, month, day);
+                ListViewItem AvgDataRow = new();
+                AvgDataRow = new(weatherAverage.Date.ToString().Substring(5, 5));
+                AvgDataRow.SubItems.Add(weatherAverage.Place.ToString());
+                AvgDataRow.SubItems.Add(Math.Round((decimal)weatherAverage.TempAverage, 2).ToString());
+                AvgDataRow.SubItems.Add(Math.Round((decimal)weatherAverage.HumAverage, 2).ToString());
+                AvgDataRow.SubItems.Add(weatherAverage.MoldRisk.ToString());
+                resultView.Items.AddRange(new ListViewItem[] { AvgDataRow });
             }
             else if (!insideCheckBox.Checked && !outsideCheckBox.Checked)
             {
@@ -164,7 +147,7 @@ namespace UI
                             AvgDataRow.SubItems.Add(Math.Round((decimal)item.TempAverage, 2).ToString());
                             AvgDataRow.SubItems.Add(Math.Round((decimal)item.HumAverage, 2).ToString());
                             AvgDataRow.SubItems.Add(item.MoldRisk.ToString());
-                            AvgDataRow.SubItems.Add(item.Seasons.ToString());
+
                             ListViewer.Items.AddRange(new ListViewItem[] { AvgDataRow });
                         }
 

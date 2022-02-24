@@ -15,7 +15,5 @@ namespace DataAccess.Models
         public double? HumAverage { get; set; }
         public int? MoldRisk { get; set; }
 
-        [StringLength(50)]
-        public string? Seasons { get; set; }
     }
 }
