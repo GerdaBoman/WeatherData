@@ -26,9 +26,9 @@ namespace DataAccess
                     });
 
                     context.Weathers.AddRangeAsync(weatherArray);
-                    //TODO: Change numbers
+                    
                     i++;
-                    if (i == 139775) //saves it after it has loaded up everyhing to save time
+                    if (i == parameters.Count()) //saves it after it has loaded up everyhing to save time
                     {
                         context.SaveChanges();
                         i = 0;

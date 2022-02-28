@@ -86,7 +86,7 @@ namespace UI
         {
             ColumnHeader new_sorting_column = ListViewer.Columns[e.Column];
 
-            System.Windows.Forms.SortOrder sort_order;
+            SortOrder sort_order;
             if (SortingColumn == null)
             {
                 sort_order = SortOrder.Ascending;

@@ -10,8 +10,8 @@ namespace Core
         {
             MoldCalculation mold = new();
 
-            double avergageDayTemp = CsvImport.Daily_AverageTemperature(place, year, month, day).Average();//Temåature
-            double averageDayHum = CsvImport.Daily_AverageHumidity(place, year, month, day).Average();//Humidety 
+            double avergageDayTemp = CsvImport.Daily_AverageTemperature(place, year, month, day).Average();//Temperature
+            double averageDayHum = CsvImport.Daily_AverageHumidity(place, year, month, day).Average();//Humidity 
 
             WeatherAverage item1 = new();
             string date = new($"{year}-{month}-{day}"); //date

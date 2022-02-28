@@ -10,7 +10,7 @@ namespace Core
         //  2 = Mould growth after 4-8 weeks
         //  3 = Mould growth after 0-4 weeks
 
-        private int[,] mold =
+        private int[,] Mold =
 
         {
          {0,0,0,0}, //0°
@@ -79,7 +79,7 @@ namespace Core
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    if (fukt < mold[temp, i])
+                    if (fukt < Mold[temp, i])
                     {
                         Mindex = i;
                         break;
